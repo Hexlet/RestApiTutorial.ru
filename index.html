@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 	<head>
 		<meta charset="utf-8">
 		<title>REST API Tutorial</title>
@@ -17,31 +17,30 @@
 		<link href="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<script type="text/javascript">
-		
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-31328878-1']);
-		  _gaq.push(['_trackPageview']);
-		
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		
-		</script>
-	</head>
+		     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11273200-4']);
+		_gaq.push(['_setDomainName', 'restapitutorial.ru']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		  ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+    </script>
+</head>
 	<body>
 		<div class="container">
 			<!-- Main hero unit for a primary marketing message or call to action -->
 			<div class="hero-unit">
-				<h1>Learn REST: A RESTful Tutorial</h1>
-				<p>Building restful web services, like other programming skills is <strong>part art, part science</strong>. As the Internet industry progresses, creating a REST API becomes more concrete, with emerging best practices. As RESTful Web services don't follow a prescribed standard except for HTTP, it's important to build your RESTful API in accordance with industry best practices to ease development and simplify client adoption.</p>
-				<p>Presently, there aren't a lot of REST API guides to help the lonely developer. <a href="http://www.restapitutorial.com">RestApiTutorial.com</a> is dedicated to tracking REST API best practices and making resources available to enable quick reference and self education for the development crafts-person.  We'll discuss both the art and science of creating REST Web services.</p>
-				<p>Jump in with <a href="lessons/whatisrest.html">What Is REST?</a>, an overview concepts and constraints of the RESTful architecture.</p>
-				<p><a class="btn btn-primary btn-large" href="lessons/whatisrest.html">Get Started &raquo;</a></p>
+				<h1>Изучаем REST: Руководство по RESTful</h1>
+				<p>Разработка restful веб-сервисов, подобно другим навыкам в программировании, является <strong>частью искусства, частью науки</strong>.  По мере эволюционирования отрасли веб-разработки, разработка REST API становится более детерминированной, выделяются лучшие практики.  Несмотря на то, что нет предписанных стандартов разработки RESTful веб-сервисов, за исключением HTTP, важно спроектировать свой RESTful API в соответствии с передовой практикой для облегчения разработки самим и упрощения использования API клиентом.</p>
+				<p>В настоящее время существует не так много руководств по REST API для помощи одиноким разработчикам. <a href="http://www.restapitutorial.ru">RestApiTutorial.ru</a> предназначен для отслеживания лучших практик REST API и их агрегирование, для обеспечения быстрого поиска и самообразования. Мы рассмотрим теоретические и практические аспекты создания REST веб-сервисов.</p>
+				<p>Перейдите к уроку <a href="lessons/whatisrest.html">Что такое REST?</a>, для рассмотрения концепций и ограничений RESTful архитектуры.</p>
+				<p><a class="btn btn-primary btn-large" href="lessons/whatisrest.html">Приступим к работе &raquo;</a></p>
 			</div>
 <!--			<div class="row">
 				<div class="span3">
@@ -74,30 +73,30 @@
 			<hr>
 			<footer>
 				<p>
-					&copy;Pearson eCollege, 2012. All rights reserved.
+					Данный сайт является переводом RestApiTutorial.com<br />&copy;Kaize Team<br />&copy;Pearson eCollege, 2012. All rights reserved.
 				</p>
-				<p></p>
 			</footer>
 		</div>		<!-- /container -->
+
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-					<a class="brand" href="http://www.restapitutorial.com">REST API Tutorial</a>
+					<a class="brand" href="http://www.restapitutorial.ru">Руководство REST API</a>
 					<div class="nav-collapse">
 						<ul class="nav">
-							<li class="active"><a href="http://www.restapitutorial.com">Home</a></li>
-							<li class="dropdown" id="api-school"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tutorials<b class="caret"></b></a>
+							<li class="active"><a href="/">Главная</a></li>
+							<li class="dropdown" id="api-school"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Руководства<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="lessons/whatisrest.html">What Is REST?</a></li>
-									<li><a href="lessons/restquicktips.html">REST Quick Tips</a></li>
-									<li><a href="lessons/httpmethods.html">HTTP Methods</a></li>
-									<li><a href="lessons/restfulresourcenaming.html">Resource Naming</a></li>
-									<li><a href="lessons/idempotency.html">Idempotence</a></li>
+									<li><a href="/lessons/whatisrest.html">Что такое REST?</a></li>
+									<li><a href="/lessons/restquicktips.html">REST Quick Tips</a></li>
+									<li><a href="/lessons/httpmethods.html">HTTP методы</a></li>
+									<li><a href="/lessons/restfulresourcenaming.html">Именование ресурсов</a></li>
+									<li><a href="/lessons/idempotency.html">Идемпотентность</a></li>
 								</ul>
 							</li>
-							<li><a href="httpstatuscodes.html">HTTP Status Codes</a></li>
-							<li><a href="resources.html">Resources</a></li>
+							<li><a href="/httpstatuscodes.html">HTTP коды ответа</a></li>
+							<li><a href="/resources.html">Источники и ресурсы</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
@@ -108,6 +107,6 @@
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/js/bootstrap.min.js"></script>
-		<a href="https://github.com/tfredrich/RestApiTutorial.com"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1050;" src="https://a248.e.akamai.net/camo.github.com/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+		<a href="https://github.com/zzet/RestApiTutorial.ru"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1050;" src="https://a248.e.akamai.net/camo.github.com/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
 	</body>
 </html>
