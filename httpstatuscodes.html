@@ -49,17 +49,38 @@ _gaq.push(['_trackPageview']);
 				<div class="span12">
 					<h2><a  data-toggle="collapse" data-target="#1xx" href="#">1xx: Информационные</a></h2>
 					<div id="1xx" class="collapse">
-            <p>В этот класс выделены коды, информирующие о процессе передачи. Коды состояния указывает предварительный ответ, состоящий только из Status-Line и опциональных заголовков, и завершающийся пустой строкой. Есть нет необходимых заголовков для этого класса код состояния. Так как HTTP/1.0 не определял никаких 1xx кодов состояния, серверы НЕ ДОЛЖНЫ посылать 1xx ответы HTTP/1.0 клиентам, за исключением экспериментальных условий.</p>
-            <p>Клиент должен быть готов принять одну или несколько 1xx ответы статуса до окончательного ответа, даже если клиент не ожидает 100 (Продолжить) статусное сообщение. Неожиданные 1xx ответы статуса могут быть проигнорированы агентом пользователя.</p>
-            <p>Прокси должен направить 1xx ответы, если соединение между прокси и его клиент был закрыт, или если прокси сам просил поколения 1xx ответ. (Например, если прокси добавляет "Expect: 100-продолжать" поле, когда он перенаправляет запрос, то нужно не вперед, соответствующий 100 (Продолжить) ответ (ы)).</p>
+            <p>
+               В этот класс выделены коды, информирующие о процессе передачи.
+               Коды состояния указывает предварительный ответ, состоящий только из Status-Line и опциональных заголовков,
+               и завершается пустой строкой. Нет обязательных заголовков для этого класса код состояния.
+               Из-за того, что стандарт протокола HTTP/1.0 не определял никаких 1xx кодов состояния,
+               серверы НЕ ДОЛЖНЫ посылать 1xx ответы HTTP/1.0 клиентам, за исключением экспериментальных условий.
+            </p>
+            <p>
+               Клиент должен быть готов принять один или несколько 1xx ответов статуса до завершения передачи,
+               даже если клиент не ожидает статуса 100 (Продолжить). Неожиданные 1xx ответы могут быть проигнорированы агентом пользователя.
+            </p>
+            <p>
+               Прокси должен направить 1xx ответы, если соединение между прокси сервером и клиентом было закрыто,
+               или если прокси сам просил 1xx ответ. (Например, если прокси добавляет "Expect: 100-continue" поле,
+               когда он перенаправляет запрос, то нужно не вперед, соответствующий 100 (Продолжить) ответ (ы)).
+            </p>
             <h3>Wikipedia</h3>
-						<p>В этот класс выделены коды, информирующие о процессе передачи. При работе через протокол версии 1.0 сообщения с такими кодами должны игнорироваться. В версии 1.1 клиент должен быть готов принять этот класс сообщений как обычный ответ, но серверу отправлять что-либо не нужно. Сами сообщения от сервера содержат только стартовую строку ответа и, если требуется, несколько специфичных для ответа полей заголовка. Прокси-сервера подобные сообщения должны отправлять дальше от сервера к клиенту.</p>
+						<p>
+               В этот класс выделены коды, информирующие о процессе передачи.
+               При работе через протокол HTTP версии 1.0 сообщения с такими кодами должны игнорироваться.
+               В версии 1.1 клиент должен быть готов принять этот класс сообщений как обычный ответ,
+               но серверу отправлять что-либо не нужно.
+               Сами сообщения от сервера содержат только стартовую строку ответа и, если требуется,
+               несколько специфичных для ответа полей заголовка.
+               Прокси-сервера подобные сообщения должны отправлять дальше от сервера к клиенту.
+            </p>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#continue" href="#">100: Продолжить</a>
+					<a data-toggle="collapse" data-target="#continue" href="#">100: Continue</a>
 					<div id="continue" class="collapse">
 						<p>Клиент должен продолжать свой Запрос. Этот промежуточный ответ используется для сообщения клиенту о том,
             что начальная часть запроса была получена и еще не был отвергнут сервером.
@@ -72,7 +93,7 @@ _gaq.push(['_trackPageview']);
 					</div>
 				</div>
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#switching_protocols" href="#">101: Переключение протоколов</a>
+					<a data-toggle="collapse" data-target="#switching_protocols" href="#">101: Switching Protocols</a>
 					<div id="switching_protocols" class="collapse">
             <p>Сервер понимает и желает выполнить запрос клиента через заголовок Обновление поле сообщения (раздел 14.42),
             для изменения в применении протокол, используемый для этого соединения.
@@ -87,7 +108,7 @@ _gaq.push(['_trackPageview']);
 					</div>
 				</div>
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#processing" href="#">102: Идёт обработка (WebDAV)</a>
+					<a data-toggle="collapse" data-target="#processing" href="#">102: Processing (WebDAV)</a>
 					<div id="processing" class="collapse">
             <p>Этот промежуточный ответ используется для информирования клиента о том, что сервер принял на себя полную запрос, но еще не завершил ее.
             Этот статус код должен быть посланы только когда сервер имеет разумные основания ожидать, что запрос займет значительное время.
@@ -107,7 +128,7 @@ _gaq.push(['_trackPageview']);
 			</div>
 			<div class="row">
 				<div class="span12">
-					<h2><a  data-toggle="collapse" data-target="#2xx" href="#">2xx: Успешно</a></h2>
+					<h2><a  data-toggle="collapse" data-target="#2xx" href="#">2xx: Success</a></h2>
 					<div id="2xx" class="collapse">
 						<p>Этот класс кодов состояния указывает, что запрос клиента был успешно получен, понят, и принят.</p>
 						<h3>Wikipedia</h3>
@@ -117,7 +138,7 @@ _gaq.push(['_trackPageview']);
 			</div>
 			<div class="row">
 				<div class="span4">
-					<i class="icon-star"></i> <a data-toggle="collapse" data-target="#ok" href="#">200: хорошо</a>
+					<i class="icon-star"></i> <a data-toggle="collapse" data-target="#ok" href="#">200: OK</a>
 					<div id="ok" class="collapse">
 						<p>Запрос выполнен успешно. Информация, возвращаемая с ответом зависит от метода, используемого в запросе, например:
 							<ul>
@@ -133,7 +154,7 @@ _gaq.push(['_trackPageview']);
 					</div>
 				</div>
 				<div class="span4">
-					<i class="icon-star"></i> <a data-toggle="collapse" data-target="#created" href="#">201: Создано</a>
+					<i class="icon-star"></i> <a data-toggle="collapse" data-target="#created" href="#">201: Created</a>
 					<div id="created" class="collapse">
 						<p>Запрос был выполнен и в результате создан новый ресурс. Вновь созданный ресурс может быть, на который ссылается URI (ы) возвращается в объекте ответа, с самым конкретным URI для ресурса отдается в поле заголовка Местоположение. Ответ СЛЕДУЕТ включить объект, содержащий список характеристик и местоположения (ы), из которых пользователь или агент пользователя может выбрать наиболее подходящий. Формат объекта определяется тип носителя приведены в Content-Type заголовка поля. Первоначальный сервер ДОЛЖЕН создать ресурс перед возвратом кода состояния 201. Если действие не может быть выполнено немедленно, сервер должен ответить 202 (Принято) вместо ответа.</p>
 						<p>A 201 ответа может содержать поля заголовка ETag ответ с указанием текущего значения метки объекта на указанный вариант только что создали, см. раздел 14.19.</p>
@@ -143,7 +164,7 @@ _gaq.push(['_trackPageview']);
 					</div>
 				</div>
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#accepted" href="#">202: принято</a>
+					<a data-toggle="collapse" data-target="#accepted" href="#">202: Accepted</a>
 					<div id="accepted" class="collapse">
 						<p>The request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place. There is no facility for re-sending a status code from an asynchronous operation such as this.</p>
 						<p>The 202 response is intentionally non-committal. Its purpose is to allow a server to accept a request for some other process (perhaps a batch-oriented process that is only run once per day) without requiring that the user agent's connection to the server persist until the process is completed. The entity returned with this response SHOULD include an indication of the request's current status and either a pointer to a status monitor or some estimate of when the user can expect the request to be fulfilled.</p>
@@ -154,7 +175,7 @@ _gaq.push(['_trackPageview']);
 			</div>
 			<div class="row">
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#nainfo" href="#">203: информация не авторитетна</a>
+					<a data-toggle="collapse" data-target="#nainfo" href="#">203: Non-Authoritative Information</a>
 					<div id="nainfo" class="collapse">
 						<p>The returned metainformation in the entity-header is not the definitive set as available from the origin server, but is gathered from a local or a third-party copy. The set presented MAY be a subset or superset of the original version. For example, including local annotation information about the resource might result in a superset of the metainformation known by the origin server. Use of this response code is not required and is only appropriate when the response would otherwise be 200 (OK).</p>
 						<h3>Wikipedia</h3>
@@ -163,7 +184,7 @@ _gaq.push(['_trackPageview']);
 					</div>
 				</div>
 				<div class="span4">
-					<i class="icon-star"></i> <a data-toggle="collapse" data-target="#nocontent" href="#">204: нет содержимого</a>
+					<i class="icon-star"></i> <a data-toggle="collapse" data-target="#nocontent" href="#">204: No Content</a>
 					<div id="nocontent" class="collapse">
 						<p>The server has fulfilled the request but does not need to return an entity-body, and might want to return updated metainformation. The response MAY include new or updated metainformation in the form of entity-headers, which if present SHOULD be associated with the requested variant.</p>
 						<p>If the client is a user agent, it SHOULD NOT change its document view from that which caused the request to be sent. This response is primarily intended to allow input for actions to take place without causing a change to the user agent's active document view, although any new or updated metainformation SHOULD be applied to the document currently in the user agent's active view.</p>
@@ -174,7 +195,7 @@ _gaq.push(['_trackPageview']);
 					</div>
 				</div>
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#resetcontent" href="#">205: сбросить содержимое</a>
+					<a data-toggle="collapse" data-target="#resetcontent" href="#">205: Reset Content</a>
 					<div id="resetcontent" class="collapse">
 						<p>The server has fulfilled the request and the user agent SHOULD reset the document view which caused the request to be sent. This response is primarily intended to allow input for actions to take place via user input, followed by a clearing of the form in which the input is given so that the user can easily initiate another input action. The response MUST NOT include an entity.</p>
 						<h3>Wikipedia</h3>
@@ -184,7 +205,7 @@ _gaq.push(['_trackPageview']);
 			</div>
 			<div class="row">
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#partialcontent" href="#">206: частичное содержимое</a>
+					<a data-toggle="collapse" data-target="#partialcontent" href="#">206: Partial Content</a>
 					<div id="partialcontent" class="collapse">
 						<p>The server has fulfilled the partial GET request for the resource. The request MUST have included a Range header field (section 14.35) indicating the desired range, and MAY have included an If-Range header field (section 14.27) to make the request conditional.</p>
 						<p>The response MUST include the following header fields:</p>
@@ -202,7 +223,7 @@ _gaq.push(['_trackPageview']);
 					</div>
 				</div>
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#multi_status" href="#">207: многостатусный (WebDAV)</a>
+					<a data-toggle="collapse" data-target="#multi_status" href="#">207: Multi-Status (WebDAV)</a>
 					<div id="multi_status" class="collapse">
 						<p>The 207 (Multi-Status) status code provides status for multiple independent operations (see section 11 for more information).</p>
 						<h3>Wikipedia</h3>
@@ -220,7 +241,7 @@ _gaq.push(['_trackPageview']);
 			</div>
 			<div class="row">
 				<div class="span4">
-					<a data-toggle="collapse" data-target="#im_used" href="#">226: использовано IM</a>
+					<a data-toggle="collapse" data-target="#im_used" href="#">226: IM Used</a>
 					<div id="im_used" class="collapse">
 						<p>The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.  The actual current instance might not be available except by combining this response with other previous or future responses, as appropriate for the specific instance-manipulation(s).  If so, the headers of the resulting instance are the result of combining the headers from the status-226 response and the other instances, following the rules in section 13.5.3 of the HTTP/1.1 specification.</p>
 						<p>The request MUST have included an A-IM header field listing at least one instance-manipulation.  The response MUST include an Etag header field giving the entity tag of the current instance.</p>
