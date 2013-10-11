@@ -178,8 +178,12 @@
 				<div class="span4">
 					<a data-toggle="collapse" data-target="#accepted" href="#">202: Accepted</a>
 					<div id="accepted" class="collapse">
-						<p>The request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place. There is no facility for re-sending a status code from an asynchronous operation such as this.</p>
 						<p>The 202 response is intentionally non-committal. Its purpose is to allow a server to accept a request for some other process (perhaps a batch-oriented process that is only run once per day) without requiring that the user agent's connection to the server persist until the process is completed. The entity returned with this response SHOULD include an indication of the request's current status and either a pointer to a status monitor or some estimate of when the user can expect the request to be fulfilled.</p>
+						<p>
+               Запрос принят в обработку, но еще не завершен.
+               Нет никаких гарантий, что запрос успешно выполнится в процессе обработки данных.
+               Из-за асинхронного типа выполняемой операции отсутствует возможность повторной отправки статуса.
+            </p>
 						<h3>Wikipedia</h3>
 						<p>The request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place.</p>
 					</div>
