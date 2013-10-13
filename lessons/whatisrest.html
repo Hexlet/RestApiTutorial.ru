@@ -97,9 +97,13 @@
                                 <p>Ever had back-button issues with a web application where it went AWOL at a certain point because it expected you to do things in a certain order?  That's because it violated the statelessness principle. There are cases that don't honor the statelessness principle, such as three-legged OAuth, API call rate limiting, etc.  However, make every effort to ensure that application state doesn't span multiple requests of your service(s).</p>
                             </div>
                         </li>
-                        <li><a data-toggle="collapse" data-target="#cacheable" data-parent="#constraint-accordian" href="#">Кешируемый (Cacheable)</a>
+                        <li><a data-toggle="collapse" data-target="#cacheable" data-parent="#constraint-accordian" href="#">Кеширование ответа (Cacheable)</a>
                             <div class="collapse" id="cacheable">
-                                <p>As on the World Wide Web, clients can cache responses. Responses must therefore, implicitly or explicitly, define themselves as cacheable, or not, to prevent clients reusing stale or inappropriate data in response to further requests. Well-managed caching partially or completely eliminates some client–server interactions, further improving scalability and performance.</p>
+                                <p>Как и в World Wide Web, клиент может кэшировать ответы.
+                                   Таким образом, ответы явно или неявно определяют себя как кешируемые или нет,
+                                   для предотвращения повторного использования клиентами устаревших или некорректных данных в ответ на дальнейшие запросы.
+
+                                   Well-managed caching partially or completely eliminates some client–server interactions, further improving scalability and performance.</p>
                             </div>
                         </li>
                         <li><a data-toggle="collapse" data-target="#client-server" data-parent="#constraint-accordian" href="#">Клиент-сервер (Client-Server)</a>
