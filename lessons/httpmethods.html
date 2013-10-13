@@ -1,252 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>HTTP методы для создания RESTful сервисов</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Руководство по использованию HTTP методов при создании RESTful API или веб-сервисов.">
-		<meta name="author" content="Andrey Kumanyaev, Kaize Team">
+  <head>
+    <meta charset="utf-8">
+    <title>HTTP методы для создания RESTful сервисов</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Руководство по использованию HTTP методов при создании RESTful API или веб-сервисов.">
+    <meta name="author" content="Andrey Kumanyaev, Kaize Team">
     <!-- Le styles -->
-		<link href="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/css/bootstrap.min.css" rel="stylesheet">
-		<style type="text/css">
-			body {
-				padding-top: 60px;
-				padding-bottom: 40px;
-			}
-		</style>
-		<link href="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/css/bootstrap-responsive.min.css" rel="stylesheet">
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <link href="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-11273200-4']);
-		_gaq.push(['_setDomainName', 'restapitutorial.ru']);
-		_gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11273200-4']);
+    _gaq.push(['_setDomainName', 'restapitutorial.ru']);
+    _gaq.push(['_trackPageview']);
 
-		(function() {
-		  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		  ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
     </script>
     </head>
-	<body>
-		<div class="container">
-			<div class="row">
-				<div class="span8">
-					<h1>Использование HTTP методов для создания RESTful сервисов</h1>
-				</div>
-				<div class="span4">
-					<ul class="pager">
-						<li>
-							<a href="/restquicktips.html"><i class="icon-step-backward"></i> Quick-Tips</a>
-						</li>
-						<li>
-							<a href="/restfulresourcenaming.html">Наименование ресурсов <i class="icon-step-forward"></i></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span12">
-					<p>HTTP глаголы составляют основную часть "единого интерфейса", ограничивающего и предоставляющего возможность 
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span8">
+          <h1>Использование HTTP методов для создания RESTful сервисов</h1>
+        </div>
+        <div class="span4">
+          <ul class="pager">
+            <li>
+              <a href="/restquicktips.html"><i class="icon-step-backward"></i> Quick-Tips</a>
+            </li>
+            <li>
+              <a href="/restfulresourcenaming.html">Наименование ресурсов <i class="icon-step-forward"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <p>HTTP глаголы составляют основную часть "единого интерфейса", ограничивающего и предоставляющего возможность 
              осуществлять действия над существительным-ресурсом. Основными или наиболее часто используемыми HTTP глаголами
              (или методами, как их иногда называют) являются POST, GET, PUT, и DELETE. Они соответствуют операциям создания,
              чтения, обновления и удаления (или в совокупности - CRUD).
              Есть еще и другие глаголы, но они используются реже. Из реже используемых методов выделяются OPTIONS и HEAD</p>
-					<p>Ниже приведена сводная таблица рекомендаций по возвращению
+          <p>Ниже приведена сводная таблица рекомендаций по возвращению
           значений при использовании основных HTTP глаголов в сочетании с ресурсами URI: </p>
-					
-					<table class="table table-striped table-bordered">
-						<thead>
-							<tr>
-								<th>HTTP Глагол</th>
-								<th>Ресурс (например /customers)</th>
-								<th>Экземпляр (например /customers/{id})</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>GET</td>
-								<td>200 (OK), перечень customers. Используется постраничная навигация, сортировка и фильтрация для больших списков.</td>
-								<td>200 (OK), конкретный customer.
+          
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>HTTP Глагол</th>
+                <th>Ресурс (например /customers)</th>
+                <th>Экземпляр (например /customers/{id})</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GET</td>
+                <td>200 (OK), перечень customers. Используется постраничная навигация, сортировка и фильтрация для больших списков.</td>
+                <td>200 (OK), конкретный customer.
                     404 (Not Found), в случае отсутствия экземпляра с указанным ID или если он не корректен
                     (а также, если клиенту не позволительно знать о наличии данного экземпляра).</td>
-							</tr>
-							<tr>
-								<td>PUT</td>
-								<td>404 (Not Found), если была попытка обновить/заменить экземпляр во всей коллекции.</td>
-								<td>200 (OK) или
+              </tr>
+              <tr>
+                <td>PUT</td>
+                <td>404 (Not Found), если была попытка обновить/заменить экземпляр во всей коллекции.</td>
+                <td>200 (OK) или
                     204 (No Content).
                     404 (Not Found), в случае отсутствия экземпляра с указанным ID или если он не корректен
                     (а также, если клиенту не позволительно знать о наличии данного экземпляра).</td>
-							</tr>
-							<tr>
-								<td>POST</td>
-								<td>201 (Created), заголовок 'Location' ссылается на /customers/{id}, где ID - идентификатор нового экземпляра.</td>
-								<td>404 (Not Found).</td>
-							</tr>
-							<tr>
-								<td>DELETE</td>
-								<td>404 (Not Found), если вы хотите удалить вс коллекцию, что крайне не желательно.</td>
-								<td>200 (OK) или
+              </tr>
+              <tr>
+                <td>POST</td>
+                <td>201 (Created), заголовок 'Location' ссылается на /customers/{id}, где ID - идентификатор нового экземпляра.</td>
+                <td>404 (Not Found).</td>
+              </tr>
+              <tr>
+                <td>DELETE</td>
+                <td>404 (Not Found), если вы хотите удалить вс коллекцию, что крайне не желательно.</td>
+                <td>200 (OK) или
                     204 (No Content).
                     404 (Not Found), в случае отсутствия экземпляра с указанным ID или если он не корректен
                     (а также, если клиенту не позволительно знать о наличии данного экземпляра).</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span12">
-					<p>Ниже приводится более подробное обсуждение основных методов HTTP. Используйте навигацию по вкладкам для получения дополнительных сведений о интересуемом HTTP методе.</p>
-					<ul class="nav nav-tabs">
-						<li class="active"><a href="#get" data-toggle="tab">GET</a></li>
-						<li><a href="#put" data-toggle="tab">PUT</a></li>
-						<li><a href="#post" data-toggle="tab">POST</a></li>
-						<li><a href="#delete" data-toggle="tab">DELETE</a></li>
-					</ul>
-					<div id="methodTabContent" class="tab-content">
-						<div class="tab-pane fade in active" id="get">
-							<p>HTTP метод GET используется для получения (или чтения) представления ресурса.
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <p>Ниже приводится более подробное обсуждение основных методов HTTP. Используйте навигацию по вкладкам для получения дополнительных сведений о интересуемом HTTP методе.</p>
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#get" data-toggle="tab">GET</a></li>
+            <li><a href="#put" data-toggle="tab">PUT</a></li>
+            <li><a href="#post" data-toggle="tab">POST</a></li>
+            <li><a href="#delete" data-toggle="tab">DELETE</a></li>
+          </ul>
+          <div id="methodTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="get">
+              <p>HTTP метод GET используется для получения (или чтения) представления ресурса.
                  В случае “удачного” (или не содержащего ошибок) адреса,
                  GET возвращается представление ресурса в формате XML или JSON в сочетании с кодом состояния HTTP 200 (OK).
                  В случае наличия ошибок обычно возвращается код 404 (NOT FOUND) или 400 (BAD REQUEST).</p>
-							<p>В соответствии спецификации HTTP, GET (также как и HEAD) запросы используются только для чтения данных, не изменя их.
+              <p>В соответствии спецификации HTTP, GET (также как и HEAD) запросы используются только для чтения данных, не изменя их.
                  Таким образом, при соблюдении данного соглашения, они считаются безопасными.
                  То есть они могут использоваться без риска изменения данных, вне зависимости от того,
                  один раз данные были получены, или же 10, или ни разу вовсе.
                  GET (а также HEAD) запросы являются идемпотентными (тождественными), что подразумевает получение идеинтичных данных
                  при использовании одних и теж же запросов (как при единичном обращении, так и при многократном).</p>
-							<p>Не стоит использовать GET для небезопасных операций над данными, при данном запросе они не должны быть модифицированы.</p>
-							<p><strong>Примеры:</strong></p>
-							<ul>
-								<li><em>GET http://www.example.com/customers/12345</em></li>
-								<li><em>GET http://www.example.com/customers/12345/orders</em></li>
-								<li><em>GET http://www.example.com/buckets/sample</em></li>
-							</ul>
-						</div>
-						<div class="tab-pane fade" id="put">
-							<p>Метод PUT обычно используется для предоставления возможности обновления ресурса.
+              <p>Не стоит использовать GET для небезопасных операций над данными, при данном запросе они не должны быть модифицированы.</p>
+              <p><strong>Примеры:</strong></p>
+              <ul>
+                <li><em>GET http://www.example.com/customers/12345</em></li>
+                <li><em>GET http://www.example.com/customers/12345/orders</em></li>
+                <li><em>GET http://www.example.com/buckets/sample</em></li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="put">
+              <p>Метод PUT обычно используется для предоставления возможности обновления ресурса.
                  Тело запроса при отправке PUT-запроса к существующему ресурсу URI должно содержать
                  обновленные данные оригинального ресурса (полностью, или только обновляемую часть).</p>
-							<p>Кроме того, PUT может быть использован для создания ресурса,
+              <p>Кроме того, PUT может быть использован для создания ресурса,
                  в случае, когда идентификатор ресурса выбирает клиент а не сервер.
                  Или, если перефразировать - при отправке PUT запроса по адресу, содержащему не существующий идентификатор ресурса.
                  Опять же, стоит помнить, что тело запроса должно быль модификацией оригинального ресурса.
                  Многи считают это запутанным и не понятным.
                  Соответственно, данную возможность метода PUT стоит использовать с осторожностью.
                  Да и при крайней необходимости.</p>
-							<p>Для создания новых экземпляров ресурса предпочтительнее использозвание POST запроса.
+              <p>Для создания новых экземпляров ресурса предпочтительнее использозвание POST запроса.
                  В данном случае, при создании экземпляра будет предоставлен корректный идентфикатор экземпляра ресурса
                  в возвращенных данных об экземпляре.</p>
-							<p>При успешном обновлении посредством выполнения PUT запроса возвращается код 200
+              <p>При успешном обновлении посредством выполнения PUT запроса возвращается код 200
                  (или 204 если не был передан какой либо контент в теле ответа).
                  Если PUT используется для создания экземпляра - обычно возвращают HTTP код 201 при успешном создании.
                  Возвращать данные в ответ на запрос не обязательно.
                  Также не обязательно возвращать ссылку на экземпляр ресурса посредством заголовка `Location` по причине того,
                  что клиент и так обладает идентификатором экземпляра ресурса.</p>
-							<p>PUT не безопасная операция, так как в следствии ее выполнения происходит модификация
+              <p>PUT не безопасная операция, так как в следствии ее выполнения происходит модификация
                  (или создание) экземпляров ресурса на стороне сервера, но этот метод идемпотентен.
                  Другими словами, создание или обновление ресурса посредством отправки PUT запроса - ресурс не исчезнет,
                  будет располагаться там же, где и был при первом обращении, а также, многократное выполнение одного и
                  того же PUT запроса не изменит общего состояния системы (за исключением первого раза, но это обычно опускают из
                  рассмотрения)</p>
-							<p>Если PUT запрос используется для увеличесния счетчика просмотра конкретного ресурса
+              <p>Если PUT запрос используется для увеличесния счетчика просмотра конкретного ресурса
                  - данный запрос уже не считается идемпотентным.
                  Иногда такое происходит и считается достаточным задоументировать тот факт, что вызов не идемпотентен.
                  Однако, строго рекомндуется выдерживать идемпотентность PUT запроса.</p>
-							<p><strong>Примеры:</strong></p>
-							<ul>
-								<li><em>PUT http://www.example.com/customers/12345</em></li>
-								<li><em>PUT http://www.example.com/customers/12345/orders/98765</em></li>
-								<li><em>PUT http://www.example.com/buckets/secret_stuff</em></li>
-							</ul>
-						</div>
-						<div class="tab-pane fade" id="post">
-							<p>POST запрос наиболее часто используется для создания новых ресурсов.
+              <p><strong>Примеры:</strong></p>
+              <ul>
+                <li><em>PUT http://www.example.com/customers/12345</em></li>
+                <li><em>PUT http://www.example.com/customers/12345/orders/98765</em></li>
+                <li><em>PUT http://www.example.com/buckets/secret_stuff</em></li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="post">
+              <p>POST запрос наиболее часто используется для создания новых ресурсов.
                  На практике он используется для создания вложенных ресурсов.
                  Другими словами, при создании нового ресурса, POST запрос отправляется к родительскому ресурсу и,
                  таким образом, сервис берет на себя ответственность на установление связи создаваемого ресурса с родительским ресурсом,
                  назначение новому ресурсу ID и т.п.</p>
-							<p>При успешном создании ресурса возвращается HTTP код 201,
+              <p>При успешном создании ресурса возвращается HTTP код 201,
                  а также в заголовке `Location` передается адрес созданного ресурса.</p>
-							<p>POST не является безопасным или идемпотентным запросом.
+              <p>POST не является безопасным или идемпотентным запросом.
                  Потому рекомендуется его использование для не идемпотентных запросов.
                  В результате выполнения идентичных POST запросов предоставляются силно похожие, но не идеинтичные данные.</p>
-							<p><strong>Примеры:</strong></p>
-							<ul>
-								<li><em>POST http://www.example.com/customers</em></li>
-								<li><em>POST http://www.example.com/customers/12345/orders</em></li>
-							</ul>
-						</div>
-						<div class="tab-pane fade" id="delete">
-							<p>DELETE запрос крайне прост для понимания.
+              <p><strong>Примеры:</strong></p>
+              <ul>
+                <li><em>POST http://www.example.com/customers</em></li>
+                <li><em>POST http://www.example.com/customers/12345/orders</em></li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="delete">
+              <p>DELETE запрос крайне прост для понимания.
                  Он используется для удаления ресурса, идентифицированного конкретным URI (ID).
-							<p>При успешном удалении возвращается 200 (OK) код HTTP,
+              <p>При успешном удалении возвращается 200 (OK) код HTTP,
                  совместно с телом ответа, содаржащим данные удаленного ресурса
                  (отрицательно сказывается на экономии трафика) или завернутые ответы (Смотрите "Возвращаемые данные").
                  Также возможно использование HTTP кода 204 (NO CONTENT) без тела ответа.</p>
-							<p>Согласно спецификации HTTP, DELETE запрос идемпотентен.
+              <p>Согласно спецификации HTTP, DELETE запрос идемпотентен.
                  Если вы выполняете DELETE запрос к ресурсу, он удаляется.
                  Повторный DELETE звпрос к ресурсу закончится также: ресурс удален.
                  Если DELETE запрос используется для декремента счетчика, DELETE запрос не является идемпотентным.
                  Используйте POST для не идемпотентых операций.</p>
-							<p>Тем не менее, существует предостережение об идемпотентности DELETE.
+              <p>Тем не менее, существует предостережение об идемпотентности DELETE.
                  Повторный DELETE запрос к ресурсу часто сопровождается 404 (NOT FOUND) кодом HTTP по причине того,
                  что ресурс уже удален (например из базы данных) и более не доступен.
                  Это делает DELETE операцию не идемпотентной, но это общепринятый компромисс на тот случай,
                  если ресурс был удален из базы данных, а не помечен, как удаленный.</p>
-							<p><strong>Примеры:</strong></p>
-							<ul>
-								<li><em>DELETE http://www.example.com/customers/12345</em></li>
-								<li><em>DELETE http://www.example.com/customers/12345/orders</em></li>
-								<li><em>DELETE http://www.example.com/bucket/sample</em></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr>
-			<footer>
-				<p>
-					Данный сайт является переводом RestApiTutorial.com<br />&copy;Kaize Team<br />&copy;Pearson eCollege, 2012. All rights reserved.
-				</p>
-			</footer>
-		</div>		<!-- /container -->
+              <p><strong>Примеры:</strong></p>
+              <ul>
+                <li><em>DELETE http://www.example.com/customers/12345</em></li>
+                <li><em>DELETE http://www.example.com/customers/12345/orders</em></li>
+                <li><em>DELETE http://www.example.com/bucket/sample</em></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <footer>
+        <p>
+          Данный сайт является переводом RestApiTutorial.com<br />&copy;Kaize Team<br />&copy;Pearson eCollege, 2012. All rights reserved.
+        </p>
+      </footer>
+    </div>    <!-- /container -->
 
-		<div class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-					<a class="brand" href="http://www.restapitutorial.ru">Руководство REST API</a>
-					<div class="nav-collapse">
-						<ul class="nav">
-							<li><a href="/">Главная</a></li>
-							<li class="dropdown" id="api-school"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Руководства<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="/lessons/whatisrest.html">Что такое REST?</a></li>
-									<li><a href="/lessons/restquicktips.html">REST Quick Tips</a></li>
-									<li class="active"><a href="/lessons/httpmethods.html">HTTP методы</a></li>
-									<li><a href="/lessons/restfulresourcenaming.html">Именование ресурсов</a></li>
-									<li><a href="idempotency.html">Идемпотентность</a></li>
-								</ul>
-							</li>
-							<li><a href="/httpstatuscodes.html">HTTP коды ответа</a></li>
-							<li><a href="/resources.html">Источники и ресурсы</a></li>
-						</ul>
-					</div><!--/.nav-collapse -->
-				</div>
-			</div>
-		</div>
-		<!-- Le javascript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script src="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/js/bootstrap.min.js"></script>
-		<a href="https://github.com/zzet/RestApiTutorial.ru"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1050;" src="https://a248.e.akamai.net/camo.github.com/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
-	</body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+          <a class="brand" href="http://www.restapitutorial.ru">Руководство REST API</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/">Главная</a></li>
+              <li class="dropdown" id="api-school"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Руководства<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/lessons/whatisrest.html">Что такое REST?</a></li>
+                  <li><a href="/lessons/restquicktips.html">REST Quick Tips</a></li>
+                  <li class="active"><a href="/lessons/httpmethods.html">HTTP методы</a></li>
+                  <li><a href="/lessons/restfulresourcenaming.html">Именование ресурсов</a></li>
+                  <li><a href="idempotency.html">Идемпотентность</a></li>
+                </ul>
+              </li>
+              <li><a href="/httpstatuscodes.html">HTTP коды ответа</a></li>
+              <li><a href="/resources.html">Источники и ресурсы</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/js/bootstrap.min.js"></script>
+    <a href="https://github.com/zzet/RestApiTutorial.ru"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1050;" src="https://a248.e.akamai.net/camo.github.com/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+  </body>
 </html>
