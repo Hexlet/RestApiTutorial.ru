@@ -81,8 +81,10 @@
                                    в зависимости от деталей запроса и реализации сервера.</p>
                                 <h3>Манипуляции над ресурсами через представления</h3>
                                 <p>When a client holds a representation of a resource, including any metadata attached, it has enough information to modify or delete the resource on the server, provided it has permission to do so.</p>
-                                <h3>Self-descriptive Messages</h3>
-                                <p>Each message includes enough information to describe how to process the message. For example, which parser to invoke may be specified by an Internet media type (previously known as a MIME type). Responses also explicitly indicate their cache-ability.</p>
+                                <h3>Само-документируемые сообщения</h3>
+                                <p>Каждое сообщение содержит достаточно информации для описания того, как его выполнить.
+                                   Например, вызываемый парсер может описываться Internet media type (так же известным как MIME)
+                                   Ответы также явно указывают на их способность кешироваь.
                                 <h3>Hypermedia as the Engine of Application State (HATEOAS)</h3>
                                 <p>Clients deliver state via body contents, query-string parameters, request headers and the requested URI (the resource name).  Services deliver state to clients via body content, response codes, and response headers.  This is technically referred-to as hypermedia (or hyperlinks within hypertext).</p>
                                 <p>Aside from the description above, HATEOS also means that, where necessary, links are contained in the returned body (or headers) to supply the URI for retrieval of the object itself or related objects.  We'll talk about this in more detail later.</p>
