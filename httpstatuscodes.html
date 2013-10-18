@@ -235,14 +235,19 @@
           <a data-toggle="collapse" data-target="#nainfo" href="#">203: Non-Authoritative Information</a>
           <div id="nainfo" class="collapse">
             <p>
-                The returned metainformation in the entity-header is not the definitive set as available from the origin server,
-                but is gathered from a local or a third-party copy. The set presented MAY be a subset or superset of the original version.
-                For example, including local annotation information about the resource might result in a superset of the metainformation known
-                by the origin server. Use of this response code is not required and is only appropriate when the response would otherwise be 200 (OK).
+                Предоставленная информация взята не из оригинального источника (а, например,
+                из кеша, который мог устареть, из бекапа, который мог потерять актуальность).
+                Этот факт отражен в заголовке ответа и подтверждается этим кодом.
+                Предосталвенная информация может совпадать, а может и не совпадать с оригинальными данными.
             </p>
             <h3>Wikipedia</h3>
-            <p>The server successfully processed the request, but is returning information that may be from another source.</p>
-            <p>Not present in HTTP/1.0: available since HTTP/1.1</p>
+            <p>
+                Аналогично ответу 200, но в этом случае передаваемая информация была взята не из первичного источника
+                (резервной копии, другого сервера и т. д.) и поэтому может быть неактуальной.
+            </p>
+            <p>
+                Появился в HTTP/1.1.
+            </p>
           </div>
         </div>
         <div class="span4">
