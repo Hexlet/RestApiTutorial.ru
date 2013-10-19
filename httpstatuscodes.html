@@ -253,12 +253,27 @@
         <div class="span4">
           <i class="icon-star"></i> <a data-toggle="collapse" data-target="#nocontent" href="#">204: No Content</a>
           <div id="nocontent" class="collapse">
-            <p>The server has fulfilled the request but does not need to return an entity-body, and might want to return updated metainformation. The response MAY include new or updated metainformation in the form of entity-headers, which if present SHOULD be associated with the requested variant.</p>
-            <p>If the client is a user agent, it SHOULD NOT change its document view from that which caused the request to be sent. This response is primarily intended to allow input for actions to take place without causing a change to the user agent's active document view, although any new or updated metainformation SHOULD be applied to the document currently in the user agent's active view.</p>
-            <p>The 204 response MUST NOT include a message-body, and thus is always terminated by the first empty line after the header fields.</p>
+            <p>
+                Запрос был успешно обработан, но нет необходимости возвращать какие-либо данные.
+                Так же в ответе может возвращаться новая, или обновленная информация, однако в итоге она не будет отличаться о того,
+                что было изначально послано на сервер и, таким образом, считается что клиент и так обладает актуальной информацией.
+            </p>
+            <p>
+                Если клиентом является браузер - то он не должен изменять отображение документа,
+                и его состояние до моента отправки запроса и после этого - не должно изменятья.
+                Этот статус ответа в основном применяется для индикации успешности выполнения запроса с учетом того,
+                что данные и представление данных не должны изменится, не смотря (или с учетом того), что новая (обновленная информация)
+                уже отображена в представлении документа.
+            </p>
+            <p>
+                204 - должен не содержать тела ответа. Если таковая имеется - она обчно игнорируется и считается что после заголовков присутствет одна пустая линия.
+            </p>
             <h3>Wikipedia</h3>
-            <p>The server successfully processed the request, but is not returning any content.</p>
-            <p><i class="icon-star"></i> Status when wrapped responses (e.g. JSEND) are not used and nothing is in the body (e.g. DELETE).</p>
+            <p>
+                Сервер успешно обработал запрос, но в ответе были переданы только заголовки без тела сообщения.
+                Клиент не должен обновлять содержимое документа, но может применить к нему полученные метаданные. Появился в HTTP/1.0.
+            </p>
+            <p><i class="icon-star"></i> Статус используется, когда ответ не используется или когда нет контента (например при выполнении команды DELETE)</p>
           </div>
         </div>
         <div class="span4">
