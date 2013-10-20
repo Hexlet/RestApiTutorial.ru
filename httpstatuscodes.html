@@ -279,9 +279,17 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#resetcontent" href="#">205: Reset Content</a>
           <div id="resetcontent" class="collapse">
-            <p>The server has fulfilled the request and the user agent SHOULD reset the document view which caused the request to be sent. This response is primarily intended to allow input for actions to take place via user input, followed by a clearing of the form in which the input is given so that the user can easily initiate another input action. The response MUST NOT include an entity.</p>
+            <p>
+                Сервер успешно обработал запрос и обязывает клиента сбросить введенные пользователем данные.
+                В ответе не должно передаваться никаких данных (в теле ответа).
+                Обычно применяетс для возврата в начальное состояние формы ввода данных на клиенте.
+            </p>
             <h3>Wikipedia</h3>
-            <p>The server successfully processed the request, but is not returning any content. Unlike a 204 response, this response requires that the requester reset the document view.</p>
+            <p>
+                Сервер обязывает клиента сбросить введённые пользователем данные.
+                Тела сообщения сервер при этом не передаёт и документ обновлять не обязательно.
+                Появился в HTTP/1.1.
+            </p>
           </div>
         </div>
       </div>
