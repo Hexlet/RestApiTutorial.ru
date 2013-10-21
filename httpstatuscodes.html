@@ -315,9 +315,16 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#multi_status" href="#">207: Multi-Status (WebDAV)</a>
           <div id="multi_status" class="collapse">
-            <p>The 207 (Multi-Status) status code provides status for multiple independent operations (see section 11 for more information).</p>
+            <p>
+                Код 207 (Multi-Status) позволяет передавать статусы для нескольких независимых операций (за подробностями в секцию 11).
+            </p>
             <h3>Wikipedia</h3>
-            <p>The message body that follows is an XML message and can contain a number of separate response codes, depending on how many sub-requests were made.</p>
+            <p>
+               Сервер передаёт результаты выполнения сразу нескольких независимых операций.
+               Они помещаются в само тело сообщения в виде XML-документа с объектом multistatus.
+               Не рекомендуется размещать в этом объекте статусы из серии 1xx из-за бессмысленности и избыточности.
+               Появился в WebDAV.
+            </p>
           </div>
         </div>
         <div class="span4">
