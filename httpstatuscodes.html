@@ -342,12 +342,32 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#im_used" href="#">226: IM Used</a>
           <div id="im_used" class="collapse">
-            <p>The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.  The actual current instance might not be available except by combining this response with other previous or future responses, as appropriate for the specific instance-manipulation(s).  If so, the headers of the resulting instance are the result of combining the headers from the status-226 response and the other instances, following the rules in section 13.5.3 of the HTTP/1.1 specification.</p>
-            <p>The request MUST have included an A-IM header field listing at least one instance-manipulation.  The response MUST include an Etag header field giving the entity tag of the current instance.</p>
-            <p>A response received with a status code of 226 MAY be stored by a cache and used in reply to a subsequent request, subject to the HTTP expiration mechanism and any Cache-Control headers, and to the requirements in section 10.6.</p>
-            <p>A response received with a status code of 226 MAY be used by a cache, in conjunction with a cache entry for the base instance, to create a cache entry for the current instance.</p>
+            <p>
+                Сервер успешно принял запрос для ресурса и ответ является представлением результата применения
+                одной или нескольких манипуляций с инстансом ресурса.
+                На самом деле актуальне представление ресурса может быть в текущий момент не доступно ввиду того,
+                что действие может быть глобальное и затрагивать несколько инстансов ресурса, а соответственно может комбинироваться с
+                предудущим или возможным в будущем ответом, связанным с специфичными действиями над конкретным инстансом ресурса (или ресусров).
+                Если это так, то при формировании заголовков для конкретного инстанса (или в результирующих заголовках,
+                отталкивающихся от 226 ответа и других инстансов) нужно руководствоваться частью 13.5.3 спецификации HTTP/1.1.
+            </p>
+            <p>
+                Запрос обязан содержать в A-IM заголовке перечень как минимм одной манипуляции с инстансом.
+                Ответ обязан содержать ETag заголовк с тегом для конкретного инстанса.
+            </p>
+            <p>
+                Ответ переданный с 226 кодом может быть закеширован и использован в ответах, актуальность которых регулируется
+                Cache-Control заголовком, а также требованиями, которые описаны в секции 10.6.
+            </p>
+            <p>
+                Ответ, переданный с кодом 226 может быть использован в совокупности с имеющимися закешированными сущностями для базового инстанса
+                для создания кешированной сущности для конкретного инстанса.
+            </p>
             <h3>Wikipedia</h3>
-            <p>The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.</p>
+            <p>
+                Заголовок A-IM от клиента был успешно принят и сервер возвращает содержимое с учётом указанных параметров.
+                Введено в RFC 3229 для дополнения протокола HTTP поддержкой дельта-кодирования.
+            </p>
           </div>
         </div>
         <div class="span8">
