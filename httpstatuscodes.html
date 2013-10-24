@@ -47,7 +47,7 @@
       </div>
       <div class="row">
         <div class="span12">
-          <h2><a  data-toggle="collapse" data-target="#1xx" href="#">1xx: Информационные</a></h2>
+          <h2><a  data-toggle="collapse" data-target="#1xx" href="#">1xx: Information</a></h2>
           <div id="1xx" class="collapse">
             <p>
                В этот класс выделены коды, информирующие о процессе передачи.
@@ -376,13 +376,37 @@
       </div>
       <div class="row">
         <div class="span12">
-          <h2><a data-toggle="collapse" data-target="#3xx" href="#">3xx: перенаправление</a></h2>
+          <h2><a data-toggle="collapse" data-target="#3xx" href="#">3xx: Redirect</a></h2>
           <div id="3xx" class="collapse">
-            <p>This class of status code indicates that further action needs to be taken by the user agent in order to fulfill the request. The action required MAY be carried out by the user agent without interaction with the user if and only if the method used in the second request is GET or HEAD. A client SHOULD detect infinite redirection loops, since such loops generate network traffic for each redirection.</p>
-            <blockquote><strong>Note:</strong> previous versions of this specification recommended a maximum of five redirections. Content developers should be aware that there might be clients that implement such a fixed limitation.</blockquote>
+            <p>
+                Данный класс кодов состояния показывает, что дальнейшие действия должны быть выполнены клиентом для тоо, чтобы запрос завершился успешно.
+                Требуемое действие может быть выполнено клиентом без участия пользователя тогда и только тогда, когда слудующий запрос будет GET или HEAD.
+                Клиент обязан обнаруживать бесконечные циклы переадресаций, потому что подобные переадресации генерируют бессмысленный траффик.
+            </p>
+            <blockquote>
+              <strong>Замечание:</strong> предыдущая версия спецификации допускала максимум 5 редиректов. Разработчики должны иметь это ввиду.
+            </blockquote>
             <h3>Wikipedia</h3>
-            <p>The client must take additional action to complete the request.</p>
-            <p>This class of status code indicates that further action needs to be taken by the user agent in order to fulfil the request. The action required may be carried out by the user agent without interaction with the user if and only if the method used in the second request is GET or HEAD. A user agent should not automatically redirect a request more than five times, since such redirections usually indicate an infinite loop.</p>
+            <p>
+              Коды этого класса сообщают клиенту, что для успешного выполнения операции необходимо сделать другой запрос, как правило, по другому URI.
+              Из данного класса пять кодов 301, 302, 303, 305 и 307 относятся непосредственно к перенаправлениям.
+              Адрес, по которому клиенту следует произвести запрос, сервер указывает в заголовке Location.
+              При этом допускается использование фрагментов в целевом URI.
+            </p>
+            <p>
+              По последним стандартам клиент может производить перенаправление без запроса пользователя
+              только если второй ресурс будет запрашиваться методом GET или HEAD.
+              В предыдущих спецификациях говорилось, что для избежания круговых переходов пользователя следует спрашивать после 5-го подряд перенаправления.
+              При всех перенаправлениях, если метод запроса был не HEAD, то в тело ответа следует включить короткое гипертекстовое сообщение с целевым адресом,
+              чтобы в случае ошибки пользователь смог сам произвести переход.
+            </p>
+            <p>
+              Разработчики HTTP отмечают, что многие клиенты при перенаправлениях с кодами 301 и 302 ошибочно применяют метод GET ко второму ресурсу,
+              несмотря на то, что к первому запрос был с иным методом (чаще всего PUT).
+              Чтобы избежать недоразумений, в версии HTTP/1.1 были введены коды 303 и 307 и их рекомендовано использовать вместо 302.
+              Изменять метод нужно только если сервер ответил 303.
+              В остальных случаях следующий запрос производить с исходным методом.
+            </p>
           </div>
         </div>
       </div>
