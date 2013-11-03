@@ -421,12 +421,11 @@
                 наиболее подходящее представление и перенаправить запрос к нему.
             </p>
             <p>
-                Unless it was a HEAD request, the response SHOULD include an entity containing a list of resource characteristics
-                and location(s) from which the user or user agent can choose the one most appropriate.
-                The entity format is specified by the media type given in the Content- Type header field.
-                Depending upon the format and the capabilities of the user agent,
-                selection of the most appropriate choice MAY be performed automatically.
-                However, this specification does not define any standard for such automatic selection.
+                Если это не был HEAD запрос, ответ СЛЕДУЕТ включить объект, содержащий список характеристик и адресов,
+                из которого пользователь или агент пользователя может выбрать один наиболее подходящий.
+                Формат объекта определяется по типу данных приведеных в Content-Type поля заголовка.
+                В зависимости от формата и возможностей агента пользователя, выбор наиболее подходящего варианта может выполняться автоматически.
+                Однако, эта спецификация не определяет никакого стандарта для автоматического выбора.
             </p>
             <p>
                 If the server has a preferred choice of representation,
