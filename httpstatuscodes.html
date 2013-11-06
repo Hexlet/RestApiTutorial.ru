@@ -516,9 +516,17 @@
                 The different URI SHOULD be given by the Location field in the response.
                 Unless the request method was HEAD, the entity of the response SHOULD contain a short hypertext note with a hyperlink to the new URI(s).
             </p>
-            <blockquote>Note: Many pre-HTTP/1.1 user agents do not understand the 303 status. When interoperability with such clients is a concern, the 302 status code may be used instead, since most user agents react to a 302 response as described here for 303.</blockquote>
+            <blockquote>
+              Note: Many pre-HTTP/1.1 user agents do not understand the 303 status.
+              When interoperability with such clients is a concern, the 302 status code may be used instead,
+              since most user agents react to a 302 response as described here for 303.
+            </blockquote>
             <h3>Wikipedia</h3>
-            <p>The response to the request can be found under another URI using a GET method. When received in response to a POST (or PUT/DELETE), it should be assumed that the server has received the data and the redirect should be issued with a separate GET message.</p>
+            <p>
+                The response to the request can be found under another URI using a GET method.
+                When received in response to a POST (or PUT/DELETE),
+                it should be assumed that the server has received the data and the redirect should be issued with a separate GET message.
+            </p>
             <p>Since HTTP/1.1</p>
           </div>
         </div>
