@@ -548,7 +548,10 @@
                 the response SHOULD NOT include other entity-headers. Otherwise (i.e., the conditional GET used a weak validator),
                 the response MUST NOT include other entity-headers; this prevents inconsistencies between cached entity-bodies and updated headers.
             </p>
-            <p>If a 304 response indicates an entity not currently cached, then the cache MUST disregard the response and repeat the request without the conditional.</p>
+            <p>
+                If a 304 response indicates an entity not currently cached,
+                then the cache MUST disregard the response and repeat the request without the conditional.
+            </p>
             <p>If a cache uses a received 304 response to update a cache entry, the cache MUST update the entry to reflect any new field values given in the response.</p>
             <h3>Wikipedia</h3>
             <p>Indicates the resource has not been modified since last requested. Typically, the HTTP client provides a header like the If-Modified-Since header to provide a time against which to compare. Using this saves bandwidth and reprocessing on both the server and client, as only the header data must be sent and received in comparison to the entirety of the page being re-processed by the server, then sent again using more bandwidth of the server and client.</p>
