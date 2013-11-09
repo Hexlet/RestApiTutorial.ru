@@ -100,7 +100,7 @@
                               <p> Так как REST это акроним для REpresentational State Transfer, отсутствие состояний является важной чертой.
                               Таким образом, это значит, что необходимое состояние для обработки запроса содержится в самом запросе,
                               либо в рамках URI, параметрах строки запроса, тела или заголовках.
-                              The URI uniquely identifies the resource and the body contains the state (or state change) of that resource.
+                              URI уникально идентифицирует ресурс и тело содержит состояние (или изменение состояния) этого ресурса.
                               Then after the server does it's processing, the appropriate state, or the piece(s) of state that matter,
                               are communicated back to the client via headers, status and response body.</p>
                                 <p>Most of us who have been in the industry for a while are accustomed to programming within a container which provides us with the concept of “session” which maintains state across multiple HTTP requests. In REST, the client must include all information for the server to fulfill the request, resending state as necessary if that state must span multiple requests.  Statelessness enables greater scalability since the server does not have to maintain, update or communicate that session state.  Additionally, load balancers don't have to worry about session affinity for stateless systems.</p>
