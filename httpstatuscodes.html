@@ -450,7 +450,8 @@
             </p>
             <p>
                 Новый постоянный URI должен быть передан в Location заголовке в ответе.
-                Unless the request method was HEAD, the entity of the response SHOULD contain a short hypertext note with a hyperlink to the new URI(s).
+                Если запрос был не HEAD - в ответе должно содержаться краткое описание того, что адрес изменился с ссылкой на новый адрес.
+                Данная информация должна быть предоставлена в виде HTML.
             </p>
             <p>
                 If the 301 status code is received in response to a request other than GET or HEAD,
