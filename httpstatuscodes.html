@@ -459,12 +459,14 @@
                 это действие.
             </p>
             <blockquote>
-              <strong>Замечание:</strong> When automatically redirecting a POST request after receiving a 301 status code,
-              some existing HTTP/1.0 user agents will erroneously change it into a GET request.
+              <strong>Замечание:</strong> Некоторые HTTP/1.0 клиенты, после автоматического редиректа POST запроса,
+              после принятия 301 статуса, ошибочно преобразуют его в GET запрос.
             </blockquote>
             <h3>Wikipedia</h3>
             <p>
-                This and all future requests should be directed to the given URI.
+                Запрошенный документ был окончательно перенесен на новый URI, указанный в поле Location заголовка.
+                Некоторые клиенты некорректно ведут себя при обработке данного кода.
+                Появился в HTTP/1.0.
             </p>
           </div>
         </div>
