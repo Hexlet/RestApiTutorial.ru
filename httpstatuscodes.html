@@ -483,9 +483,9 @@
                 В случае, если запрос был не HEAD - в ответе должно содержаться упоминание о новом URI в гипертекстовом представлении.
             </p>
             <p>
-                If the 302 status code is received in response to a request other than GET or HEAD,
-                the user agent MUST NOT automatically redirect the request unless it can be confirmed by the user,
-                since this might change the conditions under which the request was issued.
+                Если 302 статус передан на в ответе на отличныый от GET или HEAD запрос, клиент не должен автоматически
+                выполнять переадресацию, если это действие не может быть подтверждено пользователем, так как это может
+                изменить условия, которые подразумевал исходный запрос.
             </p>
             <blockquote>
               <strong>Note:</strong> RFC 1945 and RFC 2068 specify that the client is not allowed to change the method on the redirected request.
