@@ -489,8 +489,8 @@
             </p>
             <blockquote>
               <strong>Замечание:</strong> RFC 1945 и RFC 2068 описывают, что клиенту не допустимо изменять метод исходного запроса при редиректе.
-              However, most existing user agent implementations treat 302 as if it were a 303 response,
-              performing a GET on the Location field-value regardless of the original request method.
+              Тем не менее, большинство существующих реализаций User Agent обрабатывает 302 как будто был передан ответ 303,
+              выполняя GET для адреса, переданного в Location, независимо от исходного метода запроса.
               The status codes 303 and 307 have been added for servers that wish to make unambiguously clear which kind of reaction is expected of the client.
             </blockquote>
             <h3>Wikipedia</h3>
