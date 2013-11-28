@@ -504,7 +504,7 @@
       </div>
       <div class="row">
         <div class="span4">
-          <a data-toggle="collapse" data-target="#see_other" href="#">303: смотреть другое</a>
+          <a data-toggle="collapse" data-target="#see_other" href="#">303: See Other</a>
           <div id="see_other" class="collapse">
             <p>
                 The response to the request can be found under a different URI and SHOULD be retrieved using a GET method on that resource.
@@ -523,9 +523,15 @@
             </blockquote>
             <h3>Wikipedia</h3>
             <p>
-                The response to the request can be found under another URI using a GET method.
-                When received in response to a POST (or PUT/DELETE),
-                it should be assumed that the server has received the data and the redirect should be issued with a separate GET message.
+                Документ по запрошенному URI нужно запросить по адресу в поле Location заголовка с использованием метода GET несмотря даже на то,
+                что первый запрашивался иным методом. Этот код был введён вместе с 307-ым для избежания неоднозначности,
+                чтобы сервер был уверен, что следующий ресурс будет запрошен методом GET.
+                Например, на веб-странице есть поле ввода текста для быстрого перехода и поиска.
+                После ввода данных браузер делает запрос методом POST, включая в тело сообщения введённый текст.
+                Если обнаружен документ с введённым названием, то сервер отвечает кодом 303, указав в заголовке Location его постоянный адрес.
+                Тогда браузер гарантировано его запросит методом GET для получения содержимого.
+                В противном случае сервер просто вернёт клиенту страницу с результатами поиска.
+                Введено в HTTP/1.1.
             </p>
             <p>Since HTTP/1.1</p>
           </div>
