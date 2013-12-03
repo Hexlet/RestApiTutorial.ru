@@ -106,6 +106,7 @@
                               Отсутствие состояний обеспечивает большую масштабируемость, так как сервер не должен поддерживать или общаться через состояние сеанса.
                               Кроме того, балансировщику нагрузки не придется беспокоиться о связанности сессии и системы.</p>
                               <p> Так в чем различие между состоянием и ресурсом?
+                              Состояние или состояние приложения, это то, о чем сервер заботится для выполнения запроса 
                               State, or application state, is that which the server cares about to fulfill a request—data necessary for the current session or request.
                               A resource, or resource state, is the data that defines the resource representation—the data stored in the database, for instance.
                               Consider application state to be data that could vary by client, and per request.
