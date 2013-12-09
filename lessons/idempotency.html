@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>What is Idempotency?</title>
+    <title>Что такое Идемпотентность?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Idempotency or Idempotence, definition in a non-academic way, specifically in REST APIs">
+    <meta name="description" content="Идемпотентность, неакадемической определение в контексте REST API">
     <meta name="author" content="Todd Fredrich, Pearson eCollege">
     <!-- Le styles -->
     <link href="https://d7im4lln3lvbg.cloudfront.net/bootstrap/2.0.1/css/bootstrap.min.css" rel="stylesheet">
@@ -20,17 +20,17 @@
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script type="text/javascript">
-    
+
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-31328878-1']);
       _gaq.push(['_trackPageview']);
-    
+
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-    
+
     </script>
   </head>
   <body>
@@ -65,21 +65,21 @@
           <h2>Идемпотентность</h2>
         </div>
         <div class="span12">
-          <p>Idempotence is a funky word that often hooks people. Idempotence is sometimes a confusing concept, at least from the academic definition.</p>
-          <p>From a RESTful service standpoint, for an operation (or service call) to be idempotent, clients can make that same call repeatedly while producing the same result—operating much like a “setter” method in a programming language. In other words, making multiple identical requests has the same effect as making a single request. Note that while idempotent operations produce the same result on the server (side effects), the response itself may not be the same (e.g. a resource's state may change between requests).</p>
-          <p>The PUT and DELETE methods are defined to be idempotent. However, there is a caveat on DELETE. The problem with DELETE, which if successful would normally return a 200 (OK) or 204 (No Content), will often return a 404 (Not Found) on subsequent calls, unless the service is configured to "mark" resources for deletion without actually deleting them. However, when the service actually deletes the resource, the next call will not find the resource to delete it and return a 404. However, the state on the server is the same after each DELETE call, but the response is different.</p>
-          <p>GET, HEAD, OPTIONS and TRACE methods are defined as safe, which makes them idempotent also. Read the section on safety below.</p>
+          <p>Идемпотентность - это забавное слово, которое часто выбивает людей из колеи. Идемпотентность кажется иногда запутанной концепцией, по крайней мере, если судить по академическому определению.</p>
+          <p>С точки зрения RESTful-сервиса операция (или вызов сервиса) идемпотентна тогда, когда клиенты могут делать один и тот же вызов неоднократно при одном и том же результате, работая как "сеттер" в языке программирования. Другими словами, создание большого количества идентичных запросов имеет такой же эффект, как и один запрос. Заметьте, что в то время, как идемпотентные операции производят один и тот же результат на сервере (побочные эффекты), ответ сам по себе может не быть тем же самым (например, состояние ресурса может измениться между запросами).</p>
+          <p>Методы PUT и DELETE по определению идемпотентны. Тем не менее, есть один нюанс с методом DELETE. Проблема в том, что успешный DELETE-запрос возвращает статус 200 (OK) или 204 (No Content), но будет все время возвращать 404 (Not Found) для последующих запросов, если только сервис  не сконфигурирован так, чтобы "помечать" ресурс как удаленный без его фактического удаления. Как бы то ни было, когда сервис на самом деле удаляет ресурс, следующий вызов не найдет этот ресурс и вернет 404. Состояние на сервере после каждого вызова DELETE то же самое, но ответы разные.</p>
+          <p>Методы GET, HEAD, OPTIONS и TRACE определены как безопасные, что также делает их идемпотентными. Прочитайте секцию о безопасности ниже.</p>
         </div>
       </div>
       <div class="row">
         <div class="span12">
-          <h2>Safetey</h2>
+          <h2>Безопасность</h2>
         </div>
         <div class="span12">
-          <p>Idempotence is a funky word that often hooks people. Idempotence is sometimes a confusing concept, at least from the academic definition.</p>
-          <p>From a RESTful service standpoint, for an operation (or service call) to be idempotent, clients can make that same call repeatedly while producing the same result—operating much like a “setter” method in a programming language. In other words, making multiple identical requests has the same effect as making a single request. Note that while idempotent operations produce the same result on the server (side effects), the response itself may not be the same (e.g. a resource's state may change between requests).</p>
-          <p>The PUT and DELETE methods are defined to be idempotent. However, there is a caveat on DELETE. The problem with DELETE, which if successful would normally return a 200 (OK) or 204 (No Content), will often return a 404 (Not Found) on subsequent calls, unless the service is configured to "mark" resources for deletion without actually deleting them. However, when the service actually deletes the resource, the next call will not find the resource to delete it and return a 404. However, the state on the server is the same after each DELETE call, but the response is different.</p>
-          <p>GET, HEAD, OPTIONS and TRACE methods are defined as safe, which makes them idempotent also. Read the section on safety below.</p>
+          <p>Идемпотентность - это забавное слово, которое часто выбивает людей из колеи. Идемпотентность кажется иногда запутанной концепцией, по крайней мере, если судить по академическому определению.</p>
+          <p>С точки зрения RESTful-сервиса операция (или вызов сервиса) идемпотентна тогда, когда клиенты могут делать один и тот же вызов неоднократно при одном и том же результате, работая как "сеттер" в языке программирования. Другими словами, создание большого количества идентичных запросов имеет такой же эффект, как и один запрос. Заметьте, что в то время, как идемпотентные операции производят один и тот же результат на сервере (побочные эффекты), ответ сам по себе может не быть тем же самым (например, состояние ресурса может измениться между запросами).</p>
+          <p>Методы PUT и DELETE по определению идемпотентны. Тем не менее, есть один нюанс с методом DELETE. Проблема в том, что успешный DELETE-запрос возвращает статус 200 (OK) или 204 (No Content), но будет все время возвращать 404 (Not Found) для последующих запросов, если только сервис  не сконфигурирован так, чтобы "помечать" ресурс как удаленный без его фактического удаления. Как бы то ни было, когда сервис на самом деле удаляет ресурс, следующий вызов не найдет этот ресурс и вернет 404. Состояние на сервере после каждого вызова DELETE то же самое, но ответы разные.</p>
+          <p>Методы GET, HEAD, OPTIONS и TRACE определены как безопасные, что также делает их идемпотентными. Прочитайте секцию о безопасности ниже.</p>
         </div>
       </div>
       <hr>
@@ -96,18 +96,18 @@
           <a class="brand" href="http://www.restapitutorial.com">REST API Tutorial</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="../index.html">Home</a></li>
-              <li class="dropdown active" id="api-school"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tutorials<b class="caret"></b></a>
+              <li><a href="../index.html">Домой</a></li>
+              <li class="dropdown active" id="api-school"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Руководства<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="whatisrest.html">What Is REST?</a></li>
+                  <li><a href="whatisrest.html">Что такое REST?</a></li>
                   <li><a href="restquicktips.html">REST Quick Tips</a></li>
-                  <li><a href="httpmethods.html">HTTP Methods</a></li>
-                  <li><a href="restfulresourcenaming.html">Resource Naming</a></li>
-                  <li class="active"><a href="idempotency.html">Idempotence</a></li>
+                  <li><a href="httpmethods.html">HTTP методы</a></li>
+                  <li><a href="restfulresourcenaming.html">Именование ресурсов</a></li>
+                  <li class="active"><a href="idempotency.html">Идемпотентность</a></li>
                 </ul>
               </li>
-              <li><a href="../httpstatuscodes.html">HTTP Status Codes</a></li>
-              <li><a href="../resources.html">Resources</a></li>
+              <li><a href="../httpstatuscodes.html">Коды состояния HTTP</a></li>
+              <li><a href="../resources.html">Ресурсы</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
