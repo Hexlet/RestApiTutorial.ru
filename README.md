@@ -1,5 +1,7 @@
 В данном репозитории хранится переведенный на русский язык сайт www.RestApiTutorial.com
 
+И посмотреть его можно по адресу www.RestApiTutorial.ru
+
 Данный репозиторий был форком https://github.com/tfredrich/RestApiTutorial.com
 
 HTML source code for www.RestApiTutorial.com along with the Aptana Studio project file(s).
