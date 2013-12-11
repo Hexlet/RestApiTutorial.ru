@@ -543,11 +543,13 @@
               Если клиент выполнил условный запрос GET и доступ разрешен, но документ не был изменен, сервер должен ответить, используя этот код состояния.
               Ответ 304 НЕ ДОЛЖЕН содержать тела сообщения, и, таким образом, всегда завершается первой пустой строкой после полей заголовка.
             </p>
-            <p>The response MUST include the following header fields:</p>
+            <p>Ответ должен содержать следующие заголовки:</p>
             <ul>
-              <li>Date, unless its omission is required by section 14.18.1</li>
+              <li>Дата, если ее пропуск не требуется разделом 14.18.1</li>
             </ul>
-            <p>If a clockless origin server obeys these rules, and proxies and clients add their own Date to any response received without one (as already specified by [RFC 2068], section 14.19), caches will operate correctly.</p>
+            <p>
+              Если отвечающий сервер подчиняется этим правилам, и прокси-серверы и клиенты добавляют свои собственные заголовки с Датой к любому ответу,
+              полученному без указания даты в заголовках (как указано [RFC 2068], раздел 14.19), кэши будут работать неправильно.
             <ul>
               <li>ETag and/or Content-Location, if the header would have been sent in a 200 response to the same request</li>
               <li>Expires, Cache-Control, and/or Vary, if the field-value might differ from that sent in any previous response for the same variant</li>
