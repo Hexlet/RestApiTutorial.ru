@@ -539,7 +539,10 @@
         <div class="span4">
           <i class="icon-star"></i> <a data-toggle="collapse" data-target="#not_modified" href="#">304: Not Modified</a>
           <div id="not_modified" class="collapse">
-            <p>If the client has performed a conditional GET request and access is allowed, but the document has not been modified, the server SHOULD respond with this status code. The 304 response MUST NOT contain a message-body, and thus is always terminated by the first empty line after the header fields.</p>
+            <p>
+              Если клиент выполнил условный запрос GET и доступ разрешен, но документ не был изменен, сервер должен ответить, используя этот код состояния.
+              Ответ 304 НЕ ДОЛЖЕН содержать тела сообщения, и, таким образом, всегда завершается первой пустой строкой после полей заголовка.
+            </p>
             <p>The response MUST include the following header fields:</p>
             <ul>
               <li>Date, unless its omission is required by section 14.18.1</li>
