@@ -77,7 +77,7 @@
                                    которые представляет некоторые записи в базе данных, например, на финском языке и в UTF-8,
                                    в зависимости от деталей запроса и реализации сервера.</p>
                                 <h3>Манипуляции над ресурсами через представления</h3>
-                                <p>Когда пользователь имеет представление о ресурсе, в том числе о связанных метаданных, он имеет достаточно информации для изменения или 
+                                <p>Когда пользователь имеет представление о ресурсе, в том числе о связанных метаданных, он имеет достаточно информации для изменения или
                                    удаления ресурса на сервере, если у него есть на это разрешение</p>
                                 <h3>Само-документируемые сообщения</h3>
                                 <p>Каждое сообщение содержит достаточно информации для описания того, как его выполнить.
@@ -110,7 +110,7 @@
                               Ресурсное состояние, или ресурс, это данные, которые определяют представление ресурса, например, данные хранящиеся в базе данных.
                               Рассмотрим состояние приложения как данные, которые могут варьироваться в зависимости от клиента и запроса.
                               Resource state, on the other hand, is constant across every client who requests it.</p>
-                              <p>Ever had back-button issues with a web application where it went AWOL at a certain point because 
+                              <p>Ever had back-button issues with a web application where it went AWOL at a certain point because
                               it expected you to do things in a certain order?
                               That's because it violated the statelessness principle. There are cases that don't honor the statelessness principle,
                               such as three-legged OAuth, API call rate limiting, etc.
@@ -143,15 +143,21 @@
                                    Слои также могут отвечать за политику безопасности.</p>
                             </div>
                         </li>
-                        <li><a data-toggle="collapse" data-target="#code-on-demand" data-parent="#constraint-accordian" href="#">Code on Demand (опционально)</a>
+                        <!-- FIXME - Code on Demand - "код по требованию" -->
+                        <li><a data-toggle="collapse" data-target="#code-on-demand" data-parent="#constraint-accordian" href="#">"Код по требованию" (Code on Demand - опционально)</a>
                             <div class="collapse" id="code-on-demand">
-                              <p>Servers are able to temporarily extend or customize the functionality of a client by transferring logic to it that it can execute.
-                              Examples of this may include compiled components such as Java applets and client-side scripts such as JavaScript.</p>
-                              <p>Complying with these constraints, and thus conforming to the REST architectural style,
-                              will enable any kind of distributed hypermedia system to have desirable emergent properties, such as performance, scalability, simplicity, 
-                              modifiability, visibility, portability and reliability.</p>
-                              <p><strong>Замечание</strong> The only optional constraint of REST architecture is code on demand.
-                              If a service violates any other constraint, it cannot strictly be referred to as RESTful.</p>
+                              <p>Серверы могут временно расширять или кастомизировать функционал
+                                клиента, передавая ему логику, которую он может исполнять. Например, это
+                                могут быть скомпилированные Java-апплеты или клиентские скрипты на
+                                Javascript</p>
+                              <p>Соблюдая эти ограничения, и, таким образом, придерживаясь RESTful архитектуры,
+                              мы позволяем распределенной системе любого типа иметь такие свойства как:
+                              производительность, расширяемость, простота, обновляемость, понятность,
+                              портативность и надежность.</p>
+                              <p><strong>Замечание</strong> Единственным необязательным ограничением
+                                для RESTful архитектуры - это "код по требованию".
+                              Если сервис не проходит по любым другим условиям, то его совершенно точно
+                              нельзя назвать RESTful.</p>
                             </div>
                         </li>
                     </ul>
