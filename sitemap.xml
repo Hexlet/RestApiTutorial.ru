@@ -5,39 +5,39 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
-  <loc>http://www.restapitutorial.com/</loc>
+  <loc>http://www.restapitutorial.ru/</loc>
   <lastmod>2013-09-21T14:55:39+00:00</lastmod>
 </url>
 <url>
-  <loc>http://www.restapitutorial.com/lessons/whatisrest.html</loc>
+  <loc>http://www.restapitutorial.ru/lessons/whatisrest.html</loc>
   <lastmod>2013-09-04T14:55:39+00:00</lastmod>
 </url>
 <url>
-  <loc>http://www.restapitutorial.com/lessons/restquicktips.html</loc>
+  <loc>http://www.restapitutorial.ru/lessons/restquicktips.html</loc>
   <lastmod>2013-09-04T14:55:39+00:00</lastmod>
 </url>
 <url>
-  <loc>http://www.restapitutorial.com/lessons/httpmethods.html</loc>
+  <loc>http://www.restapitutorial.ru/lessons/httpmethods.html</loc>
   <lastmod>2013-09-04T14:55:39+00:00</lastmod>
 </url>
 <url>
-  <loc>http://www.restapitutorial.com/lessons/restfulresourcenaming.html</loc>
+  <loc>http://www.restapitutorial.ru/lessons/restfulresourcenaming.html</loc>
   <lastmod>2013-09-04T14:55:39+00:00</lastmod>
 </url>
 <url>
-  <loc>http://www.restapitutorial.com/lessons/idempotency.html</loc>
+  <loc>http://www.restapitutorial.ru/lessons/idempotency.html</loc>
   <lastmod>2013-09-21T14:55:39+00:00</lastmod>
 </url>
 <url>
-  <loc>http://www.restapitutorial.com/httpstatuscodes.html</loc>
+  <loc>http://www.restapitutorial.ru/httpstatuscodes.html</loc>
   <lastmod>2013-09-04T14:55:39+00:00</lastmod>
 </url>
 <url>
-  <loc>http://www.restapitutorial.com/resources.html</loc>
+  <loc>http://www.restapitutorial.ru/resources.html</loc>
   <lastmod>2013-21-21T14:55:39+00:00</lastmod>
 </url>
 <url>
-  <loc>http://www.restapitutorial.com/index.html</loc>
+  <loc>http://www.restapitutorial.ru/index.html</loc>
   <lastmod>2013-09-21T14:55:39+00:00</lastmod>
 </url>
 </urlset>
