@@ -297,19 +297,42 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#partialcontent" href="#">206: Partial Content</a>
           <div id="partialcontent" class="collapse">
-            <p>The server has fulfilled the partial GET request for the resource. The request MUST have included a Range header field (section 14.35) indicating the desired range, and MAY have included an If-Range header field (section 14.27) to make the request conditional.</p>
-            <p>The response MUST include the following header fields:</p>
+            <p>Сервер выполнил часть GET запроса ресурса. Запрос ДОЛЖЕН был содержать поле заголовка
+              Range (секция 14.35), которая указывает на желаемый диапазон и МОГ содержать
+              поле заголовка If-Range (секция 14.27), который делает запрос условным.</p>
+
+            <p>Запрос ДОЛЖЕН содержать следующие поля заголовка:</p>
             <ul>
-              <li>Either a Content-Range header field (section 14.16) indicating the range included with this response, or a multipart/byteranges Content-Type including Content-Range fields for each part. If a Content-Length header field is present in the response, its value MUST match the actual number of OCTETs transmitted in the message-body.</li>
+              <li>Либо поле Content-Range (секция 14.16), который показывает диапазон, который включен
+                в этот запрос, либо Content-Type со значением multipart/byteranges, включающими в себя
+                поля Content-Range для каждой части. Если в заголовке запроса есть поле Content-Length,
+                его значение ДОЛЖНО совпадать с фактическим количеством октетов, переданных в теле сообщения.
+              </li>
               <li>Date</li>
-              <li>ETag and/or Content-Location, if the header would have been sent in a 200 response to the same request</li>
-              <li>Expires, Cache-Control, and/or Vary, if the field-value might differ from that sent in any previous response for the same variant</li>
+              <li>ETag и/или Content-Location, если ранее был получен ответ 200 на такой же запрос.</li>
+              <li>Expires, Cache-Control, и/или Vary, если значение поля изменилось с момента отправения
+                последнего такого же запроса</li>
             </ul>
-            <p>If the 206 response is the result of an If-Range request that used a strong cache validator (see section 13.3.3), the response SHOULD NOT include other entity-headers. If the response is the result of an If-Range request that used a weak validator, the response MUST NOT include other entity-headers; this prevents inconsistencies between cached entity-bodies and updated headers. Otherwise, the response MUST include all of the entity-headers that would have been returned with a 200 (OK) response to the same request.</p>
-            <p>A cache MUST NOT combine a 206 response with other previously cached content if the ETag or Last-Modified headers do not match exactly, see 13.5.4.</p>
-            <p>A cache that does not support the Range and Content-Range headers MUST NOT cache 206 (Partial) responses.</p>
+            <p>Если ответ 206 - это результат выполнения условного зарпоса, который использовал строгий
+              кэш-валидатор (подробнее в секции 13.3.3), в ответ НЕ СЛЕДУЕТ включать какие-либо другие
+              заголовки сущности. Если такой ответ - результат выполнения запроса If-Range, который
+              использовал "слабый" валидатор, то ответ НЕ ДОЛЖЕН содержать другие заголовки сущности;
+              это предотвращает несоответствие между закэшированными телами сущносей и обновленными заголовками.
+              В противном случае, ответ ДОЛЖЕН содержать все заголовки сущностей, который вернули статус 200 (OK)
+              на тот же запрос.
+            </p>
+            <p>Кэш НЕ ДОЛЖЕН объединять ответ 206 с другими ранее закэшированными данными, если поле ETag или
+            Last-Modified в точности не совпадают (подробнее в секции 16.5.4)</p>
+
+            <p>Кэш, который не поддерживает заголовки Range и Content-Range НЕ ДОЛЖЕН кэшировать ответы
+              206 (Partial).</p>
+
             <h3>Wikipedia</h3>
-            <p>The server is delivering only part of the resource due to a range header sent by the client. The range header is used by tools like wget to enable resuming of interrupted downloads, or split a download into multiple simultaneous streams.</p>
+            <!-- FIXME намудила с запятыми в предложении про wget -->
+            <p>Сервер передает только ту часть ресурса, которая была указана клиентом в заголовке диапазона.
+              Заголовок диапазона используется такими инструментами, как wget, для возобновления прерванных загрузок
+              или для разделения загрузки на несколько параллельных потоков.
+            </p>
           </div>
         </div>
         <div class="span4">
