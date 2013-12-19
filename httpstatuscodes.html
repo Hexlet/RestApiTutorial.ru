@@ -568,28 +568,42 @@
             </p>
             <p>Ответ должен содержать следующие заголовки:</p>
             <ul>
-              <li>Дата, если ее пропуск не требуется разделом 14.18.1</li>
+              <li>Дата, если ее отсутствие не требует раздел 14.18.1</li>
             </ul>
             <p>
-              Если отвечающий сервер подчиняется этим правилам, и прокси-серверы и клиенты добавляют свои собственные заголовки с Датой к любому ответу,
-              полученному без указания даты в заголовках (как указано [RFC 2068], раздел 14.19), кэши будут работать неправильно.
+              Если сервер подчиняется этим правилам, и прокси-серверы и клиенты добавят свои собственные Даты к любому ответу,
+              полученным без Даты (как уже указано [RFC 2068], раздел 14.19), кэши будут работать неправильно.
+            </p>
             <ul>
-              <li>ETag and/or Content-Location, if the header would have been sent in a 200 response to the same request</li>
-              <li>Expires, Cache-Control, and/or Vary, if the field-value might differ from that sent in any previous response for the same variant</li>
+              <li>ETag и/или Content-Location, если заголовки передаются с 200 кодом ответа.</li>
+              <li>Expires, Cache-Control, и/или Vary, если значения полей изменились с последнего ответа на предыдущие аналогичные запросы.</li>
             </ul>
             <p>
-                If the conditional GET used a strong cache validator (see section 13.3.3),
-                the response SHOULD NOT include other entity-headers. Otherwise (i.e., the conditional GET used a weak validator),
-                the response MUST NOT include other entity-headers; this prevents inconsistencies between cached entity-bodies and updated headers.
+                Если условный GET запрос использует строгую валидацию на присутствие в кеше ( см 13.3.3) ответ НЕ должен (желательно) включать другие заголовки.
+                В противном случае ответ НЕ должен (обязательно) включать другие заголовки.
+                Это предотовращает нарушение консистентности данных в кеше и модификации заголовков.
             </p>
             <p>
-                If a 304 response indicates an entity not currently cached,
-                then the cache MUST disregard the response and repeat the request without the conditional.
+                Если при 304 ответе наблюдается отсутствие сущности в актуальном кеше, запрос должен быть продолжен без проверки присутствия кеша.
             </p>
-            <p>If a cache uses a received 304 response to update a cache entry, the cache MUST update the entry to reflect any new field values given in the response.</p>
+            <p>
+                Если кэш использует полученный 304 ответ для обновления кэша, кэш ДОЛЖЕН обновить запись, чтобы отразить любые новые значения полей, переданных в ответ.
+            </p>
             <h3>Wikipedia</h3>
-            <p>Indicates the resource has not been modified since last requested. Typically, the HTTP client provides a header like the If-Modified-Since header to provide a time against which to compare. Using this saves bandwidth and reprocessing on both the server and client, as only the header data must be sent and received in comparison to the entirety of the page being re-processed by the server, then sent again using more bandwidth of the server and client.</p>
-            <p><i class="icon-star"></i> Used for conditional GET calls to reduce band-width usage. If used, must set the Date, Content-Location, ETag headers to what they would have been on a regular GET call.  There must be no body on the response.</p>
+            <p>
+                Сервер возвращает такой код, если
+                клиент запросил документ методом GET,
+                использовал заголовок If-Modified-Since или If-None-Match и
+                документ не изменился с указанного момента.
+                При этом сообщение сервера не должно содержать тела.
+                Появился в HTTP/1.0.
+            </p>
+            <p>
+                <i class="icon-star"></i>
+                Используется ля условных GET запросов для снижения нагрузки на сеть.
+                Если используется, то обязательны для передачи Data, Content-Location, ETag заголовки.
+                Тело ответа при этом статусе не передается.
+            </p>
           </div>
         </div>
         <div class="span4">

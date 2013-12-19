@@ -109,8 +109,9 @@
                               Состояние или состояние приложения, это то, что сервер заботится выполнить запрос для получения данных необходимых для текущей сессии или запроса.
                               Ресурсное состояние, или ресурс, это данные, которые определяют представление ресурса, например, данные хранящиеся в базе данных.
                               Рассмотрим состояние приложения как данные, которые могут варьироваться в зависимости от клиента и запроса.
-                              Resource state, on the other hand, is constant across every client who requests it.</p>
-                              <p>Ever had back-button issues with a web application where it went AWOL at a certain point because
+                              С другой стороны, состояние ресурсов постоянно по каждому клиенту, который запрашивает его.</p>
+                              <p>
+                              Ever had back-button issues with a web application where it went AWOL at a certain point because
                               it expected you to do things in a certain order?
                               That's because it violated the statelessness principle. There are cases that don't honor the statelessness principle,
                               such as three-legged OAuth, API call rate limiting, etc.
