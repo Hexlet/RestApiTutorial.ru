@@ -586,10 +586,24 @@
             <p>
                 Если при 304 ответе наблюдается отсутствие сущности в актуальном кеше, запрос должен быть продолжен без проверки присутствия кеша.
             </p>
-            <p>If a cache uses a received 304 response to update a cache entry, the cache MUST update the entry to reflect any new field values given in the response.</p>
+            <p>
+                Если кэш использует полученный 304 ответ для обновления кэша, кэш ДОЛЖЕН обновить запись, чтобы отразить любые новые значения полей, переданных в ответ.
+            </p>
             <h3>Wikipedia</h3>
-            <p>Indicates the resource has not been modified since last requested. Typically, the HTTP client provides a header like the If-Modified-Since header to provide a time against which to compare. Using this saves bandwidth and reprocessing on both the server and client, as only the header data must be sent and received in comparison to the entirety of the page being re-processed by the server, then sent again using more bandwidth of the server and client.</p>
-            <p><i class="icon-star"></i> Used for conditional GET calls to reduce band-width usage. If used, must set the Date, Content-Location, ETag headers to what they would have been on a regular GET call.  There must be no body on the response.</p>
+            <p>
+                Сервер возвращает такой код, если
+                клиент запросил документ методом GET,
+                использовал заголовок If-Modified-Since или If-None-Match и
+                документ не изменился с указанного момента.
+                При этом сообщение сервера не должно содержать тела.
+                Появился в HTTP/1.0.
+            </p>
+            <p>
+                <i class="icon-star"></i>
+                Используется ля условных GET запросов для снижения нагрузки на сеть.
+                Если используется, то обязательны для передачи Data, Content-Location, ETag заголовки.
+                Тело ответа при этом статусе не передается.
+            </p>
           </div>
         </div>
         <div class="span4">
