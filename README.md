@@ -1,5 +1,5 @@
-
-## www.RestApiTutorial.com - руководство по REST API
+## www.RestApiTutorial.com
+## Руководство по REST API
 
 ### Для чего нужен этот репозиторий?
 
