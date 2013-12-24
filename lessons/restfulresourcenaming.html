@@ -102,21 +102,30 @@
           </ul>
           <div id="namingTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="examples">
-              <p>To insert (create) a new customer in the system, we might use:<br/>
+              <p>Чтобы создать нового покупателя в системе мы используем:<br/>
               <em>POST http://www.example.com/customers</em></p>
-              <p>To read a customer with Customer ID# 33245:<br/>
+              <p>Чтобы получить информацию о покупателе с ID# 33245:<br/>
               <em>GET http://www.example.com/customers/33245</em>
-              The same URI would be used for PUT and DELETE, to update and delete, respectively.</p>
-              <p>Here are proposed URIs for products:<br/>
+              Тот же URI мы используем для PUT и DELETE, чтобы обновлять и удалять, соответственно.</p>
+              <p>Ниже предложены URI для продуктов:<br/>
               <em>POST http://www.example.com/products</em>
-              for creating a new product.</p>
+              для создания нового продукта.</p>
               <p><em>GET|PUT|DELETE http://www.example.com/products/66432</em><br/>
-              for reading, updating, deleting product 66432, respectively.</p>
-              <p>Now, here is where it gets fun... What about creating a new order for a customer? One option might be: POST http://www.example.com/orders And that could work to create an order, but it's arguably outside the context of a customer.</p>
-              <p>Because we want to create an order for a customer (note the relationship), this URI perhaps is not as intuitive as it could be. It could be argued that the following URI would offer better clarity: <em>POST http://www.example.com/customers/33245/orders</em> Now we know we're creating an order for customer ID# 33245.</p>
-              <p>Now what would the following return?<br/>
+              для чтения, обновления, удаления продукта с ID# 66432, соответственно.</p>
+              <p>
+                Теперь становится весело... Как насчет создания нового заказа у покупателя? Один
+                вариант - POST http://www.example.com/orders. Это может работать для создания
+                заказа, но здесь, пожалуй, не учитывается покупатель.
+              </p>
+              <p>Поскольку мы хотим создать заказ для покупателя, (заметьте связь), этот URI, очевидно,
+              не так интуитивен, как мог бы быть. Очевидно, что следующий URI предлагает большую
+              ясность: <em>POST http://www.example.com/customers/33245/orders</em> Теперь мы знаем,
+              что создаем заказ для покупателя с ID# 33245.</p>
+              <p>Что же венет следующее?<br/>
               <em>GET http://www.example.com/customers/33245/orders</em><br/>
-              Probably a list of orders that customer #33245 has created or owns. Note: we may choose to not support DELETE or PUT for that url since it's operating on a collection.</p>
+              Вероятно, список заказов покупателя #33245. Заметьте: мы можем не поддерживать DELETE
+              или PUT для этого URL, поскольку он оперирует коллекцией.
+              </p>
               <p>Now, to continue the hierarchical concept, what about the following URI?<br/>
               <em>POST http://www.example.com/customers/33245/orders/8769/lineitems</em><br/>
               That might add a line item to order #8769 (which is for customer #33245). Right! GET for that URI might return all the line items for that order. However, if line items don't make sense only in customer context or also make sense outside the context of a customer, we would offer a POST www.example.com/orders/8769/lineitems URI.</p>
