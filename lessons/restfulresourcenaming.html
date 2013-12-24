@@ -198,24 +198,58 @@
               </p>
             </div>
             <div class="tab-pane fade" id="pluralization">
-              <p>Let's talk about the debate between the pluralizers and the &quot;singularizers&quot;... Haven't heard of that debate? It does exist. Essentially, it boils down to this question...</p>
-              <p>Should URI nodes in your hierarchy be named using singular or plural nouns? For example, should your URI for retrieving a representation of a customer resource look like this:</p>
-              <p><em>GET http://www.example.com/customer/33245</em> or:
-              <em>GET http://www.example.com/customers/33245</em></p>
-              <p>There are good arguments on both sides, but the commonly-accepted practice is to always use plurals in node names to keep your API URIs consistent across all HTTP methods. The reasoning is based on the concept that customers are a collection within the service suite and the ID (e.g. 33245) refers to one of those customers in the collection.</p>
-              <p>Using this rule, an example multi-node URI using pluralization would look like (emphasis added):</p>
-              <p><em>GET http://www.example.com/<strong>customers</strong>/33245/<strong>orders</strong>/8769/<strong>lineitems</strong>/1</em></p>
-              <p>with 'customers', 'orders', and 'lineitems' URI nodes all being their plural forms.</p>
-              <p>This implies that you only really need two base URLs for each root resource. One for creation of the resource within a collection and the second for reading, updating and deleting the resource by its identifier. For example the creation case, using customers as the example, is handled by the following URL:</p>
+              <p>
+                Давайте поговорим о споре между плюрализаторами и &quot;сингуларизаторами&quot;.
+                Вы не слышали об этом споре? Он существует. Соответственно, все сводится в следующему
+                вопросу:
+              </p>
+              <p>
+                Должны ноды URI в иерархии быть названы в единственном или множественном числе?
+                Например, как должен выглядеть URI для получания данных о покупателе:
+              </p>
+              <p>
+                <em>GET http://www.example.com/customer/33245</em> или
+                <em>GET http://www.example.com/customers/33245</em>
+              </p>
+              <p>
+                С обеих точек зрения приведены хорошие аргументы, но общепринятой практикой является
+                плюрализация нод, чтобы обеспечить консистентность для всех HTTP методов. Этот подход
+                обоснован тем, что покупатели считаются коллекцией внутри сервиса и ID (например, 33245)
+                ссылается на одного покупателя из коллекции.
+              </p>
+              <p>
+                Используя это правило, получим следующие URI с множеством нод (проставлены ударения):
+              </p>
+              <p>
+                <em>GET http://www.example.com/<strong>customers</strong>/33245/<strong>orders</strong>/8769/<strong>lineitems</strong>/1</em>
+              </p>
+              <p>ноды 'customers', 'orders', и 'lineitems' использованы во множественном числе.</p>
+              <p>
+                Это подразумевает, что вам нужно только два базовых URL для каждой корневой сущности.
+                Один для создания ресурса внутри коллекции и другой для чтения, обновления и удаления
+                ресурса по его идентификатору. Например, для создания (используя покупателей)
+              </p>
               <p><em>POST http://www.example.com/customers</em></p>
-              <p>And the read, update and delete cases are handled by the following:</p>
+              <p>А для чтения, обновления и удаления следующий:</p>
               <p><em>GET|PUT|DELETE http://www.example.com/customers/{id}</em></p>
-              <p>As mentioned earlier, there may be multiple URIs for a given resource, but as a minimum full CRUD capabilities are aptly handled with two simple URIs.</p>
-              <p>You ask if there is a case where pluralization doesn't make sense. Well, yes, in fact there is. When there isn't a collection concept in play. In other words, it's acceptable to use a singularized resource name when there can only be one of the resource—it's a singleton resource. For example, if there was a single, overarching configuration resource, you might use a singularized noun to represent that:</p>
+              <p>
+                Как было замечено ранее, у ресурса может быть несколько URI, но для минимальных
+                возможностей CRUD'а достаточно всего двух.
+              </p>
+              <p>
+                Вы можете спросить: есть ли ситуации, когда плюрализация не имеет смысла. Да, фактически
+                есть. Когда нет в системе не требуется коллекция. Другими словами, приемлем singleton
+                ресурс. Например, если есть единственный всеобъемлющий конфигурационный ресурс, вы
+                можете использовать существительное в единственном числе, чтобы это отразить:
+              </p>
               <p><em>GET|PUT|DELETE http://www.example.com/configuration</em></p>
-              <p>Note the lack of a configuration ID and usage of POST verb. And say that there was only one configuration per customer, then the URL might be:</p>
+              <p>
+                Обратите внимание на отсутствие ID и использования глагола POST. Вы скажете, что если бы
+                у каждого покупателя могла быть только одна конфигурация, тогда URL мог бы быть таким:
+              </p>
               <p><em>GET|PUT|DELETE http://www.example.com/customers/12345/configuration</em></p>
-              <p>Again, no ID for the configuration and no POST verb usage. Although, I'm sure that in both of these cases POST usage might be argued to be valid. Well... OK.</p>
+              <p>Снова нет никакого ID для конфигурации и нет использования глагола POST. Хотя я
+                уверен, что будут спотрить о том, что POST вполне вписывается в оба эти случая... Что ж... Хорошо.</p>
             </div>
           </div>
         </div>
