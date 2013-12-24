@@ -159,9 +159,20 @@
             </div>
 
             <div class="tab-pane fade" id="antipatterns">
-              <p>While we've discussed some examples of appropriate resource names, sometimes it's informative to see some anti-patterns. Below are some examples of poor RESTful resource URIs seen in the &quot;wild.&quot; These are examples of what not to do!</p>
-              <p>First up, often services use a single URI to specify the service interface, using query-string parameters to specify the requested operation and/or HTTP verb. For example to update customer with ID 12345, the request for a JSON body might be:</p>
-              <p><em>GET http://api.example.com/services?op=update_customer&id=12345&format=json</em></p>
+              <p>
+                Пока мы обсуждали некоторые примеры подходящих названий для ресурсов, иногда более
+                информативно увидеть некоторые анти-паттерны. Ниже представлены плохие примеры RESTful
+                URI ресурсов, которые были замечены в &quot;дикой природе.&quot; Никогда так не делайте.
+              </p>
+              <p>
+                Прежде всего, часто сервисы используют один URI, чтобы определить интерфейс, используя
+                строковые параметры jquery для определения операции, которую нужно выполнить и/или HTTP
+                глагол. Например, чтобы обновить данные покупателя с ID 12345 и получить их в формате
+                JSON может быть использован такой запрос:
+              </p>
+              <p>
+                <em>GET http://api.example.com/services?op=update_customer&id=12345&format=json</em>
+              </p>
               <p>By now, you're above doing this. Even though the 'services' URL node is a noun, this URL is not self- descriptive as the URI hierarchy is the same for all requests. Plus, it uses GET as the HTTP verb even though we're performing an update. This is counter-intuitive and is painful (even dangerous) to use as a client.</p>
               <p>Here's another example following the same operation of updating a customer:</p>
               <p><em>GET http://api.example.com/update_customer/12345</em></p>
