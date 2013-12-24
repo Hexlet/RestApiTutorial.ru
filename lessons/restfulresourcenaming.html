@@ -173,14 +173,29 @@
               <p>
                 <em>GET http://api.example.com/services?op=update_customer&id=12345&format=json</em>
               </p>
-              <p>By now, you're above doing this. Even though the 'services' URL node is a noun, this URL is not self- descriptive as the URI hierarchy is the same for all requests. Plus, it uses GET as the HTTP verb even though we're performing an update. This is counter-intuitive and is painful (even dangerous) to use as a client.</p>
-              <p>Here's another example following the same operation of updating a customer:</p>
+              <p>
+                Теперь вы не станете так делать. Даже хотя нода 'services' в URL - существительное,
+                он не является самодокументируемым, поскольку иерархия URI не одна и та же для всех
+                запросов. Кроме того, он использует глагол GET, хотя выполняет обновление. Это контр-
+                интуитивно, опасно и вызывает много боли у клиентов.
+              </p>
+              <p>Вот другой пример, который тоже выполняет обновление данных о покупателе:</p>
               <p><em>GET http://api.example.com/update_customer/12345</em></p>
-              <p>And its evil twin:</p>
+              <p>И его злобный двойник:</p>
               <p><em>GET http://api.example.com/customers/12345/update</em></p>
-              <p>You'll see this one a lot as you visit other developer's service suites. Note that the developer is attempting to create RESTful resource names and has made some progress. But you're better than this —able to identify the verb phrase in the URL. Notice that we don't need to use the 'update' verb phrase in the URL because we can rely on the HTTP verb to inform that operation. Just to clarify, the following resource URL is redundant:</p>
+              <p>
+                Вы часто можете увидеть последний запрос в сервисах других разработчиков. Заметим, что
+                разработчики стараются создавать RESTful ресурсы и кое-где заметен прогресс. Но лучше,
+                когда вы можете увидеть глагол в URL. Заметьте также, что нам не нужно использовать
+                фразу 'update' в URL, потому что мы можем довериться HTTP глаголу, чтобы сообщить об
+                этой операции. Проясним, что следующий URL избыточен:
+              </p>
               <p><em>PUT http://api.example.com/customers/12345/update</em></p>
-              <p>With both PUT and 'update' in the request, we're offering to confuse our service consumers! Is 'update' the resource? So, we've spent some time beating the horse at this point. I'm certain you understand...</p>
+              <p>
+                И с PUT, и с 'update' в запросе, мы рискует запутать потребителей нашего сервиса.
+                Является ли 'update' ресурсом? Мы потратим некоторое время на выяснение этого. Я уверен,
+                вы понимаете.
+              </p>
             </div>
             <div class="tab-pane fade" id="pluralization">
               <p>Let's talk about the debate between the pluralizers and the &quot;singularizers&quot;... Haven't heard of that debate? It does exist. Essentially, it boils down to this question...</p>
