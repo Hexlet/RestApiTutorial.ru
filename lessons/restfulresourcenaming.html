@@ -126,15 +126,31 @@
               Вероятно, список заказов покупателя #33245. Заметьте: мы можем не поддерживать DELETE
               или PUT для этого URL, поскольку он оперирует коллекцией.
               </p>
-              <p>Now, to continue the hierarchical concept, what about the following URI?<br/>
+              <p>Теперь, продолжая концепцию иерархичности, как насчет следующего URI?<br/>
               <em>POST http://www.example.com/customers/33245/orders/8769/lineitems</em><br/>
-              That might add a line item to order #8769 (which is for customer #33245). Right! GET for that URI might return all the line items for that order. However, if line items don't make sense only in customer context or also make sense outside the context of a customer, we would offer a POST www.example.com/orders/8769/lineitems URI.</p>
-              <p>Along those lines, because there may be multiple URIs for a given resource, we might also offer a GET http://www.example.com/orders/8769 URI that supports retrieving an order by number without having to know the customer number.</p>
-              <p>To go one layer deeper in the hierarchy:<br/>
+              Это может добавлять отдельную позицию в заказ #8769 (который принадлежить покупателю
+              #33245). Точно! GET на этот URI вернет все отдельные позиции данного заказа. Как бы
+              то ни было, если отдельные позиции нельзя рассматривать только в контексте
+              покупателя, или из можно рассматривать вне его контекста, мы можем предложить
+              POST www.example.com/orders/8769/lineitems.</p>
+              <p>Наряду с этими строками, поскольку может быть несколько URI для заданного
+                ресурса, мы также можем предложить GET http://www.example.com/orders/8769, который
+                возвращает информацию о заказе по его ID без указания ID покупателя
+              </p>
+              <p>Спускаясь глубже по иерархии:<br/>
               <em>GET http://www.example.com/customers/33245/orders/8769/lineitems/1</em><br/>
-              Might return only the first line item in that same order.</p>
-              <p>By now you can see how the hierarchy concept works. There aren't any hard and fast rules, only make sure the imposed structure makes sense to consumers of your services. As with everything in the craft of Software Development, naming is critical to success.</p>
-              <p>Look at some widely used APIs to get the hang of this and leverage the intuition of your teammates to refine your API resource URIs. Some example APIs are:</p>
+              Может возвращать только первую отдельную позицию в заказе.
+              </p>
+              <p>
+                К этому моменту вы уже можете видеть, как работает концепция иерархичности. Нет никаких
+                жестких правил, убедитесь только, что предложенная структура понятна потребителю
+                ваших сервисов. Как и все в ремесле разработки ПО, именование критично для успеха.
+              </p>
+              <p>
+                Взгляните на некоторые широко используемые API, чтобы приобрести навык проектирования
+                и используйте интуицию своих коллег, чтобы улучшить URI ресурсов вашего API. Ниже
+                приведены некоторые примеры API:
+              </p>
               <ul>
                 <li>Twitter: https://dev.twitter.com/docs/api</li>
                 <li>Facebook: http://developers.facebook.com/docs/reference/api/</li>
