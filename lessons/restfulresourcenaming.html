@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>RESTful Resource Naming</title>
+    <title>RESTful Именование Ресурсов</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Naming Tutorial: RESTful services are resource-based. How do you create those noun-based resource names? Here's how...">
     <meta name="author" content="Andrey Kumanyaev, Kaize Team">
@@ -24,35 +24,73 @@
     <div class="container">
       <div class="row">
         <div class="span8">
-          <h1>Resource Naming</h1>
+          <h1>Именование ресурсов</h1>
         </div>
         <div class="span4">
           <ul class="pager">
             <li>
-              <a href="httpmethods.html"><i class="icon-step-backward"></i> HTTP Methods</a>
+              <a href="httpmethods.html"><i class="icon-step-backward"></i> HTTP методы</a>
             </li>
             <li>
-              <a href="idempotency.html">Idempotence <i class="icon-step-forward"></i></a>
+              <a href="idempotency.html">Идемпотентность <i class="icon-step-forward"></i></a>
             </li>
           </ul>
         </div>
       </div>
       <div class="row">
         <div class="span12">
-          <p>In addition to utilizing the HTTP verbs appropriately, resource naming is arguably the most debated and most important concept to grasp when creating an understandable, easily leveraged Web service API. When resources are named well, an API is intuitive and easy to use. Done poorly, that same API can feel klutzy and be difficult to use and understand. Below are a few tips to get you going when creating the resource URIs for your new API.</p>
-          <p>Essentially, a RESTFul API ends up being simply a collection of URIs, HTTP calls to those URIs and some JSON and/or XML representations of resources, many of which will contain relational links. The RESTful principal of addressability is covered by the URIs. Each resource has its own address or URI—every interesting piece of information the server can provide is exposed as a resource. The constraint of uniform interface is partially addressed by the combination of URIs and HTTP verbs, and using them in line with the standards and conventions.</p>
-          <p>In deciding what resources are within your system, name them as nouns as opposed to verbs or actions. In other words, a RESTful URI should refer to a resource that is a thing instead of referring to an action. Nouns have properties as verbs do not, just another distinguishing factor.</p>
-          <p>Some example resources are:</p>
+          <p>
+            Кроме правильного использования HTTP глаголов, именование ресурсов, вероятно, самая
+            обсуждаемая и важная концепция для понимания во время создания понятной и легкоиспользуемого
+            API для Web-сервиса. Когда ресурсы названы хорошо, API интуитивен и легок в использовании.
+            Если же ресурсы названы плохо, тот же самый API может показаться неуклюжим и трудным
+            в понимании и использовании. Ниже приведены несколько подсказок, как продолжить создавать
+            URI ресурсов для нового API.
+          </p>
+          <p>
+            Фактически RESTful API - это всего лишь набор URI, HTTP вызовов к этим URI и некоторое
+            количество представлений ресурсов в формате JSON и/или XML, многие из которых будут
+            содержать перекрестные ссылки.
+            <!-- FIXME  The RESTful principal of addressability is covered by the URIs.-->
+            У каждого ресурса есть свой адрес или URI: вся интересная информация, которую
+            сервер может предоставить, представлена как ресурс. Ограничение однообразия интерфейса
+            частично реализовано с помощью комбинаций URI и HTTP глаголов и их использованием в
+            соответствии со стандартами и конвенциями.
+          </p>
+          <p>
+            Когда вы решаете, какие ресурсы буду в вашей системе, называйте их существительными,
+            в противоположность глаголам, или действиям. Другими словами, URI должен ссылаться
+            на ресурс, а не на действие. Еще один отличающий фактор - у существительных есть такие
+            свойства, которых нет у глаголов.
+          </p>
+          <p>Ниже приведены примеры ресурсов:</p>
           <ul>
-            <li>Users of the system.</li>
-            <li>Courses in which a student is enrolled.</li>
-            <li>A user's timeline of posts.</li>
-            <li>The users that follow another user.</li>
-            <li>An article about horseback riding.</li>
+            <li>Пользователи системы.</li>
+            <li>Курсы, в которых зарегистрирован студент.</li>
+            <li>История сообщений пользователя.</li>
+            <li>Пользователь, который подписан на другого пользователя.</li>
+            <li>Пользователи, которые подписаны на другого пользователя.</li>
+            <li>Статья о верховой езде.</li>
           </ul>
-          <p>Each resource in a service suite will have at least one URI identifying it. And it's best when that URI makes sense and adequately describes the resource. URIs should follow a predictable, hierarchical structure to enhance understandability and, therefore, usability: predictable in the sense that they're consistent, hierarchical in the sense that data has structure—relationships. This is not a REST rule or constraint, but it enhances the API.</p>
-          <p>RESTful APIs are written for consumers. The name and structure of URIs should convey meaning to those consumers. It's often difficult to know what the data boundaries should be, but with understanding of your data, you most-likely are equipped to take a stab and what makes sense to return as a representation to your clients. Design for your clients, not for your data.</p>
-          <p>Let's say we're describing an order system with customers, orders, line items, products, etc. Consider the URIs involved in describing the resources in this service suite:</p>
+          <p>
+            Каждый ресурс сервиса должен иметь хотя бы один URI, идентифицирующий его. И лучше всего,
+            когда этот URI имеет смысл и адекватно описывает этот ресурс. URI должны иметь
+            предсказуемую, иерархичную структуру, чтобы увеличить понятность и, как следствие,
+            юзабилити: предсказуемость означает, что они консистентны, иерархичность означает, что
+            у данных есть структура взаомоотношений. Это не принцип и не ограничение REST, но это
+            улучшает API.
+          </p>
+          <p>
+            RESTful API пишут для потребителей. Назавания и струтрука URI должна передавать
+            смысл этим потребителям. Очень часто трудно понять, где дожлны быть границы, но с пониманием
+            ваших данных вы поймете и то, что имеет смысл возвращать как представление вашим клиентам.
+            Проектируйте для клиентов, а не для ваших данных.
+          </p>
+          <p>
+            Давайте предположим, что мы описываем систему с покупателями, заказами, отдельными
+            позициями, продуктами и т. д. Рассмотрим URI, включенные в описание ресурсов этого
+            сервиса:
+          </p>
         </div>
       </div>
       <div class="row">
@@ -64,30 +102,55 @@
           </ul>
           <div id="namingTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="examples">
-              <p>To insert (create) a new customer in the system, we might use:<br/>
+              <p>Чтобы создать нового покупателя в системе мы используем:<br/>
               <em>POST http://www.example.com/customers</em></p>
-              <p>To read a customer with Customer ID# 33245:<br/>
+              <p>Чтобы получить информацию о покупателе с ID# 33245:<br/>
               <em>GET http://www.example.com/customers/33245</em>
-              The same URI would be used for PUT and DELETE, to update and delete, respectively.</p>
-              <p>Here are proposed URIs for products:<br/>
+              Тот же URI мы используем для PUT и DELETE, чтобы обновлять и удалять, соответственно.</p>
+              <p>Ниже предложены URI для продуктов:<br/>
               <em>POST http://www.example.com/products</em>
-              for creating a new product.</p>
+              для создания нового продукта.</p>
               <p><em>GET|PUT|DELETE http://www.example.com/products/66432</em><br/>
-              for reading, updating, deleting product 66432, respectively.</p>
-              <p>Now, here is where it gets fun... What about creating a new order for a customer? One option might be: POST http://www.example.com/orders And that could work to create an order, but it's arguably outside the context of a customer.</p>
-              <p>Because we want to create an order for a customer (note the relationship), this URI perhaps is not as intuitive as it could be. It could be argued that the following URI would offer better clarity: <em>POST http://www.example.com/customers/33245/orders</em> Now we know we're creating an order for customer ID# 33245.</p>
-              <p>Now what would the following return?<br/>
+              для чтения, обновления, удаления продукта с ID# 66432, соответственно.</p>
+              <p>
+                Теперь становится весело... Как насчет создания нового заказа у покупателя? Один
+                вариант - POST http://www.example.com/orders. Это может работать для создания
+                заказа, но здесь, пожалуй, не учитывается покупатель.
+              </p>
+              <p>Поскольку мы хотим создать заказ для покупателя, (заметьте связь), этот URI, очевидно,
+              не так интуитивен, как мог бы быть. Очевидно, что следующий URI предлагает большую
+              ясность: <em>POST http://www.example.com/customers/33245/orders</em> Теперь мы знаем,
+              что создаем заказ для покупателя с ID# 33245.</p>
+              <p>Что же венет следующее?<br/>
               <em>GET http://www.example.com/customers/33245/orders</em><br/>
-              Probably a list of orders that customer #33245 has created or owns. Note: we may choose to not support DELETE or PUT for that url since it's operating on a collection.</p>
-              <p>Now, to continue the hierarchical concept, what about the following URI?<br/>
+              Вероятно, список заказов покупателя #33245. Заметьте: мы можем не поддерживать DELETE
+              или PUT для этого URL, поскольку он оперирует коллекцией.
+              </p>
+              <p>Теперь, продолжая концепцию иерархичности, как насчет следующего URI?<br/>
               <em>POST http://www.example.com/customers/33245/orders/8769/lineitems</em><br/>
-              That might add a line item to order #8769 (which is for customer #33245). Right! GET for that URI might return all the line items for that order. However, if line items don't make sense only in customer context or also make sense outside the context of a customer, we would offer a POST www.example.com/orders/8769/lineitems URI.</p>
-              <p>Along those lines, because there may be multiple URIs for a given resource, we might also offer a GET http://www.example.com/orders/8769 URI that supports retrieving an order by number without having to know the customer number.</p>
-              <p>To go one layer deeper in the hierarchy:<br/>
+              Это может добавлять отдельную позицию в заказ #8769 (который принадлежить покупателю
+              #33245). Точно! GET на этот URI вернет все отдельные позиции данного заказа. Как бы
+              то ни было, если отдельные позиции нельзя рассматривать только в контексте
+              покупателя, или из можно рассматривать вне его контекста, мы можем предложить
+              POST www.example.com/orders/8769/lineitems.</p>
+              <p>Наряду с этими строками, поскольку может быть несколько URI для заданного
+                ресурса, мы также можем предложить GET http://www.example.com/orders/8769, который
+                возвращает информацию о заказе по его ID без указания ID покупателя
+              </p>
+              <p>Спускаясь глубже по иерархии:<br/>
               <em>GET http://www.example.com/customers/33245/orders/8769/lineitems/1</em><br/>
-              Might return only the first line item in that same order.</p>
-              <p>By now you can see how the hierarchy concept works. There aren't any hard and fast rules, only make sure the imposed structure makes sense to consumers of your services. As with everything in the craft of Software Development, naming is critical to success.</p>
-              <p>Look at some widely used APIs to get the hang of this and leverage the intuition of your teammates to refine your API resource URIs. Some example APIs are:</p>
+              Может возвращать только первую отдельную позицию в заказе.
+              </p>
+              <p>
+                К этому моменту вы уже можете видеть, как работает концепция иерархичности. Нет никаких
+                жестких правил, убедитесь только, что предложенная структура понятна потребителю
+                ваших сервисов. Как и все в ремесле разработки ПО, именование критично для успеха.
+              </p>
+              <p>
+                Взгляните на некоторые широко используемые API, чтобы приобрести навык проектирования
+                и используйте интуицию своих коллег, чтобы улучшить URI ресурсов вашего API. Ниже
+                приведены некоторые примеры API:
+              </p>
               <ul>
                 <li>Twitter: https://dev.twitter.com/docs/api</li>
                 <li>Facebook: http://developers.facebook.com/docs/reference/api/</li>
@@ -96,37 +159,97 @@
             </div>
 
             <div class="tab-pane fade" id="antipatterns">
-              <p>While we've discussed some examples of appropriate resource names, sometimes it's informative to see some anti-patterns. Below are some examples of poor RESTful resource URIs seen in the &quot;wild.&quot; These are examples of what not to do!</p>
-              <p>First up, often services use a single URI to specify the service interface, using query-string parameters to specify the requested operation and/or HTTP verb. For example to update customer with ID 12345, the request for a JSON body might be:</p>
-              <p><em>GET http://api.example.com/services?op=update_customer&id=12345&format=json</em></p>
-              <p>By now, you're above doing this. Even though the 'services' URL node is a noun, this URL is not self- descriptive as the URI hierarchy is the same for all requests. Plus, it uses GET as the HTTP verb even though we're performing an update. This is counter-intuitive and is painful (even dangerous) to use as a client.</p>
-              <p>Here's another example following the same operation of updating a customer:</p>
+              <p>
+                Пока мы обсуждали некоторые примеры подходящих названий для ресурсов, иногда более
+                информативно увидеть некоторые анти-паттерны. Ниже представлены плохие примеры RESTful
+                URI ресурсов, которые были замечены в &quot;дикой природе.&quot; Никогда так не делайте.
+              </p>
+              <p>
+                Прежде всего, часто сервисы используют один URI, чтобы определить интерфейс, используя
+                строковые параметры jquery для определения операции, которую нужно выполнить и/или HTTP
+                глагол. Например, чтобы обновить данные покупателя с ID 12345 и получить их в формате
+                JSON может быть использован такой запрос:
+              </p>
+              <p>
+                <em>GET http://api.example.com/services?op=update_customer&id=12345&format=json</em>
+              </p>
+              <p>
+                Теперь вы не станете так делать. Даже хотя нода 'services' в URL - существительное,
+                он не является самодокументируемым, поскольку иерархия URI не одна и та же для всех
+                запросов. Кроме того, он использует глагол GET, хотя выполняет обновление. Это контр-
+                интуитивно, опасно и вызывает много боли у клиентов.
+              </p>
+              <p>Вот другой пример, который тоже выполняет обновление данных о покупателе:</p>
               <p><em>GET http://api.example.com/update_customer/12345</em></p>
-              <p>And its evil twin:</p>
+              <p>И его злобный двойник:</p>
               <p><em>GET http://api.example.com/customers/12345/update</em></p>
-              <p>You'll see this one a lot as you visit other developer's service suites. Note that the developer is attempting to create RESTful resource names and has made some progress. But you're better than this —able to identify the verb phrase in the URL. Notice that we don't need to use the 'update' verb phrase in the URL because we can rely on the HTTP verb to inform that operation. Just to clarify, the following resource URL is redundant:</p>
+              <p>
+                Вы часто можете увидеть последний запрос в сервисах других разработчиков. Заметим, что
+                разработчики стараются создавать RESTful ресурсы и кое-где заметен прогресс. Но лучше,
+                когда вы можете увидеть глагол в URL. Заметьте также, что нам не нужно использовать
+                фразу 'update' в URL, потому что мы можем довериться HTTP глаголу, чтобы сообщить об
+                этой операции. Проясним, что следующий URL избыточен:
+              </p>
               <p><em>PUT http://api.example.com/customers/12345/update</em></p>
-              <p>With both PUT and 'update' in the request, we're offering to confuse our service consumers! Is 'update' the resource? So, we've spent some time beating the horse at this point. I'm certain you understand...</p>
+              <p>
+                И с PUT, и с 'update' в запросе, мы рискует запутать потребителей нашего сервиса.
+                Является ли 'update' ресурсом? Мы потратим некоторое время на выяснение этого. Я уверен,
+                вы понимаете.
+              </p>
             </div>
             <div class="tab-pane fade" id="pluralization">
-              <p>Let's talk about the debate between the pluralizers and the &quot;singularizers&quot;... Haven't heard of that debate? It does exist. Essentially, it boils down to this question...</p>
-              <p>Should URI nodes in your hierarchy be named using singular or plural nouns? For example, should your URI for retrieving a representation of a customer resource look like this:</p>
-              <p><em>GET http://www.example.com/customer/33245</em> or:
-              <em>GET http://www.example.com/customers/33245</em></p>
-              <p>There are good arguments on both sides, but the commonly-accepted practice is to always use plurals in node names to keep your API URIs consistent across all HTTP methods. The reasoning is based on the concept that customers are a collection within the service suite and the ID (e.g. 33245) refers to one of those customers in the collection.</p>
-              <p>Using this rule, an example multi-node URI using pluralization would look like (emphasis added):</p>
-              <p><em>GET http://www.example.com/<strong>customers</strong>/33245/<strong>orders</strong>/8769/<strong>lineitems</strong>/1</em></p>
-              <p>with 'customers', 'orders', and 'lineitems' URI nodes all being their plural forms.</p>
-              <p>This implies that you only really need two base URLs for each root resource. One for creation of the resource within a collection and the second for reading, updating and deleting the resource by its identifier. For example the creation case, using customers as the example, is handled by the following URL:</p>
+              <p>
+                Давайте поговорим о споре между плюрализаторами и &quot;сингуларизаторами&quot;.
+                Вы не слышали об этом споре? Он существует. Соответственно, все сводится в следующему
+                вопросу:
+              </p>
+              <p>
+                Должны ноды URI в иерархии быть названы в единственном или множественном числе?
+                Например, как должен выглядеть URI для получания данных о покупателе:
+              </p>
+              <p>
+                <em>GET http://www.example.com/customer/33245</em> или
+                <em>GET http://www.example.com/customers/33245</em>
+              </p>
+              <p>
+                С обеих точек зрения приведены хорошие аргументы, но общепринятой практикой является
+                плюрализация нод, чтобы обеспечить консистентность для всех HTTP методов. Этот подход
+                обоснован тем, что покупатели считаются коллекцией внутри сервиса и ID (например, 33245)
+                ссылается на одного покупателя из коллекции.
+              </p>
+              <p>
+                Используя это правило, получим следующие URI с множеством нод (проставлены ударения):
+              </p>
+              <p>
+                <em>GET http://www.example.com/<strong>customers</strong>/33245/<strong>orders</strong>/8769/<strong>lineitems</strong>/1</em>
+              </p>
+              <p>ноды 'customers', 'orders', и 'lineitems' использованы во множественном числе.</p>
+              <p>
+                Это подразумевает, что вам нужно только два базовых URL для каждой корневой сущности.
+                Один для создания ресурса внутри коллекции и другой для чтения, обновления и удаления
+                ресурса по его идентификатору. Например, для создания (используя покупателей)
+              </p>
               <p><em>POST http://www.example.com/customers</em></p>
-              <p>And the read, update and delete cases are handled by the following:</p>
+              <p>А для чтения, обновления и удаления следующий:</p>
               <p><em>GET|PUT|DELETE http://www.example.com/customers/{id}</em></p>
-              <p>As mentioned earlier, there may be multiple URIs for a given resource, but as a minimum full CRUD capabilities are aptly handled with two simple URIs.</p>
-              <p>You ask if there is a case where pluralization doesn't make sense. Well, yes, in fact there is. When there isn't a collection concept in play. In other words, it's acceptable to use a singularized resource name when there can only be one of the resource—it's a singleton resource. For example, if there was a single, overarching configuration resource, you might use a singularized noun to represent that:</p>
+              <p>
+                Как было замечено ранее, у ресурса может быть несколько URI, но для минимальных
+                возможностей CRUD'а достаточно всего двух.
+              </p>
+              <p>
+                Вы можете спросить: есть ли ситуации, когда плюрализация не имеет смысла. Да, фактически
+                есть. Когда нет в системе не требуется коллекция. Другими словами, приемлем singleton
+                ресурс. Например, если есть единственный всеобъемлющий конфигурационный ресурс, вы
+                можете использовать существительное в единственном числе, чтобы это отразить:
+              </p>
               <p><em>GET|PUT|DELETE http://www.example.com/configuration</em></p>
-              <p>Note the lack of a configuration ID and usage of POST verb. And say that there was only one configuration per customer, then the URL might be:</p>
+              <p>
+                Обратите внимание на отсутствие ID и использования глагола POST. Вы скажете, что если бы
+                у каждого покупателя могла быть только одна конфигурация, тогда URL мог бы быть таким:
+              </p>
               <p><em>GET|PUT|DELETE http://www.example.com/customers/12345/configuration</em></p>
-              <p>Again, no ID for the configuration and no POST verb usage. Although, I'm sure that in both of these cases POST usage might be argued to be valid. Well... OK.</p>
+              <p>Снова нет никакого ID для конфигурации и нет использования глагола POST. Хотя я
+                уверен, что будут спотрить о том, что POST вполне вписывается в оба эти случая... Что ж... Хорошо.</p>
             </div>
           </div>
         </div>
