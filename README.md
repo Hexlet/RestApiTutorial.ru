@@ -13,6 +13,13 @@
 
 ### Благодарности
 
+Отдельное спасибо хочется сказать:
+
+ - Alexander Vagin aka [@PlugIN73](https://github.com/PlugIN73)
+ - Jana Petrova aka [@JanaVPetrova](https://github.com/JanaVPetrova)
+
+### История
+
 Данный репозиторий был форком https://github.com/tfredrich/RestApiTutorial.com
 
 Original repository is https://github.com/tfredrich/RestApiTutorial.com
