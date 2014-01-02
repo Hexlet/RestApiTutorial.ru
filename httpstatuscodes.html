@@ -681,7 +681,14 @@
               или постоянным условием. Эти коды применимы к любому методу запроса. Пользовательским агентам
               СЛЕДУЕТ отображать пользователю включенную в такой ответ сущность.
             </p>
-            <p>If the client is sending data, a server implementation using TCP SHOULD be careful to ensure that the client acknowledges receipt of the packet(s) containing the response, before the server closes the input connection. If the client continues sending data to the server after the close, the server's TCP stack will send a reset packet to the client, which may erase the client's unacknowledged input buffers before they can be read and interpreted by the HTTP application.</p>
+            <p>
+              Если клиент передает данные, то серверу, использующему TCP СЛЕДУЕТ убедиться, что клиент
+              подтверждает отправку пакетов, содержащих ответ, до того, как сервер закроет соединение.
+              Если клиент продолжит отправку данных после того, как сервер закрыл соединение, TCP стек
+              сервера отправит пакет с флагом сброса (TCP reset packet), который может уничтожить клиентские
+              данные, находящиеся в неподтвержденных входных буферах, до того, как они будут прочитаны
+              и обработаны HTTP приложением.
+            </p>
             <h3>Wikipedia</h3>
             <p>
               Класс кодов 4xx предназначен для указания ошибок со стороны клиента.
