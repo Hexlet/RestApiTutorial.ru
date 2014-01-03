@@ -702,13 +702,20 @@
         <div class="span4">
           <i class="icon-star"></i> <a data-toggle="collapse" data-target="#bad_request" href="#">400: Bad Request</a>
           <div id="bad_request" class="collapse">
-            <p>The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.</p>
+            <p>
+              Запрос не удалось обработать из-за синтаксической ошибки. Клиенту НЕ СЛЕДУЕТ повторять такой
+              запрос без изменений.
+            </p>
             <h3>Wikipedia</h3>
             <p>
               Сервер обнаружил в запросе клиента синтаксическую ошибку.
               Появился в HTTP/1.0.
             </p>
-            <p><i class="icon-star"></i> General error when fulfilling the request would cause an invalid state. Domain validation errors, missing data, etc. are some examples.</p>
+            <p><i class="icon-star"></i>
+              Общая ошибка во время выполнения запроса может вызвать неверное состояние. Примером,
+              вызывающим этот статус, может быть ошибка в валидации домена или нехватка данных.
+              <!-- FIXME Domain validation errors - не уверена, что это "ошибка в валидации домена"-->
+            </p>
           </div>
         </div>
         <div class="span4">
