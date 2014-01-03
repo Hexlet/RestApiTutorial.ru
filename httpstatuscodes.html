@@ -702,19 +702,34 @@
         <div class="span4">
           <i class="icon-star"></i> <a data-toggle="collapse" data-target="#bad_request" href="#">400: Bad Request</a>
           <div id="bad_request" class="collapse">
-            <p>The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.</p>
+            <p>
+              Запрос не удалось обработать из-за синтаксической ошибки. Клиенту НЕ СЛЕДУЕТ повторять такой
+              запрос без изменений.
+            </p>
             <h3>Wikipedia</h3>
             <p>
               Сервер обнаружил в запросе клиента синтаксическую ошибку.
               Появился в HTTP/1.0.
             </p>
-            <p><i class="icon-star"></i> General error when fulfilling the request would cause an invalid state. Domain validation errors, missing data, etc. are some examples.</p>
+            <p><i class="icon-star"></i>
+              Общая ошибка во время выполнения запроса может вызвать неверное состояние. Примером,
+              вызывающим этот статус, может быть ошибка в валидации домена или нехватка данных.
+              <!-- FIXME Domain validation errors - не уверена, что это "ошибка в валидации домена"-->
+            </p>
           </div>
         </div>
         <div class="span4">
           <i class="icon-star"></i> <a data-toggle="collapse" data-target="#unauthorized" href="#">401: Unauthorized</a>
           <div id="unauthorized" class="collapse">
-            <p>The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource. The client MAY repeat the request with a suitable Authorization header field (section 14.8). If the request already included Authorization credentials, then the 401 response indicates that authorization has been refused for those credentials. If the 401 response contains the same challenge as the prior response, and the user agent has already attempted authentication at least once, then the user SHOULD be presented the entity that was given in the response, since that entity might include relevant diagnostic information. HTTP access authentication is explained in "HTTP Authentication: Basic and Digest Access Authentication".</p>
+            <p>
+              Запрос требует аунтефикации пользователя.
+              Ответ должен содердать WWW-Authenticate заголовок (раздел 14.47).
+              Клиент может повторить запрос с корректным Authorization заголовком (раздел 14.8).
+              Если запрос уже содержит информацию для авторизации, в таком случае 401 код ответа показывает, что авторизация была отклонена.
+              Если 401, содержит тот же самый вызов, как и предшествующий ответ, а агент пользователя уже делал попытку аутентификации по крайней мере один раз,
+              то СЛЕДУЕТ показать пользователю объект, который был дан в ответе, так как этот объект может включать соответствующую диагностическую информацию.
+              Аутентификации доступа HTTP объясняется в "HTTP-аутентификации: Basic и Digest Authentication Access".
+            </p>
             <h3>Wikipedia</h3>
             <p>
               Для доступа к запрашиваемому ресурсу требуется аутентификация.
@@ -723,7 +738,7 @@
             </p>
             <p>
               <i class="icon-star"></i>
-              Error code response for missing or invalid authentication token.
+              Код используется для пропущенного или не корректного токена аунтефикации.
             </p>
           </div>
         </div>
