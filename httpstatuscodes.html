@@ -790,7 +790,13 @@
         <div class="span4">
           <i class="icon-star"></i> <a data-toggle="collapse" data-target="#not_found" href="#">404: Not Found</a>
           <div id="not_found" class="collapse">
-            <p>The server has not found anything matching the Request-URI. No indication is given of whether the condition is temporary or permanent. The 410 (Gone) status code SHOULD be used if the server knows, through some internally configurable mechanism, that an old resource is permanently unavailable and has no forwarding address. This status code is commonly used when the server does not wish to reveal exactly why the request has been refused, or when no other response is applicable.</p>
+            <p>
+              Сервер не нашел по указанному URI никаких ресурсов. Нет никаких указаний о том, постоянное
+              это состояние или нет. СЛЕДУЕТ использовать статус 410 (Gone), если серверу известно, что
+              старый ресурс недоступен постоянно и у него нет адреса пересылки. Этот статус часто используют
+              тогда, когда сервер не хочет обнаруживать истинную причину того, почему он не обработал
+              запрос, или если нельзя применить никакой другой запрос.
+            </p>
             <h3>Wikipedia</h3>
             <p>
               Самая распространенная ошибка при пользовании Интернетом, основная причина — ошибка в написании адреса Web-страницы.
@@ -799,7 +805,10 @@
               Ответ 404 может использоваться вместо 403, если требуется тщательно скрыть от посторонних глаз определённые ресурсы.
               Появился в HTTP/1.0.
             </p>
-            <p><i class="icon-star"></i> Used when the requested resource is not found, whether it doesn't exist or if there was a 401 or 403 that, for security reasons, the service wants to mask.</p>
+            <p><i class="icon-star"></i>
+              Используется тогда, когда ресурс не был найден, не существует или был 401 или 403, но из
+              соображений безопасности сервер не ответил этими кодами.
+            </p>
           </div>
         </div>
         <div class="span4">
