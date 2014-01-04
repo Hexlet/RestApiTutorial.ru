@@ -55,7 +55,7 @@
           и определяют основы RESTful стиля.</p>
           <p><strong>Шесть ограничений: (нажмите на ссылку, чтобы получить больше информации)</strong></p>
           <ul id="constraint-accordian">
-            <li><a data-toggle="collapse" data-target="#uniform-interface" data-parent="#constraint-accordian" href="#">Единый интерфейс (Uniform Interface)</a>
+            <li><a data-toggle="collapse" data-target="#uniform-interface" data-parent="#constraint-accordian" href="#uniform-interface">Единый интерфейс (Uniform Interface)</a>
             <div class="collapse" id="uniform-interface">
               <p>Единый интерфейс определяет интерфейс между клиентами и серверами.
               Это упрощает и отделяет архитектуру, которая позволяет каждой части развиваться самостоятельно.
@@ -82,7 +82,7 @@
               <p>Единый интерфейс так же означает, что любой REST сервис должен обеспечивать его фундаментальный дизайн.</p>
             </div>
             </li>
-            <li><a data-toggle="collapse" data-target="#stateless" data-parent="#constraint-accordian" href="#">Отсутствие состояний (Stateless)</a>
+            <li><a data-toggle="collapse" data-target="#stateless" data-parent="#constraint-accordian" href="#stateless">Отсутствие состояний (Stateless)</a>
             <div class="collapse" id="stateless">
               <p> Так как REST это акроним для REpresentational State Transfer, отсутствие состояний является важной чертой.
               Таким образом, это значит, что необходимое состояние для обработки запроса содержится в самом запросе,
@@ -104,12 +104,12 @@
               Каждый встречал проблему с кнопкой "Назад" в своем веб приложении, когда оно ведет себя по разному в одной точке,
               потому что ожидались действия в определенном порядке?
               Такое происходит, когда нарушен принцип отсутствия состояний.
-              Есть случаи, когда не соблюдается принчип отсутствия состояний, например, three-legged OAuth, 
+              Есть случаи, когда не соблюдается принчип отсутствия состояний, например, three-legged OAuth,
               ограничение скорости вызова API и т.д.
               Однако, приложите максимум усилий, чтобы состояние приложения не занимало несколько запросов к вашему сервису.</p>
             </div>
             </li>
-            <li><a data-toggle="collapse" data-target="#cacheable" data-parent="#constraint-accordian" href="#">Кеширование ответа (Cacheable)</a>
+            <li><a data-toggle="collapse" data-target="#cacheable" data-parent="#constraint-accordian" href="#cacheable">Кеширование ответа (Cacheable)</a>
             <div class="collapse" id="cacheable">
               <p>Как и в World Wide Web, клиент может кэшировать ответы.
               Таким образом, ответы явно или неявно определяют себя как кешируемые или нет,
@@ -119,7 +119,7 @@
               </p>
             </div>
             </li>
-            <li><a data-toggle="collapse" data-target="#client-server" data-parent="#constraint-accordian" href="#">Клиент-сервер (Client-Server)</a>
+            <li><a data-toggle="collapse" data-target="#client-server" data-parent="#constraint-accordian" href="#client-server">Клиент-сервер (Client-Server)</a>
             <div class="collapse" id="client-server">
               <p>Единый интерфейс отделяет клиентов от серверов.
               Разделение интересов означает, что, например, клиенты не связаны с хранением данных,
@@ -128,7 +128,7 @@
               Серверы и клиенты могут быть заменяемы и разрабатываться независимо, пока интерфейс не изменяется.</p>
             </div>
             </li>
-            <li><a data-toggle="collapse" data-target="#layered-system" data-parent="#constraint-accordian" href="#">Многоуровневая система (Layered System)</a>
+            <li><a data-toggle="collapse" data-target="#layered-system" data-parent="#constraint-accordian" href="#layered-system">Многоуровневая система (Layered System)</a>
             <div class="collapse" id="layered-system">
               <p>Обычно клиенты не могу сказать - они подключены напрямую к серверу или общаются через посредника.
               Промежуточный сервер может улучшить масштабируемость системы, обеспечивая балансировку нагрузки и предоставляя общий кэш.
@@ -136,7 +136,7 @@
             </div>
             </li>
             <!-- FIXME - Code on Demand - "код по требованию" -->
-            <li><a data-toggle="collapse" data-target="#code-on-demand" data-parent="#constraint-accordian" href="#">"Код по требованию" (Code on Demand - опционально)</a>
+            <li><a data-toggle="collapse" data-target="#code-on-demand" data-parent="#constraint-accordian" href="#code-on-demand">"Код по требованию" (Code on Demand - опционально)</a>
             <div class="collapse" id="code-on-demand">
               <p>Серверы могут временно расширять или кастомизировать функционал
               клиента, передавая ему логику, которую он может исполнять. Например, это
