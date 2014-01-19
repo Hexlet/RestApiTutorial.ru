@@ -836,10 +836,28 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#not_acceptable">406: Not Acceptable</a>
           <div id="not_acceptable" class="collapse">
-            <p>The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request.</p>
-            <p>Unless it was a HEAD request, the response SHOULD include an entity containing a list of available entity characteristics and location(s) from which the user or user agent can choose the one most appropriate. The entity format is specified by the media type given in the Content-Type header field. Depending upon the format and the capabilities of the user agent, selection of the most appropriate choice MAY be performed automatically. However, this specification does not define any standard for such automatic selection.</p>
-            <blockquote>Note: HTTP/1.1 servers are allowed to return responses which are not acceptable according to the accept headers sent in the request. In some cases, this may even be preferable to sending a 406 response. User agents are encouraged to inspect the headers of an incoming response to determine if it is acceptable.</blockquote>
-            <p>If the response could be unacceptable, a user agent SHOULD temporarily stop receipt of more data and query the user for a decision on further actions.</p>
+            <p>
+              Ресурс, определяемый запросом, может только формировать ответы, имеющие характеристики,
+              не совместимые с принятыми заголовками, которые были отправлены в запросе.
+            </p>
+            <p>
+              Если глагол запроса был не HEAD, в ответ СЛЕДУЕТ включить список доступных характеристик
+              сущности и их места расположения, из которых пользователь или агент пользователя может
+              выбрать наиболее приемлемый вариант. Формат сущности указан в заголовке Content-Type.
+              В зависимости от формата и возможнотей агента пользователя, выбор наиболее приемлемого
+              варианта МОЖЕТ происходть автоматически. Как бы то ни было, эта спецификация не определяет
+              каких-либо стандартов для автоматической выборки.
+            </p>
+            <blockquote>
+              Заметьте: Сервера HTTP/1.1 могут возвращать ответы, неприемлемые для запроса с
+              указанным заголовками. В некоторых случаях предпочтительнее возвращать статус 406. Такое
+              поведение поощряет пользователя проверять заголовки запроса и определять, является ли
+              запрос приемлемым.
+            </blockquote>
+            <p>
+              Если ответ был не приемлемым, агенту пользователя СЛЕДУЕТ временно прекратить получение других
+              данных и запросить у пользователя решение для дальнейших действий.
+            </p>
             <h3>Wikipedia</h3>
             <p>
               Запрошенный URI не может удовлетворить переданным в заголовке характеристикам.
