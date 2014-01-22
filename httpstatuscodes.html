@@ -971,9 +971,16 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#precondition_failed">412: Precondition Failed</a>
           <div id="precondition_failed" class="collapse">
-            <p>The precondition given in one or more of the request-header fields evaluated to false when it was tested on the server. This response code allows the client to place preconditions on the current resource metainformation (header field data) and thus prevent the requested method from being applied to a resource other than the one intended.</p>
+            <p>
+              Предварительное условие, указанное в одном или нескольких заголовках запроса, оказалось
+              ложным, когда оно проверялось на сервере. Этот код ответа позволяет клиенту записывать
+              предварительные условия в метаинформации текущего ресурса, таким образом, предотвращая
+              применение запрошенного метода к ресурсу, кроме того, что ожидается.
+            </p>
             <h3>Wikipedia</h3>
-            <p>The server does not meet one of the preconditions that the requester put on the request.</p>
+            <p>
+              Возвращается, если ни одно из условных полей заголовка запроса не было выполнено.
+            </p>
           </div>
         </div>
         <div class="span4">
