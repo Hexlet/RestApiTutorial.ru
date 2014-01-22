@@ -986,10 +986,16 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#request_entity_too_large">413: Request Entity Too Large</a>
           <div id="request_entity_too_large" class="collapse">
-            <p>The server is refusing to process a request because the request entity is larger than the server is willing or able to process. The server MAY close the connection to prevent the client from continuing the request.</p>
-            <p>If the condition is temporary, the server SHOULD include a Retry- After header field to indicate that it is temporary and after what time the client MAY try again.</p>
+            <p>
+              Возвращается в случае, если сервер отказывается обработать запрос по причине слишком большого размера тела запроса. Сервер может закрыть соединение, чтобы прекратить дальнейшую передачу запроса.
+            </p>
+            <p>
+              Если проблема временная, то рекомендуется в ответ сервера включить заголовок Retry-After с указанием времени, по истечении которого можно повторить аналогичный запрос.
+            </p>
             <h3>Wikipedia</h3>
-            <p>The request is larger than the server is willing or able to process.</p>
+            <p>
+              Тело запроса больше, чем сервер может обработать.
+            </p>
           </div>
         </div>
         <div class="span4">
