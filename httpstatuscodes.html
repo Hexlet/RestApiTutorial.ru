@@ -1001,9 +1001,16 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#request_uri_too_long">414: Request-URI Too Long</a>
           <div id="request_uri_too_long" class="collapse">
-            <p>The server is refusing to service the request because the Request-URI is longer than the server is willing to interpret. This rare condition is only likely to occur when a client has improperly converted a POST request to a GET request with long query information, when the client has descended into a URI "black hole" of redirection (e.g., a redirected URI prefix that points to a suffix of itself), or when the server is under attack by a client attempting to exploit security holes present in some servers using fixed-length buffers for reading or manipulating the Request-URI.</p>
+            <p>
+              Cервер не может обработать запрос из-за слишком длинного указанного URL. Эту редкую ошибку
+              можно спровоцировать, например, когда клиент пытается передать длинные параметры через метод
+              GET, а не POST, когда клиент попадает в "черную дыру" редиректов (например, когда префикс URI
+              указывает на свое же окончание), или когда сервер подвергается атаке со стороны клиента,
+              который пытается использовать дыры в безопасности, которые встречаются на серверах с
+              фиксированной длинной буфера для чтения или обработки Request-URI.
+            </p>
             <h3>Wikipedia</h3>
-            <p>The URI provided was too long for the server to process.</p>
+            <p>Укзанный URI был слишком длинным и сервер не смог его обработать.</p>
           </div>
         </div>
       </div>
