@@ -70,16 +70,17 @@
           только о синтаксисе.
           Другими словами, JSON ответ на вызов REST сервиса не описан в стандарте и является договорным.
           Больше о формате данных JSON можно найти на <a href="http://www.json.org/">http://www.json.org/</a>.</p>
+          <p>Что касается использования XML в сервисах REST, стандартов и конвенций действительно не существует,
+          кроме использования синтаксически правильных тегов и текстов.
+          В частности, пространства имен не используются, и не должны быть использованы в контексте RESTful сервисов.
+          Возвращаемый XML больше похож на JSON и просто читается, без схемы и пространства имен -
+          представлены только данные и ссылки. 
           
-          <p>Regarding XML use in REST services, XML standards and conventions are really not in play other than 
-          to utilize syntactically correct tags and text.  
-          In particular, namespaces are not, nor should they be use in a RESTful service context.  
-          XML that is returned is more JSON like—simple and easy to read, without the schema and 
-          namespace details present—just data and links.  
           If it ends up being more complex than this, see the first paragraph for this tip&mdash;the cost of XML 
           will be staggering. 
           In our experience nobody uses the XML responses anyway.  
           It's just too expensive to process.</p>
+          
           <h2>Create Fine-Grained Resources</h2>
           <p>When starting out, it's much easier to create APIs that mimic the underlying application domain or 
           database architecture of your system.  
