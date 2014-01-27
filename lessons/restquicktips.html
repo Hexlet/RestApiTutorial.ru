@@ -52,8 +52,10 @@
           улучшает ясность того, что делает запрос. 
           Использование параметров строки запроса - это очень хорошо для поиска и фильтрации данных,
           но плохо для имен ресурсов.</p>
+          
           <p>Appropriate resource names provide context for a service request, 
           increasing understandability of the service API.  
+          
           Ресурсы рассматриваются иерархически через их имена URI, предлагая клиентам дружественный,
           простую для понимания иерархию ресурсов для достижения цели в своих приложениях. </p>
           <p>Имена ресурсов должны быть существительными - избегайте глаголы в качестве имен ресурсов. 
@@ -78,9 +80,9 @@
           
           If it ends up being more complex than this, see the first paragraph for this tip&mdash;the cost of XML 
           will be staggering. 
-          In our experience nobody uses the XML responses anyway.  
-          It's just too expensive to process.</p>
           
+          Если судить по нашему опыту - никто никогда не использует XML для ответа.
+          Это слишком дорого для обработки.</p>
           <h2>Create Fine-Grained Resources</h2>
           <p>When starting out, it's much easier to create APIs that mimic the underlying application domain or 
           database architecture of your system.  
