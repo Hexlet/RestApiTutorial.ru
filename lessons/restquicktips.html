@@ -48,16 +48,18 @@
           Также, GET запрос не должен изменять любые базовые данные ресурса.
           Измерение или отслеживания, которые обновляют данные, а не данные URI, могут происходить.</p>
           <h2>Рациональное название ресурсов</h2>
-          <p>Рациональное название ресурсов или путей (т.е., /posts/23 вместо /api?type=posts&amp;id=23) 
-          улучшает ясность того, что делает запрос. 
+          <p>Рациональное название ресурсов или путей (т.е., /posts/23 вместо /api?type=posts&amp;id=23)
+          улучшает ясность того, что делает запрос.
           Использование параметров строки запроса - это очень хорошо для поиска и фильтрации данных,
           но плохо для имен ресурсов.</p>
-          <p>Appropriate resource names provide context for a service request, 
-          increasing understandability of the service API.  
+
+          <p>Подходящие названия ресурсов предоставляют контекст для запроса и делают
+            API сервиса более понятным.
+
           Ресурсы рассматриваются иерархически через их имена URI, предлагая клиентам дружественный,
           простую для понимания иерархию ресурсов для достижения цели в своих приложениях. </p>
-          <p>Имена ресурсов должны быть существительными - избегайте глаголы в качестве имен ресурсов. 
-          Это дает больше ясности. 
+          <p>Имена ресурсов должны быть существительными - избегайте глаголы в качестве имен ресурсов.
+          Это дает больше ясности.
           Используйте HTTP методы, чтобы указать глагол в запросе.</p>
           <h2>XML и JSON</h2>
           <p>Предпочтительна поддержка json, но если цена между JSON и XML не поражает, поддерживайте оба.
@@ -78,10 +80,14 @@
           
           If it ends up being more complex than this, see the first paragraph for this tip&mdash;the cost of XML 
           will be staggering. 
-          In our experience nobody uses the XML responses anyway.  
-          It's just too expensive to process.</p>
+          
+          Если судить по нашему опыту - никто никогда не использует XML для ответа.
+          Это слишком дорого для обработки.</p>
+          
           
           <h2>Create Fine-Grained Resources</h2>
+          <h2>Создавайте детальные Ресурсы</h2>
+          
           <p>When starting out, it's much easier to create APIs that mimic the underlying application domain or 
           database architecture of your system.  
           Eventually, you'll want aggregate services—services that utilize multiple underlying resources 
