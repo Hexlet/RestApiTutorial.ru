@@ -88,10 +88,14 @@
           
           <p>В начале гораздо проще создавать API, которые имитируют основной домен приложения или
           архитектуру базы данных вашей системы.
+          
           Eventually, you'll want aggregate services—services that utilize multiple underlying resources 
           to reduce chattiness. 
-          But it's much easier to create larger resources later from individual resources than it is 
-          to create fine-grained or individual resources from larger aggregates.  
+          
+          
+          Но позже гораздо проще создать большие ресурсы из отдельных ресурсов, чем создавать
+          детальные или индивидуальные ресурсы от более крупных агрегатов.
+
           Make it easy on yourself and start with small, easily defined resources, providing CRUD functionality on those.
           You can create those use-case-oriented, chattiness-reducing resources later.</p>
           <h2>Consider Connectedness</h2>
