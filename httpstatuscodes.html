@@ -969,7 +969,11 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#length_rqd">411: Length Required</a>
           <div id="length_rqd" class="collapse">
-            <p>The server refuses to accept the request without a defined Content- Length. The client MAY repeat the request if it adds a valid Content-Length header field containing the length of the message-body in the request message.</p>
+            <p>
+              Сервер отказывается принять запрос без указания Content-Length. Клиент МОЖЕТ повторить
+              запрос, если добавит корректное значение в поле заголовка Content-Length, которое содержит
+              длину тела сообщения в сообщении запроса.
+            </p>
             <h3>Wikipedia</h3>
             <p>
               Для указанного ресурса клиент должен указать Content-Length в заголовке запроса.
@@ -1050,10 +1054,24 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#requested_range_not_satisfiable">416: Requested Range Not Satisfiable</a>
           <div id="requested_range_not_satisfiable" class="collapse">
-            <p>A server SHOULD return a response with this status code if a request included a Range request-header field (section 14.35), and none of the range-specifier values in this field overlap the current extent of the selected resource, and the request did not include an If-Range request-header field. (For byte-ranges, this means that the first- byte-pos of all of the byte-range-spec values were greater than the current length of the selected resource.)</p>
-            <p>When this status code is returned for a byte-range request, the response SHOULD include a Content-Range entity-header field specifying the current length of the selected resource (see section 14.16). This response MUST NOT use the multipart/byteranges content- type.</p>
+            <p>
+              Серверу следует вернуть ответ с этим кодом, если запрос содержал поле заголовка Range
+              и ни одно из его значений не совпало с размером выбранного ресурса, при этом в запросе не
+              было поля заголовка If-Range. (Для байтовых диапазонов (byte-range) это означает, что
+              значение first-byte-pos в спецификации byte-range-spec было больше, чем фактический размер
+              выбранного ресурса.)
+            </p>
+            <p>
+              Когда этот статус возвращается в ответ на запрос с указанием диапазона запрашиваемых байт
+              (byte-range requests), в ответ СЛЕДУЕТ включить поле заголовка сущности Content-Range,
+              в котором указать фактический размер ресурса (см. секцию 14.16). Этот ответ НЕЛЬЗЯ
+              использовать при передаче типа multipart/byteranges.
+            </p>
             <h3>Wikipedia</h3>
-            <p>The client has asked for a portion of the file, but the server cannot supply that portion. For example, if the client asked for a part of the file that lies beyond the end of the file.</p>
+            <p>
+              Клиент запросил часть файла, но сервер не может ее передать. Например, если клаент запросил
+              часть файла, которая находится за пределами конца файла.
+            </p>
           </div>
         </div>
         <div class="span4">
