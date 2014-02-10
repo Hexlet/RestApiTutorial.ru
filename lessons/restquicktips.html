@@ -82,12 +82,10 @@
           
           Если судить по нашему опыту - никто никогда не использует XML для ответа.
           Это слишком дорого для обработки.</p>
-          
           <h2>Создавайте детальные Ресурсы</h2>
-          
           <p>В начале гораздо проще создавать API, которые имитируют основной домен приложения или
           архитектуру базы данных вашей системы.
-          
+
           Eventually, you'll want aggregate services—services that utilize multiple underlying resources 
           to reduce chattiness. 
           
@@ -96,8 +94,9 @@
           детальные или индивидуальные ресурсы от более крупных агрегатов.
           Легко начать с маленьких, легко определяемых ресурсов, обеспечивая функциональность CRUD.
           You can create those use-case-oriented, chattiness-reducing resources later.</p>
-          <h2>Consider Connectedness</h2>
-          <p>One of the principles of REST is connectedness—via hypermedia links. 
+          <h2>Учитывайте связность</h2>
+          <p>Одним из принципов REST является связность через ссылки.
+          
           While services are still useful without them, APIs become more self-descriptive when links are returned 
           in the response. 
           At the very least, a 'self' reference informs clients how the data was or can be retrieved.
@@ -109,7 +108,7 @@
       <hr>
       <footer>
         <p>
-          &copy;Pearson eCollege, 2012. All rights reserved.
+          Данный сайт является переводом RestApiTutorial.com<br />&copy;Kaize Team<br />&copy;Pearson eCollege, 2012. All rights reserved.
         </p>
       </footer>
     </div> <!-- /container -->
