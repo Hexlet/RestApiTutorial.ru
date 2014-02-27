@@ -78,25 +78,18 @@
           <h2>Безопасность</h2>
         </div>
         <div class="span12">
-          <p>Идемпотентность - это забавное слово, которое часто выбивает людей из
-           колеи. Идемпотентность кажется иногда запутанной концепцией, по крайней мере,
-           если судить по академическому определению.</p>
-          <p>С точки зрения RESTful-сервиса, операция (или вызов сервиса) идемпотентна тогда,
-           когда клиенты могут делать один и тот же вызов неоднократно при одном и том же
-           результате, работая как "сеттер" в языке программирования. Другими словами, создание
-           большого количества идентичных запросов имеет такой же эффект, как и один запрос.
-            Заметьте, что в то время, как идемпотентные операции производят один и тот же
-           результат на сервере (побочные эффекты), ответ сам по себе может не быть тем же
-            самым (например, состояние ресурса может измениться между запросами).</p>
-          <p>Методы PUT и DELETE по определению идемпотентны. Тем не менее, есть один нюанс с
-           методом DELETE. Проблема в том, что успешный DELETE-запрос возвращает статус 200 (OK)
-           или 204 (No Content), но будет все время возвращать 404 (Not Found) для последующих
-           запросов, если только сервис не сконфигурирован так, чтобы "помечать" ресурс как
-           удаленный без его фактического удаления. Как бы то ни было, когда сервис на самом
-           деле удаляет ресурс, следующий вызов не найдет этот ресурс и вернет 404. Состояние
-           на сервере после каждого вызова DELETE то же самое, но ответы разные.</p>
-          <p>Методы GET, HEAD, OPTIONS и TRACE определены как безопасные, что также делает их
-           идемпотентными. Прочитайте секцию о безопасности ниже.</p>
+          <p>From Wikipedia:</p>
+          <p><i>Some methods (for example, HEAD, GET, OPTIONS and TRACE) are defined as safe, 
+          which means they are intended only for information retrieval and should not change the 
+          state of the server. In other words, they should not have side effects, beyond relatively 
+          harmless effects such as logging, caching, the serving of banner advertisements or 
+          incrementing a web counter. Making arbitrary GET requests without regard to the context 
+          of the application's state should therefore be considered safe.
+          </i></p>
+          <p>In short, safety means that calling the method does not cause side effects. 
+          Consequently, clients can make safe requests repeatedly without worry of side effects on the server. This means that services must adhere to the safety definitions of GET, HEAD, OPTIONS and TRACE operations. Otherwise, besides being confusing to service consumers, it can cause problems for Web caching, search engines and other automated agents—making unintended changes on the server.</p>
+          <p>By definition, safe operations are idempotent, since they produce the same result on the server.</p>
+          <p>Safe methods are implemented as read-only operations. However, safety does not mean that the server must return the same response every time.</p>
         </div>
       </div>
       <hr>
