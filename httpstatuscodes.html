@@ -1305,9 +1305,16 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#not_implemented">501: Not Implemented</a>
           <div id="not_implemented" class="collapse">
-            <p>The server does not support the functionality required to fulfill the request. This is the appropriate response when the server does not recognize the request method and is not capable of supporting it for any resource.</p>
+            <p>
+              Сервер не поддерживает функциональных возможностей, необходимых для выполнения запроса.
+              Это типичный ответ, когда сервер не понимает метод в запросе и не способен выполнить запрос для ресурса.
+              Если же метод серверу известен, но он не применим к данному ресурсу, то нужно вернуть ответ 405. 
+              Появился в HTTP/1.0.
+            </p> 
             <h3>Wikipedia</h3>
-            <p>The server either does not recognise the request method, or it lacks the ability to fulfill the request.</p>
+            <p>
+              Серверу либо не известен метод запроса, или ему (серверу) не хватает возможностей выполнить запрос.
+            </p>
           </div>
         </div>
         <div class="span4">
