@@ -1274,7 +1274,10 @@
           <a data-toggle="collapse" data-target="#client_closed_request">499: Client Closed Request (Nginx)</a>
           <div id="client_closed_request" class="collapse">
             <h3>Wikipedia</h3>
-            <p>An Nginx HTTP server extension. This code is introduced to log the case when the connection is closed by client while HTTP server is processing its request, making server unable to send the HTTP header back.</p>
+            <p>
+              Код используется Nginx. Этот код был введен для логирования ситуаций, когда клиент закрывает соединение
+              во время обработки запроса сервером. Таким образом, сервер не может отправить назад заголовок HTTP.
+            </p>
           </div>
         </div>
         <div class="span4">
@@ -1308,9 +1311,9 @@
             <p>
               Сервер не поддерживает функциональных возможностей, необходимых для выполнения запроса.
               Это типичный ответ, когда сервер не понимает метод в запросе и не способен выполнить запрос для ресурса.
-              Если же метод серверу известен, но он не применим к данному ресурсу, то нужно вернуть ответ 405. 
+              Если же метод серверу известен, но он не применим к данному ресурсу, то нужно вернуть ответ 405.
               Появился в HTTP/1.0.
-            </p> 
+            </p>
             <h3>Wikipedia</h3>
             <p>
               Серверу либо не известен метод запроса, или ему (серверу) не хватает возможностей выполнить запрос.
