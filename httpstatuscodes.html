@@ -1336,10 +1336,20 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#service_unavailable">503: Service Unavailable</a>
           <div id="service_unavailable" class="collapse">
-            <p>The server is currently unable to handle the request due to a temporary overloading or maintenance of the server. The implication is that this is a temporary condition which will be alleviated after some delay. If known, the length of the delay MAY be indicated in a Retry-After header. If no Retry-After is given, the client SHOULD handle the response as it would for a 500 response.</p>
-            <blockquote>Note: The existence of the 503 status code does not imply that a server must use it when becoming overloaded. Some servers may wish to simply refuse the connection.</blockquote>
+            <p>
+              Сервер не может обработать запрос из-за временной перегрузки или технических работ. Это временное
+              состояние, из которого сервер выйдет через какое-то время. Если это время извстно, то его МОЖНО
+              передать в заголовке Retry-After. Если заголовок Retry-After передан, то клиенту СЛЕДУЕТ обрабатывать
+              ответ так, как если бы ответом был статус 500.
+            </p>
+            <blockquote>
+              Замечание: существование кода 503 не обязывает сервер отвечать этим статусом, когда он перегружен. Некоторые
+              сервера просто отвергают соединения.
+            </blockquote>
             <h3>Wikipedia</h3>
-            <p>The server is currently unavailable (because it is overloaded or down for maintenance). Generally, this is a temporary state.</p>
+            <p>
+              Сервер недоступен (из-за перегрузки или технических работ). Обычно это временное состояние.
+            </p>
           </div>
         </div>
         <div class="span4">
