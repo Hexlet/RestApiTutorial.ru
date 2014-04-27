@@ -1356,16 +1356,12 @@
           <a data-toggle="collapse" data-target="#gateway_timeout">504: Gateway Timeout</a>
           <div id="gateway_timeout" class="collapse">
             <p>
-              The server, while acting as a gateway or proxy, 
-              did not receive a timely response from the upstream server specified by the URI (e.g. HTTP, FTP, LDAP)
-              or some other auxiliary server (e.g. DNS) it needed to access in attempting to complete the request.
               Сервер, в роли шлюза или прокси-сервера, не дождался в рамках установленного таймаута ответа от 
               вышестоящего сервера текущего запроса.
             </p>
             <blockquote>
               Замечание: Некоторые прокси-сервера возвращают 400 или 500,
               когда время обраборки DNS запроса превышает установленный таймаут.
-              Note: Note to implementors: some deployed proxies are known to return 400 or 500 when DNS lookups time out.
             </blockquote>
             <h3>Wikipedia</h3>
             <p>Сервер в роли шлюза или прокси-сервера не дождался ответа от вышестоящего сервера для завершения текущего запроса. Появился в HTTP/1.1.</p>
