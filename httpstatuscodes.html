@@ -1391,7 +1391,12 @@
           <div id="variant_also_negotiates" class="collapse">
             <p>The 506 status code indicates that the server has an internal configuration error: the chosen variant resource is configured to engage in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process.</p>
             <h3>Wikipedia</h3>
-            <p>Transparent content negotiation for the request results in a circular reference.</p>
+            <p>
+              В результате ошибочной конфигурации выбранный вариант указывает сам на себя,
+              из-за чего процесс связывания прерывается.
+              Экспериментальное.
+              Введено в RFC 2295 для дополнения протокола HTTP технологией Transparent Content Negotiation.
+            </p>
           </div>
         </div>
         <div class="span4">
