@@ -1435,7 +1435,11 @@
             <p>The policy for accessing the resource has not been met in the request.  The server should send back all the information necessary for the client to issue an extended request. It is outside the scope of this specification to specify how the extensions inform the client.</p>
             <p>If the 510 response contains information about extensions that were not present in the initial request then the client MAY repeat the request if it has reason to believe it can fulfill the extension policy by modifying the request according to the information provided in the 510 response. Otherwise the client MAY present any entity included in the 510 response to the user, since that entity may include relevant diagnostic information.</p>
             <h3>Wikipedia</h3>
-            <p>Further extensions to the request are required for the server to fulfill it.</p>
+            <p>
+              На сервере отсутствует расширение, которое желает использовать клиент.
+              Сервер может дополнительно передать информацию о доступных ему расширениях.
+              Введено в RFC 2774 для дополнения протокола HTTP поддержкой расширений
+            </p>
           </div>
         </div>
         <div class="span4">
