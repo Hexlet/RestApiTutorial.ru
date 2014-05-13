@@ -1457,7 +1457,14 @@
             <p>However, these risks are not unique to the 511 status code; in other words, a captive portal that is not using this status code introduces the same issues.</p>
             <p>Also, note that captive portals using this status code on an SSL or TLS connection (commonly, port 443) will generate a certificate error on the client.</p>
             <h3>Wikipedia</h3>
-            <p>The client needs to authenticate to gain network access. Intended for use by intercepting proxies used to control access to the network (e.g., &quot;captive portals&quot; used to require agreement to Terms of Service before granting full Internet access via a Wi-Fi hotspot).</p>
+            <p>
+              Этот ответ посылается не сервером, которому был предназначен запрос,
+              а сервером-посредником — например, сервером провайдера — в случае,
+              если клиент должен сначала авторизоваться в сети, например,
+              ввести пароль для платной точки доступа к Интернету.
+              Предполагается, что в теле ответа будет возвращена Web-форма авторизации или перенаправление на неё.
+              Введено в черновике стандарта RFC 6585 
+            </p>
           </div>
         </div>
       </div>
