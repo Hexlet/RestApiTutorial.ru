@@ -1457,7 +1457,14 @@
             <p>However, these risks are not unique to the 511 status code; in other words, a captive portal that is not using this status code introduces the same issues.</p>
             <p>Also, note that captive portals using this status code on an SSL or TLS connection (commonly, port 443) will generate a certificate error on the client.</p>
             <h3>Wikipedia</h3>
-            <p>The client needs to authenticate to gain network access. Intended for use by intercepting proxies used to control access to the network (e.g., &quot;captive portals&quot; used to require agreement to Terms of Service before granting full Internet access via a Wi-Fi hotspot).</p>
+            <p>
+              Этот ответ посылается не сервером, которому был предназначен запрос,
+              а сервером-посредником — например, сервером провайдера — в случае,
+              если клиент должен сначала авторизоваться в сети, например,
+              ввести пароль для платной точки доступа к Интернету.
+              Предполагается, что в теле ответа будет возвращена Web-форма авторизации или перенаправление на неё.
+              Введено в черновике стандарта RFC 6585 
+            </p>
           </div>
         </div>
       </div>
@@ -1466,14 +1473,18 @@
           <a data-toggle="collapse" data-target="#network_read_timeout">598: Network read timeout error</a>
           <div id="network_read_timeout" class="collapse">
             <h3>Wikipedia</h3>
-            <p>This status code is not specified in any RFCs, but is used by some HTTP proxies to signal a network read timeout behind the proxy to a client in front of the proxy.</p>
+            <p>
+            Этот статус не описан в стандарте, однако может быть использован некоторыми HTTP прокси.
+            </p>
           </div>
         </div>
         <div class="span4">
           <a data-toggle="collapse" data-target="#network_connect_timeout">599: Network connect timeout error</a>
           <div id="network_connect_timeout" class="collapse">
             <h3>Wikipedia</h3>
-            <p>This status code is not specified in any RFCs, but is used by some HTTP proxies to signal a network connect timeout behind the proxy to a client in front of the proxy.</p>
+            <p>
+            Этот статус не описан в стандарте, однако может быть использован некоторыми HTTP прокси.
+            This status code is not specified in any RFCs, but is used by some HTTP proxies to signal a network connect timeout behind the proxy to a client in front of the proxy.</p>
           </div>
         </div>
         <div class="span4">
