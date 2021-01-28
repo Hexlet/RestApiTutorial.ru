@@ -1192,12 +1192,12 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#precondition_required">428: Precondition Required</a>
           <div id="precondition_required" class="collapse">
-            <p>The 428 status code indicates that the origin server requires the request to be conditional.</p>
-            <p>Its typical use is to avoid the "lost update" problem, where a client GETs a resource's state, modifies it, and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict.  By requiring requests to be conditional, the server can assure that clients are working with the correct copies.</p>
-            <p>Responses using this status code SHOULD explain how to resubmit the request successfully.</p>
-            <p>The 428 status code is optional; clients cannot rely upon its use to prevent &quot;lost update&quot; conflicts.</p>
+            <p>Код состояния 428 указывает, что исходный сервер требует, чтобы запрос был условным.</p>
+            <p>Его типичное использование - избежать проблемы «потерянного обновления», когда клиент ПОЛУЧАЕТ состояние ресурса, изменяет его и ОТПРАВЛЯЕТ обратно на сервер, когда тем временем третья сторона изменила состояние на сервере, что привело к конфликту. Требуя, чтобы запросы были условными, сервер может гарантировать, что клиенты работают с правильными копиями.</p>
+            <p>Ответы с этим кодом состояния ДОЛЖНЫ объяснять, как повторно отправить запрос.</p>
+            <p>Код состояния 428 не является обязательным; клиенты не могут полагаться на его использование, чтобы предотвратить конфликты &quot;потерянных обновлений&quot;.</p>
             <h3>Wikipedia</h3>
-            <p>The origin server requires the request to be conditional. Intended to prevent "the &quot;lost update&quot; problem, where a client GETs a resource's state, modifies it, and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict.</p>
+            <p>Исходный сервер требует, чтобы запрос был условным. Предназначен для предотвращения проблемы &quot;потерянного обновления&quot;, когда клиент ПОЛУЧАЕТ состояние ресурса, изменяет его и отправляет обратно на сервер, когда тем временем третья сторона изменила состояние на сервере, что привело к конфликту.</p>
           </div>
         </div>
         <div class="span4">
