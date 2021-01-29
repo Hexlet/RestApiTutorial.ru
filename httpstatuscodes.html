@@ -1203,12 +1203,12 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#too_many_requests">429: Too Many Requests</a>
           <div id="too_many_requests" class="collapse">
-            <p>The 429 status code indicates that the user has sent too many requests in a given amount of time ("rate limiting").</p>
-            <p>The response representations SHOULD include details explaining the condition, and MAY include a Retry-After header indicating how long to wait before making a new request.</p>
-            <p>When a server is under attack or just receiving a very large number of requests from a single party, responding to each with a 429 status code will consume resources.</p>
-            <p>Therefore, servers are not required to use the 429 status code; when limiting resource usage, it may be more appropriate to just drop connections, or take other steps.</p>
+            <p>Код состояния 429 указывает, что пользователь отправил слишком много запросов за заданный промежуток времени («ограничение скорости»).</p>
+            <p>Представления ответа ДОЛЖНЫ включать подробности, объясняющие условие, и МОГУТ включать заголовок Retry-After, указывающий, как долго ждать, прежде чем делать новый запрос.</p>
+            <p>Когда сервер находится под атакой или просто получает очень большое количество запросов от одной стороны, ответ на каждый с кодом состояния 429 потребляет ресурсы.</p>
+            <p>Следовательно, серверы не обязаны использовать код состояния 429; при ограничении использования ресурсов может быть более целесообразным просто разорвать соединение или предпринять другие шаги.</p>
             <h3>Wikipedia</h3>
-            <p>The user has sent too many requests in a given amount of time. Intended for use with rate limiting schemes.</p>
+            <p>Пользователь отправил слишком много запросов за заданный промежуток времени. Предназначен для использования со схемами ограничения скорости.</p>
           </div>
         </div>
       </div>
