@@ -1216,11 +1216,11 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#request_header_fields_too_large">431: Request Header Fields Too Large</a>
           <div id="request_header_fields_too_large" class="collapse">
-            <p>The 431 status code indicates that the server is unwilling to process the request because its header fields are too large.  The request MAY be resubmitted after reducing the size of the request header fields.</p>
-            <p>It can be used both when the set of request header fields in total are too large, and when a single header field is at fault.  In the latter case, the response representation SHOULD specify which header field was too large.</p>
-            <p>Servers are not required to use the 431 status code; when under attack, it may be more appropriate to just drop connections, or take other steps.</p>
+            <p>Код состояния 431 указывает на то, что сервер не желает обрабатывать запрос, поскольку его поля заголовка слишком велики. Запрос МОЖЕТ быть отправлен повторно после уменьшения размера полей заголовка запроса.</p>
+            <p>Его можно использовать как в случае, когда совокупность полей заголовка запроса слишком велика, так и в случае неисправности одного поля заголовка. В последнем случае представление ответа ДОЛЖНО указывать, какое поле заголовка было слишком большим.</p>
+            <p>Серверы не обязаны использовать код состояния 431; при атаке может быть более подходящим просто разорвать соединение или предпринять другие шаги.</p>
             <h3>Wikipedia</h3>
-            <p>The server is unwilling to process the request because either an individual header field, or all the header fields collectively, are too large.</p>
+            <p>Сервер не желает обрабатывать запрос, потому что либо отдельное поле заголовка, либо все поля заголовка в совокупности слишком велики.</p>
           </div>
         </div>
         <div class="span4">
