@@ -1433,8 +1433,8 @@
         <div class="span4">
           <a data-toggle="collapse" data-target="#not_extended">510: Not Extended</a>
           <div id="not_extended" class="collapse">
-            <p>The policy for accessing the resource has not been met in the request.  The server should send back all the information necessary for the client to issue an extended request. It is outside the scope of this specification to specify how the extensions inform the client.</p>
-            <p>If the 510 response contains information about extensions that were not present in the initial request then the client MAY repeat the request if it has reason to believe it can fulfill the extension policy by modifying the request according to the information provided in the 510 response. Otherwise the client MAY present any entity included in the 510 response to the user, since that entity may include relevant diagnostic information.</p>
+            <p>В запросе не соблюдена политика доступа к ресурсу. Сервер должен отправить обратно всю информацию, необходимую клиенту для отправки расширенного запроса. Указание того, как расширения информируют клиента, выходит за рамки данной спецификации.</p>
+            <p>Если ответ 510 содержит информацию о расширениях, которые не присутствовали в начальном запросе, тогда клиент МОЖЕТ повторить запрос, если у него есть основания полагать, что он может выполнить политику расширений, изменив запрос в соответствии с информацией, предоставленной в ответе 510. В противном случае клиент МОЖЕТ представить пользователю любой объект, включенный в ответ 510, поскольку этот объект может включать в себя релевантную диагностическую информацию.</p>
             <h3>Wikipedia</h3>
             <p>
               На сервере отсутствует расширение, которое желает использовать клиент.
