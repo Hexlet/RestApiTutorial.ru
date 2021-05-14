@@ -7,3 +7,4 @@ RewriteRule ^(.*)$ http://www.restapitutorial.ru/$1 [r=301,nc]
 //301 Redirect Old File
 Redirect 301 http://www.restapitutorial.ru/restquicktips.html http://www.restapitutorial.ru/lessons/restquicktips.html
 Redirect 301 http://www.restapitutorial.ru/httpmethods.html http://www.restapitutorial.ru/lessons/httpmethods.html
+// lala
