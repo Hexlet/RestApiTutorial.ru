@@ -24,7 +24,37 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="pt-0">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid mx-auto" style="width: 1170px;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.restapitutorial.ru">Руководство по REST API</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Главная</a>
+          </li>
+          <li class="nav-item dropdown" id="api-school">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" href="#">Руководства<b class="caret"></b></a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/lessons/whatisrest.html">Что такое REST?</a></li>
+              <li><a class="dropdown-item" href="/lessons/restquicktips.html">REST Quick Tips</a></li>
+              <li><a class="dropdown-item" href="/lessons/httpmethods.html">HTTP методы</a></li>
+              <li><a class="dropdown-item" href="/lessons/restfulresourcenaming.html">Именование ресурсов</a></li>
+              <li><a class="dropdown-item" href="/lessons/idempotency.html">Идемпотентность</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/httpstatuscodes.html">HTTP коды ответа</a></li>
+          <li class="nav-item"><a class="nav-link" href="/resources.html">Источники и ресурсы</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
   <div class="container">
     <!-- Main hero unit for a primary marketing message or call to action -->
     <div class="p-5 bg-light">
@@ -83,36 +113,7 @@
     </footer>
   </div> <!-- /container -->
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid mx-auto" style="width: 1170px;">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="http://www.restapitutorial.ru">Руководство по REST API</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Главная</a>
-          </li>
-          <li class="nav-item dropdown" id="api-school">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false" href="#">Руководства<b class="caret"></b></a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/lessons/whatisrest.html">Что такое REST?</a></li>
-              <li><a class="dropdown-item" href="/lessons/restquicktips.html">REST Quick Tips</a></li>
-              <li><a class="dropdown-item" href="/lessons/httpmethods.html">HTTP методы</a></li>
-              <li><a class="dropdown-item" href="/lessons/restfulresourcenaming.html">Именование ресурсов</a></li>
-              <li><a class="dropdown-item" href="/lessons/idempotency.html">Идемпотентность</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="/httpstatuscodes.html">HTTP коды ответа</a></li>
-          <li class="nav-item"><a class="nav-link" href="/resources.html">Источники и ресурсы</a></li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-    </div>
-  </nav>
+
   <!-- Le javascript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
