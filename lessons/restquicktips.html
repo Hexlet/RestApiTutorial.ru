@@ -17,25 +17,25 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
+      <a class="navbar-brand" href="/">Руководство по REST API</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="/">Руководство по REST API</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Главная</a>
+            <a class="nav-link" aria-current="page" href="/">Главная</a>
           </li>
           <li class="nav-item dropdown" id="api-school">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link dropdown-toggle active" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false" href="#">Руководства<b class="caret"></b></a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/lessons/whatisrest.html">Что такое REST?</a></li>
-              <li><a class="dropdown-item" href="/lessons/restquicktips.html">REST Quick Tips</a></li>
+              <li><a class="dropdown-item active bg-dark" href="/lessons/restquicktips.html">REST Quick Tips</a></li>
               <li><a class="dropdown-item" href="/lessons/httpmethods.html">HTTP методы</a></li>
               <li><a class="dropdown-item" href="/lessons/restfulresourcenaming.html">Именование ресурсов</a></li>
               <li><a class="dropdown-item" href="/lessons/idempotency.html">Идемпотентность</a></li>
@@ -48,22 +48,17 @@
       <!--/.nav-collapse -->
     </div>
   </nav>
-  <div class="container">
-    <div class="row">
-      <h1 class="mt-3 mb-3">Советы по REST API</h1>
-      <div class="row">
-        <nav>
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="whatisrest.html">Что такое REST?</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="httpmethods.html">HTTP методы</a>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="row">
+  <main class="container flex-grow-1">
+    <h1 class="mt-3 mb-3">Советы по REST API</h1>
+    <nav>
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="whatisrest.html">Что такое REST?</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="httpmethods.html">HTTP методы</a>
+        </li>
+      </ul>
       <p>Будь то RESTful или нет (в соответствии с шестью ограничениями, описанными ранее),
         вот несколько рекомендованных REST концепций, которые помогу построить более лучшие и удобные сервисы:</p>
       <h2>Используйте HTTP Глаголы для Обозначения Чего-либо</h2>
@@ -126,16 +121,23 @@
         Кроме того, используйте заголовок Location для содержания ссылки на создание ресурса через POST.
         Для коллекций возвращайте в ответе сведения о том, что поддерживается пагинация, 'первый', 'последний',
         и 'предыдущий' ссылки. Это очень полезно.</p>
+
+  </main> <!-- /container -->
+  <footer class="bg-dark text-light py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <p> Данный сайт является переводом RestApiTutorial.com </p>
+        </div>
+        <div class="col-sm">
+          <p class="mb-1">©Андрей Куманяев, 2012-2014. Все права защищены.</p>
+          <p class="mb-1">©Kaize Team</p>
+          <p class="mb-1">©Hexlet 2021</p>
+          <p class="mb-1">©Pearson eCollege, 2012. All rights reserved.</p>
+        </div>
+      </div>
     </div>
-    <hr>
-    <footer>
-      <p> Данный сайт является переводом RestApiTutorial.com </p>
-      <p>&copy;Андрей Куманяев, 2012-2014. Все права защищены.</p>
-      <p>&copy;Kaize Team</p>
-      <p>&copy;Hexlet 2021</p>
-      <p>&copy;Pearson eCollege, 2012. All rights reserved.</p>
-    </footer>
-  </div> <!-- /container -->
+  </footer>
 
   <!-- Le javascript
     ================================================== -->
