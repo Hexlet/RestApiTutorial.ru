@@ -17,14 +17,14 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
+      <a class="navbar-brand" href="/">Руководство по REST API</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="/">Руководство по REST API</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -48,7 +48,7 @@
       <!--/.nav-collapse -->
     </div>
   </nav>
-  <div class="container">
+  <main class="container flex-grow-1">
     <h1 class="mt-3 mb-3">Использование HTTP методов для создания RESTful сервисов</h1>
     <nav>
       <ul class="pagination">
@@ -240,15 +240,22 @@
         </ul>
       </div>
     </div>
-    <hr>
-    <footer>
-      <p> Данный сайт является переводом RestApiTutorial.com </p>
-      <p>&copy;Андрей Куманяев, 2012-2014. Все права защищены.</p>
-      <p>&copy;Kaize Team</p>
-      <p>&copy;Hexlet 2021</p>
-      <p>&copy;Pearson eCollege, 2012. All rights reserved.</p>
-    </footer>
-  </div> <!-- /container -->
+  </main> <!-- /container -->
+  <footer class="bg-dark text-light py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <p> Данный сайт является переводом RestApiTutorial.com </p>
+        </div>
+        <div class="col-sm">
+          <p class="mb-1">©Андрей Куманяев, 2012-2014. Все права защищены.</p>
+          <p class="mb-1">©Kaize Team</p>
+          <p class="mb-1">©Hexlet 2021</p>
+          <p class="mb-1">©Pearson eCollege, 2012. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Le javascript
     ================================================== -->
