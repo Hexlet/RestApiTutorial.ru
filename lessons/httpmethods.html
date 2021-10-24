@@ -98,6 +98,14 @@
             (а также, если клиенту непозволительно знать о наличии данного экземпляра).</td>
         </tr>
         <tr>
+          <td>PATCH</td>
+          <td>405 (Method Not Allowed), если не попытка обновить/заменить всю коллекцию.</td>
+          <td>200 (OK) или
+            204 (No Content).
+            404 (Not Found), в случае отсутствия экземпляра с указанным ID или если он не корректен
+            (а также, если клиенту непозволительно знать о наличии данного экземпляра).</td>
+        </tr>
+        <tr>
           <td>POST</td>
           <td>201 (Created), заголовок 'Location' ссылается на /customers/{id}, где ID - идентификатор нового
             экземпляра.</td>
@@ -123,6 +131,10 @@
       <li class="nav-item">
         <button class="nav-link" id="put-tab" data-bs-toggle="tab" data-bs-target="#put" type="button" role="tab"
           aria-controls="put" aria-selected="false">PUT</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="patch-tab" data-bs-toggle="tab" data-bs-target="#patch" type="button" role="tab"
+          aria-controls="patch" aria-selected="false">PATCH</button>
       </li>
       <li class="nav-item">
         <button class="nav-link" id="post-tab" data-bs-toggle="tab" data-bs-target="#post" type="button" role="tab"
@@ -194,6 +206,17 @@
           <li><em>PUT http://www.example.com/customers/12345</em></li>
           <li><em>PUT http://www.example.com/customers/12345/orders/98765</em></li>
           <li><em>PUT http://www.example.com/buckets/secret_stuff</em></li>
+        </ul>
+      </div>
+      <div class="tab-pane fade" id="patch" role="tabpanel" aria-labelledby="patch-tab">
+        <p>PATCH запрос используется для **модификации** ресурса. PATCH запрос должен содержать только изменяемые данные ресурса, а не все его данные.</p>
+        <p>Это напимнает работу PUT запроса, но в теле запроса содержится набор инструкций описывающих как должен быть изменён ресурс, расположенный на сервере, для формирования новой версии. Это означает, что тело PATCH запроса должно содержать не просто изменения ресурса, а представлять из себя описание на языке внесения изменений (patch language) таких как JSON Patch или XML Patch.</p>
+        <p>PATCH запрос ни является безопасным, ни идемпотентным. Однако PATСH запрос может быть сформирован таким образом чтобы быть идемпотентным, что в свою очередь помогает предотвратить негативные последствия от коллизий между двумя PATCH запросами к одному и тому же ресурсу в один и тот же промежуток времени. Коллизии нескольких PATCH запросов могут быть более опасными чем коллизии PUT запросов, потому что некоторым форматам изменеий необходимо выполняться от известной базовой-точки или ресурс будет поврежден. Клиенты, использующие такой тип внесения изменений, должны использовать условный запрос на проверку изменения ресурса с момента последнего доступа клиента к нему. Например клиент может использовать ETag в заголовке If-Match в самом PATСH запросе.</p>
+        <p><strong>Примеры:</strong></p>
+        <ul>
+          <li><em>PATCH http://www.example.com/customers/12345</em></li>
+          <li><em>PATCH http://www.example.com/customers/12345/orders/98765</em></li>
+          <li><em>PATCH http://www.example.com/buckets/secret_stuff</em></li>
         </ul>
       </div>
       <div class="tab-pane fade" id="post" role="tabpanel" aria-labelledby="post-tab">
