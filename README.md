@@ -30,3 +30,10 @@ Also includes the PDF, ePub and Mobi (Kindle) versions of the associated RESTful
 ![alt Creative Commons License](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 
 This work by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.restapitutorial.com/" property="cc:attributionName" rel="cc:attributionURL">RestApiTutorial.com</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+---
+
+[![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet_logo128.png)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=exercises-javascript)
+
+This repository is created and maintained by the team and the community of Hexlet, an educational project. [Read more about Hexlet (in Russian)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=exercises-javascript).
+
