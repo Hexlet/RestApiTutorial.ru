@@ -1742,6 +1742,17 @@
     ga('send', 'pageview');
 
   </script>
+  <script>
+    const link = window.location.href
+    const parts = link.split('#');
+    const length = parts.length;
+    const anchorName = parts[length-1];
+    const anchorElem = document.getElementById(anchorName);
+    anchorElem.classList.add('show');
+    const text = document.querySelector(`[href="#${anchorName}"]`);
+    text.style.backgroundColor = 'yellow';
+    anchorElem.scrollIntoView({behavior: "smooth", block: "center"});
+  </script>
 </body>
 
 </html>
