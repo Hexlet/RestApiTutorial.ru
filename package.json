@@ -1,0 +1,19 @@
+{
+  "name": "restapitutorial.ru",
+  "version": "1.0.0",
+  "description": "### Для чего нужен этот репозиторий?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/askorutin26/RestApiTutorial.ru.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/askorutin26/RestApiTutorial.ru/issues"
+  },
+  "homepage": "https://github.com/askorutin26/RestApiTutorial.ru#readme"
+}
