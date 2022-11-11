@@ -1742,6 +1742,25 @@
     ga('send', 'pageview');
 
   </script>
+  <script>
+    function showCodeDescription() {
+     const link = window.location.href
+     const parts = link.split('#');
+     const length = parts.length;
+     const anchorName = parts[length - 1];
+     const anchorElem = document.getElementById(anchorName);
+     if (anchorElem) {
+       anchorElem.classList.add('show');
+       const text = document.querySelector(`[href="#${anchorName}"]`);
+       text.classList.add('bg-info', 'text-white');
+       anchorElem.scrollIntoView({
+         behavior: "smooth",
+         block: "center"
+       });
+     }
+   }
+   showCodeDescription();   
+  </script>
 </body>
 
 </html>
