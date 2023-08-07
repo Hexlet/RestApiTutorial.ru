@@ -1,0 +1,22 @@
+{
+  "name": "restapitutorial.ru",
+  "version": "1.0.0",
+  "description": "REST API Tutorial — руководство по REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hexlet/RestApiTutorial.ru.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hexlet/RestApiTutorial.ru/issues"
+  },
+  "homepage": "https://github.com/Hexlet/RestApiTutorial.ru#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.1"
+  }
+}

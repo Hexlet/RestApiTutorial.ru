@@ -1,0 +1,10 @@
+main: 
+- name: Главная
+  url: /
+  weight: 10
+- name: Руководства
+  url: /lessons
+  weight: 20
+- name: Test
+  url: /lessons/test.md
+  weight: 20
