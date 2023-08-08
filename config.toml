@@ -1,0 +1,25 @@
+  BaseURL = ""
+  languageCode = "en-us"
+  title = "My Hugo Site"
+  theme = "mytheme"
+  relativeURLS = true
+
+  [module]
+    [[module.mounts]]
+      source = "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      target = "assets/js/bootstrap.bundle.min.js"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Главная"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "tutorials"
+    name = "Руководства"
+    url = "#"
+    weight = 2
