@@ -1,4 +1,5 @@
 ## www.RestApiTutorial.ru
+
 ## Руководство по REST API
 
 ### Для чего нужен этот репозиторий?
@@ -13,19 +14,33 @@
 
 Форкайте проект, вносите правки и присылайте PR.
 
+### Требования
+[npm] (https://www.npmjs.com/)
+[Hugo](https://gohugo.io/installation/)
+
+### Установка
+```bash
+make install
+```
+
+### Запуск
+```bash
+make start
+```
+
 ### Благодарности
 
 Отдельное спасибо хочется сказать:
 
- - Alexander Vagin aka [@PlugIN73](https://github.com/PlugIN73)
- - Jana Petrova aka [@JanaVPetrova](https://github.com/JanaVPetrova)
+- Alexander Vagin aka [@PlugIN73](https://github.com/PlugIN73)
+- Jana Petrova aka [@JanaVPetrova](https://github.com/JanaVPetrova)
 
 ### История
 
 Данный репозиторий был форком https://github.com/tfredrich/RestApiTutorial.com
 Original repository is https://github.com/tfredrich/RestApiTutorial.com
 
-Also includes the PDF, ePub and Mobi (Kindle) versions of the associated RESTful Best Practices document.  In addition, the Libre/Open Office version of the source document is included in the 'media' directory.
+Also includes the PDF, ePub and Mobi (Kindle) versions of the associated RESTful Best Practices document. In addition, the Libre/Open Office version of the source document is included in the 'media' directory.
 
 ![alt Creative Commons License](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 

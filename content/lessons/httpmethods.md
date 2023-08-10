@@ -2,7 +2,7 @@
 title: "HTTP методы"
 date: 2023-08-04T13:01:15+03:00
 draft: false
-menu: 
+menu:
   main:
     parent: tutorials
     weight: 30
@@ -64,7 +64,7 @@ HTTP глаголы составляют основную часть "едино
   </tbody>
 </table>
 
-Ниже приводится более подробное обсуждение основных методов HTTP. 
+Ниже приводится более подробное обсуждение основных методов HTTP.
 
 <ul class="nav nav-tabs">
   <li class="nav-item">

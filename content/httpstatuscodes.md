@@ -6,8 +6,6 @@ menu: main
 weight: 30
 ---
 
-
-
 # Коды состояний HTTP
 
 Данная страница основана на информации о кодах состояний HTTP. Оригинальными источниками являются [ietf.org](http://www.ietf.org/assignments/http-status-codes/http-status-codes.xml) и [Wikipedia](http://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2_%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F_HTTP). Кликните по **заголовку категории** или **коду состояния** для получения подробной

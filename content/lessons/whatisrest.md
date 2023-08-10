@@ -2,7 +2,7 @@
 title: "Что такое REST?"
 date: 2023-08-04T13:01:15+03:00
 draft: false
-menu: 
+menu:
   main:
     parent: tutorials
     weight: 10
