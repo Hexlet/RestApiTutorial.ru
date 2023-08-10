@@ -15,7 +15,7 @@
 Форкайте проект, вносите правки и присылайте PR.
 
 ### Требования
-[npm] (https://www.npmjs.com/)
+[npm](https://www.npmjs.com/)
 [Hugo](https://gohugo.io/installation/)
 
 ### Установка
