@@ -18,9 +18,6 @@
 
 [npm](https://www.npmjs.com/)
 
-### Демонстрация
-https://new-version--ephemeral-sopapillas-61b8bc.netlify.app/
-
 ### Установка
 
 ```bash
