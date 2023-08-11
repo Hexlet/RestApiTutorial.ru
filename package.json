@@ -4,7 +4,7 @@
   "description": "REST API Tutorial — руководство по REST API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "hugo-installer --version 0.117.0 --extended"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Hexlet/RestApiTutorial.ru#readme",
   "dependencies": {
     "bootstrap": "^5.3.1"
+  },
+  "devDependencies": {
+    "hugo-installer": "^4.0.1"
   }
 }
