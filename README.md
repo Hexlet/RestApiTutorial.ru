@@ -17,7 +17,9 @@
 ### Требования
 
 [npm](https://www.npmjs.com/)
-[Hugo](https://gohugo.io/installation/)
+
+### Демонстрация
+https://new-version--ephemeral-sopapillas-61b8bc.netlify.app/
 
 ### Установка
 
