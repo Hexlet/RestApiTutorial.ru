@@ -4,5 +4,5 @@ install:
 start:
 		hugo server -D
 
-publish:
-		hugo
+build:
+		hugo --minify
