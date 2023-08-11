@@ -1,173 +1,124 @@
-<!DOCTYPE html>
-<html lang="ru">
+---
+title: "HTTP коды ответа"
+date: 2023-08-04T18:38:09+03:00
+draft: false
+menu: main
+weight: 30
+---
 
-<head>
-  <meta charset="utf-8">
-  <title>Коды состояний HTTP</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Коды состояний HTTP и как их использовать при разработке RESTful API веб-сервисов.">
-  <meta name="author" content="Andrey Kumanyaev, Kaize Team">
-  <!-- Le styles -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-</head>
+# Коды состояний HTTP
 
-<body class="d-flex flex-column min-vh-100">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container justify-content-start">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand ms-2" href="/">Руководство по REST API</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">Главная</a>
-          </li>
-          <li class="nav-item dropdown" id="api-school">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false" href="#">Руководства<b class="caret"></b></a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/lessons/whatisrest.html">Что такое REST?</a></li>
-              <li><a class="dropdown-item" href="/lessons/restquicktips.html">Советы по REST API</a></li>
-              <li><a class="dropdown-item" href="/lessons/httpmethods.html">HTTP методы</a></li>
-              <li><a class="dropdown-item" href="/lessons/restfulresourcenaming.html">Именование ресурсов</a></li>
-              <li><a class="dropdown-item" href="/lessons/idempotency.html">Идемпотентность</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link active" href="/httpstatuscodes.html">HTTP коды ответа</a></li>
-          <li class="nav-item"><a class="nav-link" href="/resources.html">Источники и ресурсы</a></li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-    </div>
-  </nav>
-  <main class="container flex-grow-1">
-    <div class="row">
-      <h1 class="mt-3 mb-3">Коды состояний HTTP</h1>
+Данная страница основана на информации о кодах состояний HTTP. Оригинальными источниками являются [ietf.org](http://www.ietf.org/assignments/http-status-codes/http-status-codes.xml) и [Wikipedia](http://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2_%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F_HTTP). Кликните по **заголовку категории** или **коду состояния** для получения подробной
+информации.
+
+<h2><a data-bs-toggle="collapse" href="#collapse1xx" class="text-body-emphasis text-decoration-none link-opacity-75-hover">1xx:
+    Information</a></h2>
+<div id="collapse1xx" class="collapse">
+  <p>
+    В этот класс выделены коды, информирующие о процессе передачи.
+    Это обычно предварительный ответ, состоящий только из Status-Line и опциональных заголовков,
+    и завершается пустой строкой. Нет обязательных заголовков для этого класса кодов состояния.
+    Из-за того, что стандарт протокола HTTP/1.0 не определял никаких 1xx кодов состояния,
+    серверы НЕ ДОЛЖНЫ посылать 1xx ответы HTTP/1.0 клиентам, за исключением экспериментальных условий.
+  </p>
+  <p>
+    Клиент должен быть готов принять один или несколько 1xx ответов статуса до завершения передачи,
+    даже если клиент не ожидает статуса 100 (Продолжить). Неожиданные 1xx ответы могут быть проигнорированы
+    агентом пользователя.
+  </p>
+  <p>
+    Прокси должен направить 1xx ответы, если соединение между прокси-сервером и клиентом было закрыто,
+    или если прокси-сервер сам просил 1xx ответ. (Например, если прокси-сервер добавляет "Expect: 100-continue"
+    поле, когда он перенаправляет запрос, то нужно отправить соответствующий 100 (Continue) код ответа).
+  </p>
+  <h3>Wikipedia</h3>
+  <p>
+    В этот класс выделены коды, информирующие о процессе передачи.
+    При работе через протокол HTTP версии 1.0 сообщения с такими кодами должны игнорироваться.
+    В версии 1.1 клиент должен быть готов принять этот класс сообщений как обычный ответ,
+    но серверу отправлять что-либо не нужно.
+    Сами сообщения от сервера содержат только стартовую строку ответа и, если требуется,
+    несколько специфичных для ответа полей заголовка.
+    Прокси-сервера подобные сообщения должны отправлять дальше от сервера к клиенту.
+  </p>
+</div>
+<div class="row">
+  <div class="col">
+    <a data-bs-toggle="collapse" href="#continue" class="text-body-emphasis text-decoration-none">100: Continue</a>
+    <div id="continue" class="collapse multi-collapse">
       <p>
-        Данная страница основана на информации о кодах состояний HTTP. Оригинальными источниками являются
-        <a href="http://www.ietf.org/assignments/http-status-codes/http-status-codes.xml" target="_blank">ietf.org</a>
-        и <a
-          href="http://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2_%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F_HTTP"
-          target="_blank">Wikipedia</a>.
-        Кликните по <strong>заголовку категории</strong> или <strong>коду состояния</strong> для получения подробной
-        информации.
-      </p>
-    </div>
-    <h2><a data-bs-toggle="collapse" href="#collapse1xx" class="link-dark text-decoration-none">1xx:
-        Information</a></h2>
-    <div id="collapse1xx" class="collapse">
-      <p>
-        В этот класс выделены коды, информирующие о процессе передачи.
-        Это обычно предварительный ответ, состоящий только из Status-Line и опциональных заголовков,
-        и завершается пустой строкой. Нет обязательных заголовков для этого класса кодов состояния.
-        Из-за того, что стандарт протокола HTTP/1.0 не определял никаких 1xx кодов состояния,
-        серверы НЕ ДОЛЖНЫ посылать 1xx ответы HTTP/1.0 клиентам, за исключением экспериментальных условий.
-      </p>
-      <p>
-        Клиент должен быть готов принять один или несколько 1xx ответов статуса до завершения передачи,
-        даже если клиент не ожидает статуса 100 (Продолжить). Неожиданные 1xx ответы могут быть проигнорированы
-        агентом пользователя.
-      </p>
-      <p>
-        Прокси должен направить 1xx ответы, если соединение между прокси-сервером и клиентом было закрыто,
-        или если прокси-сервер сам просил 1xx ответ. (Например, если прокси-сервер добавляет "Expect: 100-continue"
-        поле, когда он перенаправляет запрос, то нужно отправить соответствующий 100 (Continue) код ответа).
+        Клиент должен продолжать свой Запрос. Этот промежуточный ответ используется для сообщения клиенту о том,
+        что начальная часть запроса была получена и ещё не была отвергнута сервером.
+        Клиенту СЛЕДУЕТ продолжить посылку оставшихся данных запроса или,
+        если запрос уже был выполнен, игнорировать этот ответ.
+        Сервер ДОЛЖЕН послать заключительный ответ после того, как запрос был завершен.
+        См. раздел 8.2.3 для детального обсуждения использования и обработки этого кода состояния.
       </p>
       <h3>Wikipedia</h3>
       <p>
-        В этот класс выделены коды, информирующие о процессе передачи.
-        При работе через протокол HTTP версии 1.0 сообщения с такими кодами должны игнорироваться.
-        В версии 1.1 клиент должен быть готов принять этот класс сообщений как обычный ответ,
-        но серверу отправлять что-либо не нужно.
-        Сами сообщения от сервера содержат только стартовую строку ответа и, если требуется,
-        несколько специфичных для ответа полей заголовка.
-        Прокси-сервера подобные сообщения должны отправлять дальше от сервера к клиенту.
+        Сервер удовлетворён начальными сведениями о запросе, клиент может продолжать пересылать заголовки. Появился
+        в HTTP/1.1.
       </p>
     </div>
-    <div class="row">
-      <div class="col">
-        <a data-bs-toggle="collapse" href="#continue" class="link-dark text-decoration-none">100: Continue</a>
-        <div id="continue" class="collapse multi-collapse">
-          <p>
-            Клиент должен продолжать свой Запрос. Этот промежуточный ответ используется для сообщения клиенту о том,
-            что начальная часть запроса была получена и ещё не была отвергнута сервером.
-            Клиенту СЛЕДУЕТ продолжить посылку оставшихся данных запроса или,
-            если запрос уже был выполнен, игнорировать этот ответ.
-            Сервер ДОЛЖЕН послать заключительный ответ после того, как запрос был завершен.
-            См. раздел 8.2.3 для детального обсуждения использования и обработки этого кода состояния.
-          </p>
-          <h3>Wikipedia</h3>
-          <p>
-            Сервер удовлетворён начальными сведениями о запросе, клиент может продолжать пересылать заголовки. Появился
-            в HTTP/1.1.
-          </p>
-        </div>
-      </div>
-      <div class="col">
-        <a data-bs-toggle="collapse" href="#switching_protocols" class="link-dark text-decoration-none">101: Switching
-          Protocols</a>
-        <div id="switching_protocols" class="collapse multi-collapse">
-          <p>
-            Сервер понимает и готов выполнить запрос клиента через поле заголовка сообщения Upgrade (раздел 14.42)
-            об изменении протокола приложения, используемого в этом соединении.
-            Сервер переключит протоколы на те, которые определены в поле заголовка Upgrade ответа сразу после пустой
-            строки, завершающей ответ 101.
-          </p>
-          <p>
-            Протокол СЛЕДУЕТ переключать только тогда, когда это выгодно.
-            Например, переключение на более новую версию HTTP выгодно по сравнению со старыми версиями,
-            а переключение на синхронный протокол реального времени может быть выгодным при доставке ресурсов,
-            которые используют такие функции.
-          </p>
-          <h3>Wikipedia</h3>
-          <p>
-            Сервер предлагает перейти на более подходящий для указанного ресурса протокол;
-            список предлагаемых протоколов сервер обязательно указывает в поле заголовка Upgrade.
-            Если клиента это заинтересует, то он посылает новый запрос с указанием другого протокола. Появился в
-            HTTP/1.1.
-          </p>
-        </div>
-      </div>
-      <div class="col">
-        <a data-bs-toggle="collapse" href="#processing" class="link-dark text-decoration-none">102: Processing
-          (WebDAV)</a>
-        <div id="processing" class="collapse multi-collapse">
-          <p>
-            Этот промежуточный ответ используется для информирования клиента о том, что сервер принял на себя полный
-            запрос, но ещё не завершил его.
-            Этот статус код должен быть послан только когда сервер имеет разумные основания ожидать, что запрос займёт
-            значительное время.
-            В качестве ориентира, если метод занимает больше времени, чем на 20 секунд (разумное, но произвольное
-            значение)
-            для обработки сервер должен вернуть 102 (Processing) ответ. Сервер ДОЛЖЕН послать заключительный ответ после
-            того, как запрос был завершен.
-          </p>
-          <p>
-            Методы потенциально могут занять длительный период времени для процесса,
-            особенно если они поддерживают заголовок Depth.
-            В таких случаях клиент может прервать соединение по тайм-ауту во время ожидания ответа.
-            Чтобы предотвратить это, сервер может вернуть 102 (Processing) код состояния, указывая клиенту,
-            что сервер всё ещё обрабатывается методом.
-          </p>
-          <h3>Wikipedia</h3>
-          <p>
-            Запрос принят, но на его обработку понадобится длительное время.
-            Используется сервером, чтобы клиент не разорвал соединение из-за превышения времени ожидания.
-            Клиент при получении такого ответа должен сбросить таймер и дожидаться следующей команды в обычном режиме.
-            Появился в WebDAV.
-          </p>
-        </div>
+  </div>
+  <div class="col">
+    <a data-bs-toggle="collapse" href="#switching_protocols" class="text-body-emphasis text-decoration-none">101: Switching
+      Protocols</a>
+    <div id="switching_protocols" class="collapse multi-collapse">
+      <p>
+        Сервер понимает и готов выполнить запрос клиента через поле заголовка сообщения Upgrade (раздел 14.42)
+        об изменении протокола приложения, используемого в этом соединении.
+        Сервер переключит протоколы на те, которые определены в поле заголовка Upgrade ответа сразу после пустой
+        строки, завершающей ответ 101.
+      </p>
+      <p>
+        Протокол СЛЕДУЕТ переключать только тогда, когда это выгодно.
+        Например, переключение на более новую версию HTTP выгодно по сравнению со старыми версиями,
+        а переключение на синхронный протокол реального времени может быть выгодным при доставке ресурсов,
+        которые используют такие функции.
+      </p>
+      <h3>Wikipedia</h3>
+      <p>
+        Сервер предлагает перейти на более подходящий для указанного ресурса протокол;
+        список предлагаемых протоколов сервер обязательно указывает в поле заголовка Upgrade.
+        Если клиента это заинтересует, то он посылает новый запрос с указанием другого протокола. Появился в
+        HTTP/1.1.
+      </p>
+    </div>
+  </div>
+    <div class="col">
+      <a data-bs-toggle="collapse" href="#processing" class="text-body-emphasis text-decoration-none">
+        102: Processing (WebDAV)</a>
+      <div id="processing" class="collapse multi-collapse">
+        <p>
+          Этот промежуточный ответ используется для информирования клиента о том, что сервер принял на себя полный
+          запрос, но ещё не завершил его.
+          Этот статус код должен быть послан только когда сервер имеет разумные основания ожидать, что запрос займёт
+          значительное время.
+          В качестве ориентира, если метод занимает больше времени, чем на 20 секунд (разумное, но произвольное
+          значение)
+          для обработки сервер должен вернуть 102 (Processing) ответ. Сервер ДОЛЖЕН послать заключительный ответ после
+          того, как запрос был завершен.
+        </p>
+        <p>
+          Методы потенциально могут занять длительный период времени для процесса,
+          особенно если они поддерживают заголовок Depth.
+          В таких случаях клиент может прервать соединение по тайм-ауту во время ожидания ответа.
+          Чтобы предотвратить это, сервер может вернуть 102 (Processing) код состояния, указывая клиенту,
+          что сервер всё ещё обрабатывается методом.
+        </p>
+        <h3>Wikipedia</h3>
+        <p>
+          Запрос принят, но на его обработку понадобится длительное время.
+          Используется сервером, чтобы клиент не разорвал соединение из-за превышения времени ожидания.
+          Клиент при получении такого ответа должен сбросить таймер и дожидаться следующей команды в обычном режиме.
+          Появился в WebDAV.
+        </p>
       </div>
     </div>
+  </div>
     <h2 class="mt-3">
-      <a data-bs-toggle="collapse" href="#collapse2xx" class="link-dark text-decoration-none">2xx:
+      <a data-bs-toggle="collapse" href="#collapse2xx" class="text-body-emphasis text-decoration-none">2xx:
         Success
       </a>
     </h2>
@@ -182,7 +133,7 @@
     </div>
     <div class="row">
       <div class="col">
-        * <a data-bs-toggle="collapse" href="#ok" class="link-dark text-decoration-none">200: OK</a>
+        * <a data-bs-toggle="collapse" href="#ok" class="text-body-emphasis text-decoration-none">200: OK</a>
         <div id="ok" class="collapse">
           <p>
             Запрос выполнен успешно. Информация, возвращаемая с ответом зависит от метода, используемого в запросе,
@@ -204,7 +155,7 @@
         </div>
       </div>
       <div class="col">
-        * <a data-bs-toggle="collapse" href="#created" class="link-dark text-decoration-none">201: Created</a>
+        * <a data-bs-toggle="collapse" href="#created" class="text-body-emphasis text-decoration-none">201: Created</a>
         <div id="created" class="collapse">
           <p>
             Запрос был выполнен, и в результате был создан новый ресурс.
@@ -233,7 +184,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#accepted" class="link-dark text-decoration-none">202: Accepted</a>
+        <a data-bs-toggle="collapse" href="#accepted" class="text-body-emphasis text-decoration-none">202: Accepted</a>
         <div id="accepted" class="collapse">
           <p>
             Запрос принят в обработку, но ещё не завершен.
@@ -260,7 +211,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#nainfo" class="link-dark text-decoration-none">203: Non-Authoritative
+        <a data-bs-toggle="collapse" href="#nainfo" class="text-body-emphasis text-decoration-none">203: Non-Authoritative
           Information</a>
         <div id="nainfo" class="collapse">
           <p>
@@ -280,7 +231,7 @@
         </div>
       </div>
       <div class="col">
-        * <a data-bs-toggle="collapse" href="#nocontent" class="link-dark text-decoration-none">204: No Content</a>
+        * <a data-bs-toggle="collapse" href="#nocontent" class="text-body-emphasis text-decoration-none">204: No Content</a>
         <div id="nocontent" class="collapse">
           <p>
             Запрос был успешно обработан, но нет необходимости возвращать какие-либо данные.
@@ -312,7 +263,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#resetcontent" class="link-dark text-decoration-none">205: Reset Content</a>
+        <a data-bs-toggle="collapse" href="#resetcontent" class="text-body-emphasis text-decoration-none">205: Reset Content</a>
         <div id="resetcontent" class="collapse">
           <p>
             Сервер успешно обработал запрос и обязывает клиента сбросить введенные пользователем данные.
@@ -330,13 +281,12 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#partialcontent" class="link-dark text-decoration-none">206: Partial
+        <a data-bs-toggle="collapse" href="#partialcontent" class="text-body-emphasis text-decoration-none">206: Partial
           Content</a>
         <div id="partialcontent" class="collapse">
           <p>Сервер выполнил часть GET запроса ресурса. Запрос ДОЛЖЕН был содержать поле заголовка
             Range (секция 14.35), который указывает на желаемый диапазон и МОГ содержать
             поле заголовка If-Range (секция 14.27), который делает запрос условным.</p>
-
           <p>Запрос ДОЛЖЕН содержать следующие поля заголовка:</p>
           <ul>
             <li>Либо поле Content-Range (секция 14.16), который показывает диапазон, включённый
@@ -359,10 +309,8 @@
           </p>
           <p>Кэш НЕ ДОЛЖЕН объединять ответ 206 с другими ранее закэшированными данными, если поле ETag или
             Last-Modified в точности не совпадают (подробнее в секции 16.5.4)</p>
-
           <p>Кэш, который не поддерживает заголовки Range и Content-Range НЕ ДОЛЖЕН кэшировать ответы
             206 (Partial).</p>
-
           <h3>Wikipedia</h3>
           <!-- FIXME намудрила с запятыми в предложении про wget -->
           <p>Сервер передает только ту часть ресурса, которая была указана клиентом в заголовке диапазона.
@@ -372,7 +320,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#multi_status" class="link-dark text-decoration-none">207: Multi-Status
+        <a data-bs-toggle="collapse" href="#multi_status" class="text-body-emphasis text-decoration-none">207: Multi-Status
           (WebDAV)</a>
         <div id="multi_status" class="collapse">
           <p>
@@ -389,7 +337,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#already_reported" class="link-dark text-decoration-none">208: Already
+        <a data-bs-toggle="collapse" href="#already_reported" class="text-body-emphasis text-decoration-none">208: Already
           Reported (WebDAV)</a>
         <div id="already_reported" class="collapse">
           <p>
@@ -402,7 +350,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#im_used" class="link-dark text-decoration-none">226: IM Used</a>
+        <a data-bs-toggle="collapse" href="#im_used" class="text-body-emphasis text-decoration-none">226: IM Used</a>
         <div id="im_used" class="collapse">
           <p>
             Сервер успешно принял запрос для ресурса и ответ является представлением результата применения
@@ -438,7 +386,7 @@
         </div>
       </div>
     </div>
-    <h2 class="mt-3"><a data-bs-toggle="collapse" href="#collapse3xx" class="link-dark text-decoration-none">3xx:
+    <h2 class="mt-3"><a data-bs-toggle="collapse" href="#collapse3xx" class="text-body-emphasis text-decoration-none">3xx:
         Redirect</a></h2>
     <div id="collapse3xx" class="collapse">
       <p>
@@ -481,7 +429,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#multiplechoices" class="link-dark text-decoration-none">300: Multiple
+        <a data-bs-toggle="collapse" href="#multiplechoices" class="text-body-emphasis text-decoration-none">300: Multiple
           Choices</a>
         <div id="multiplechoices" class="collapse">
           <p>
@@ -517,7 +465,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#movepermanently" class="link-dark text-decoration-none">301: Moved
+        <a data-bs-toggle="collapse" href="#movepermanently" class="text-body-emphasis text-decoration-none">301: Moved
           Permanently</a>
         <div id="movepermanently" class="collapse">
           <p>
@@ -551,7 +499,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#found" class="link-dark text-decoration-none">302: Found</a>
+        <a data-bs-toggle="collapse" href="#found" class="text-body-emphasis text-decoration-none">302: Found</a>
         <div id="found" class="collapse">
           <p>
             Запрошенный ресурс временно находится под другим URI.
@@ -589,7 +537,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#see_other" class="link-dark text-decoration-none">303: See Other</a>
+        <a data-bs-toggle="collapse" href="#see_other" class="text-body-emphasis text-decoration-none">303: See Other</a>
         <div id="see_other" class="collapse">
           <p>
             Документ по запрошенному адресу может быть найден по другому URI и должен быть найден с использованием GET
@@ -627,7 +575,7 @@
         </div>
       </div>
       <div class="col">
-        * <a data-bs-toggle="collapse" href="#not_modified" class="link-dark text-decoration-none">304: Not Modified</a>
+        * <a data-bs-toggle="collapse" href="#not_modified" class="text-body-emphasis text-decoration-none">304: Not Modified</a>
         <div id="not_modified" class="collapse">
           <p>
             Если клиент выполнил условный запрос GET и доступ разрешен, но документ не был изменен, сервер должен
@@ -681,7 +629,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#use_proxy" class="link-dark text-decoration-none">305: использовать
+        <a data-bs-toggle="collapse" href="#use_proxy" class="text-body-emphasis text-decoration-none">305: использовать
           прокси</a>
         <div id="use_proxy" class="collapse">
           <p>
@@ -704,7 +652,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#unused" class="link-dark text-decoration-none">306: зарезервировано (код
+        <a data-bs-toggle="collapse" href="#unused" class="text-body-emphasis text-decoration-none">306: зарезервировано (код
           использовался только в ранних
           спецификациях)</a>
         <div id="unused" class="collapse">
@@ -718,7 +666,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#temp_redirect" class="link-dark text-decoration-none">307: Temporary
+        <a data-bs-toggle="collapse" href="#temp_redirect" class="text-body-emphasis text-decoration-none">307: Temporary
           Redirect</a>
         <div id="temp_redirect" class="collapse">
           <p>
@@ -750,7 +698,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#perm_redirect" class="link-dark text-decoration-none">308: Permanent
+        <a data-bs-toggle="collapse" href="#perm_redirect" class="text-body-emphasis text-decoration-none">308: Permanent
           Redirect (экспериментально)</a>
         <div id="perm_redirect" class="collapse">
           <p>
@@ -765,7 +713,7 @@
         </div>
       </div>
     </div>
-    <h2 class="mt-3"><a data-bs-toggle="collapse" href="#collapse4xx" class="link-dark text-decoration-none">4xx:
+    <h2 class="mt-3"><a data-bs-toggle="collapse" href="#collapse4xx" class="text-body-emphasis text-decoration-none">4xx:
         Client Error</a></h2>
     <div id="collapse4xx" class="collapse">
       <p>
@@ -792,7 +740,7 @@
     </div>
     <div class="row">
       <div class="col">
-        * <a data-bs-toggle="collapse" href="#bad_request" class="link-dark text-decoration-none">400: Bad Request</a>
+        * <a data-bs-toggle="collapse" href="#bad_request" class="text-body-emphasis text-decoration-none">400: Bad Request</a>
         <div id="bad_request" class="collapse">
           <p>
             Запрос не удалось обработать из-за синтаксической ошибки. Клиенту НЕ СЛЕДУЕТ повторять такой
@@ -810,7 +758,7 @@
         </div>
       </div>
       <div class="col">
-        * <a data-bs-toggle="collapse" href="#unauthorized" class="link-dark text-decoration-none">401: Unauthorized</a>
+        * <a data-bs-toggle="collapse" href="#unauthorized" class="text-body-emphasis text-decoration-none">401: Unauthorized</a>
         <div id="unauthorized" class="collapse">
           <p>
             Запрос требует аутентификации пользователя.
@@ -838,7 +786,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#pmt_required" class="link-dark text-decoration-none">402: Payment
+        <a data-bs-toggle="collapse" href="#pmt_required" class="text-body-emphasis text-decoration-none">402: Payment
           Required</a>
         <div id="pmt_required" class="collapse">
           <p>Этот код зарезервирован для использования в будущем.</p>
@@ -856,7 +804,7 @@
     </div>
     <div class="row">
       <div class="col">
-        * <a data-bs-toggle="collapse" href="#forbidden" class="link-dark text-decoration-none">403: Forbidden</a>
+        * <a data-bs-toggle="collapse" href="#forbidden" class="text-body-emphasis text-decoration-none">403: Forbidden</a>
         <div id="forbidden" class="collapse">
           <p>
             Сервер понял запрос, но отказывается его обрабатывать. Авторизация не поможет и этот запрос
@@ -890,7 +838,7 @@
         </div>
       </div>
       <div class="col">
-        * <a data-bs-toggle="collapse" href="#not_found" class="link-dark text-decoration-none">404: Not Found</a>
+        * <a data-bs-toggle="collapse" href="#not_found" class="text-body-emphasis text-decoration-none">404: Not Found</a>
         <div id="not_found" class="collapse">
           <p>
             Сервер не нашёл по указанному URI никаких ресурсов. Нет никаких указаний о том, постоянное
@@ -916,7 +864,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#method_no_allowed" class="link-dark text-decoration-none">405: Method Not
+        <a data-bs-toggle="collapse" href="#method_no_allowed" class="text-body-emphasis text-decoration-none">405: Method Not
           Allowed</a>
         <div id="method_no_allowed" class="collapse">
           <p>
@@ -938,7 +886,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#not_acceptable" class="link-dark text-decoration-none">406: Not
+        <a data-bs-toggle="collapse" href="#not_acceptable" class="text-body-emphasis text-decoration-none">406: Not
           Acceptable</a>
         <div id="not_acceptable" class="collapse">
           <p>
@@ -972,7 +920,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#proxy_auth_rqd" class="link-dark text-decoration-none">407: Proxy
+        <a data-bs-toggle="collapse" href="#proxy_auth_rqd" class="text-body-emphasis text-decoration-none">407: Proxy
           Authentication Required</a>
         <div id="proxy_auth_rqd" class="collapse">
           <p>
@@ -992,7 +940,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#request_timeout" class="link-dark text-decoration-none">408: Request
+        <a data-bs-toggle="collapse" href="#request_timeout" class="text-body-emphasis text-decoration-none">408: Request
           Timeout</a>
         <div id="request_timeout" class="collapse">
           <p>
@@ -1019,7 +967,7 @@
     </div>
     <div class="row">
       <div class="col">
-        * <a data-bs-toggle="collapse" href="#conflict" class="link-dark text-decoration-none">409: Conflict</a>
+        * <a data-bs-toggle="collapse" href="#conflict" class="text-body-emphasis text-decoration-none">409: Conflict</a>
         <div id="conflict" class="collapse">
           <p>
             Запрос нельзя обработать из-за конфликта в текущем состоянии ресурса. Этот код разрешается
@@ -1047,7 +995,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#gone" class="link-dark text-decoration-none">410: Gone</a>
+        <a data-bs-toggle="collapse" href="#gone" class="text-body-emphasis text-decoration-none">410: Gone</a>
         <div id="gone" class="collapse">
           <p>
             Требуемый ресурс больше не доступен на сервере и адрес его расположения неизвестен.
@@ -1076,7 +1024,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#length_rqd" class="link-dark text-decoration-none">411: Length Required</a>
+        <a data-bs-toggle="collapse" href="#length_rqd" class="text-body-emphasis text-decoration-none">411: Length Required</a>
         <div id="length_rqd" class="collapse">
           <p>
             Сервер отказывается принять запрос без указания Content-Length. Клиент МОЖЕТ повторить
@@ -1099,7 +1047,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#precondition_failed" class="link-dark text-decoration-none">412:
+        <a data-bs-toggle="collapse" href="#precondition_failed" class="text-body-emphasis text-decoration-none">412:
           Precondition Failed</a>
         <div id="precondition_failed" class="collapse">
           <p>
@@ -1115,7 +1063,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#request_entity_too_large" class="link-dark text-decoration-none">413:
+        <a data-bs-toggle="collapse" href="#request_entity_too_large" class="text-body-emphasis text-decoration-none">413:
           Request Entity Too Large</a>
         <div id="request_entity_too_large" class="collapse">
           <p>
@@ -1133,7 +1081,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#request_uri_too_long" class="link-dark text-decoration-none">414:
+        <a data-bs-toggle="collapse" href="#request_uri_too_long" class="text-body-emphasis text-decoration-none">414:
           Request-URI Too Long</a>
         <div id="request_uri_too_long" class="collapse">
           <p>
@@ -1151,7 +1099,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#unsupported_media_type" class="link-dark text-decoration-none">415:
+        <a data-bs-toggle="collapse" href="#unsupported_media_type" class="text-body-emphasis text-decoration-none">415:
           Unsupported Media Type</a>
         <div id="unsupported_media_type" class="collapse">
           <p>
@@ -1167,7 +1115,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#requested_range_not_satisfiable" class="link-dark text-decoration-none">416:
+        <a data-bs-toggle="collapse" href="#requested_range_not_satisfiable" class="text-body-emphasis text-decoration-none">416:
           Requested Range Not
           Satisfiable</a>
         <div id="requested_range_not_satisfiable" class="collapse">
@@ -1192,7 +1140,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#expectation_failed" class="link-dark text-decoration-none">417: Expectation
+        <a data-bs-toggle="collapse" href="#expectation_failed" class="text-body-emphasis text-decoration-none">417: Expectation
           Failed</a>
         <div id="expectation_failed" class="collapse">
           <p>
@@ -1209,7 +1157,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#teapot" class="link-dark text-decoration-none">418: I'm a teapot (RFC
+        <a data-bs-toggle="collapse" href="#teapot" class="text-body-emphasis text-decoration-none">418: I'm a teapot (RFC
           2324)</a>
         <div id="teapot" class="collapse">
           <h3>Wikipedia</h3>
@@ -1223,7 +1171,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#enhance_your_calm" class="link-dark text-decoration-none">420: Enhance Your
+        <a data-bs-toggle="collapse" href="#enhance_your_calm" class="text-body-emphasis text-decoration-none">420: Enhance Your
           Calm (Twitter)</a>
         <div id="enhance_your_calm" class="collapse">
           <h3>Wikipedia</h3>
@@ -1241,7 +1189,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#unprocessable_entity" class="link-dark text-decoration-none">422:
+        <a data-bs-toggle="collapse" href="#unprocessable_entity" class="text-body-emphasis text-decoration-none">422:
           Unprocessable Entity (WebDAV)</a>
         <div id="unprocessable_entity" class="collapse">
           <p>
@@ -1260,7 +1208,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#locked" class="link-dark text-decoration-none">423: Locked (WebDAV)</a>
+        <a data-bs-toggle="collapse" href="#locked" class="text-body-emphasis text-decoration-none">423: Locked (WebDAV)</a>
         <div id="locked" class="collapse">
           <p>
             Статус 423 значит, что целевой ресурс недоступен для указанного метода. Этот ответ
@@ -1274,7 +1222,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#failed_dependency" class="link-dark text-decoration-none">424: Failed
+        <a data-bs-toggle="collapse" href="#failed_dependency" class="text-body-emphasis text-decoration-none">424: Failed
           Dependency (WebDAV)</a>
         <div id="failed_dependency" class="collapse">
           <p>
@@ -1290,7 +1238,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#adv_collections_expired" class="link-dark text-decoration-none">425:
+        <a data-bs-toggle="collapse" href="#adv_collections_expired" class="text-body-emphasis text-decoration-none">425:
           Reserved for WebDAV</a>
         <div id="adv_collections_expired" class="collapse">
           <p>Slein, J., Whitehead, E.J., и др., &quot;WebDAV Advanced Collections Protocol&quot;, Работа в процессе.</p>
@@ -1302,7 +1250,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#upgrade_required" class="link-dark text-decoration-none">426: Upgrade
+        <a data-bs-toggle="collapse" href="#upgrade_required" class="text-body-emphasis text-decoration-none">426: Upgrade
           Required</a>
         <div id="upgrade_required" class="collapse">
           <p>
@@ -1318,7 +1266,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#precondition_required" class="link-dark text-decoration-none">428:
+        <a data-bs-toggle="collapse" href="#precondition_required" class="text-body-emphasis text-decoration-none">428:
           Precondition Required</a>
         <div id="precondition_required" class="collapse">
           <p>Код состояния 428 указывает, что исходный сервер требует, чтобы запрос был условным.</p>
@@ -1337,7 +1285,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#too_many_requests" class="link-dark text-decoration-none">429: Too Many
+        <a data-bs-toggle="collapse" href="#too_many_requests" class="text-body-emphasis text-decoration-none">429: Too Many
           Requests</a>
         <div id="too_many_requests" class="collapse">
           <p>Код состояния 429 указывает, что пользователь отправил слишком много запросов за заданный промежуток
@@ -1356,7 +1304,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#request_header_fields_too_large" class="link-dark text-decoration-none">431:
+        <a data-bs-toggle="collapse" href="#request_header_fields_too_large" class="text-body-emphasis text-decoration-none">431:
           Request Header Fields Too
           Large</a>
         <div id="request_header_fields_too_large" class="collapse">
@@ -1373,7 +1321,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#no_response_nginx" class="link-dark text-decoration-none">444: No Response
+        <a data-bs-toggle="collapse" href="#no_response_nginx" class="text-body-emphasis text-decoration-none">444: No Response
           (Nginx)</a>
         <div id="no_response_nginx" class="collapse">
           <h3>Wikipedia</h3>
@@ -1385,7 +1333,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#retry_with" class="link-dark text-decoration-none">449: Retry With
+        <a data-bs-toggle="collapse" href="#retry_with" class="text-body-emphasis text-decoration-none">449: Retry With
           (Microsoft)</a>
         <div id="retry_with" class="collapse">
           <h3>Wikipedia</h3>
@@ -1395,7 +1343,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#blocked_by_windows_parental" class="link-dark text-decoration-none">450:
+        <a data-bs-toggle="collapse" href="#blocked_by_windows_parental" class="text-body-emphasis text-decoration-none">450:
           Blocked by Windows Parental Controls
           (Microsoft)</a>
         <div id="blocked_by_windows_parental" class="collapse">
@@ -1405,7 +1353,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#unavailable_for_legal_reasons" class="link-dark text-decoration-none">451:
+        <a data-bs-toggle="collapse" href="#unavailable_for_legal_reasons" class="text-body-emphasis text-decoration-none">451:
           Unavailable For Legal Reasons</a>
         <div id="unavailable_for_legal_reasons" class="collapse">
           <p>
@@ -1427,7 +1375,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#client_closed_request" class="link-dark text-decoration-none">499: Client
+        <a data-bs-toggle="collapse" href="#client_closed_request" class="text-body-emphasis text-decoration-none">499: Client
           Closed Request (Nginx)</a>
         <div id="client_closed_request" class="collapse">
           <h3>Wikipedia</h3>
@@ -1438,7 +1386,7 @@
         </div>
       </div>
     </div>
-    <h2 class="mt-3"><a data-bs-toggle="collapse" href="#collapse5xx" class="link-dark text-decoration-none">5xx: Server
+    <h2 class="mt-3"><a data-bs-toggle="collapse" href="#collapse5xx" class="text-body-emphasis text-decoration-none">5xx: Server
         Error</a></h2>
     <div id="collapse5xx" class="collapse">
       <p>
@@ -1459,7 +1407,7 @@
     </div>
     <div class="row">
       <div class="col">
-        * <a data-bs-toggle="collapse" href="#internal_server_error" class="link-dark text-decoration-none">500:
+        * <a data-bs-toggle="collapse" href="#internal_server_error" class="text-body-emphasis text-decoration-none">500:
           Internal Server
           Error</a>
         <div id="internal_server_error" class="collapse">
@@ -1471,7 +1419,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#not_implemented" class="link-dark text-decoration-none">501: Not
+        <a data-bs-toggle="collapse" href="#not_implemented" class="text-body-emphasis text-decoration-none">501: Not
           Implemented</a>
         <div id="not_implemented" class="collapse">
           <p>
@@ -1487,7 +1435,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#bad_gateway" class="link-dark text-decoration-none">502: Bad Gateway</a>
+        <a data-bs-toggle="collapse" href="#bad_gateway" class="text-body-emphasis text-decoration-none">502: Bad Gateway</a>
         <div id="bad_gateway" class="collapse">
           <p>
             Сервер, выступая в роли шлюза или прокси-сервера, получил некорректный ответ от вышестоящего сервера,
@@ -1500,7 +1448,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#service_unavailable" class="link-dark text-decoration-none">503: Service
+        <a data-bs-toggle="collapse" href="#service_unavailable" class="text-body-emphasis text-decoration-none">503: Service
           Unavailable</a>
         <div id="service_unavailable" class="collapse">
           <p>
@@ -1520,7 +1468,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#gateway_timeout" class="link-dark text-decoration-none">504: Gateway
+        <a data-bs-toggle="collapse" href="#gateway_timeout" class="text-body-emphasis text-decoration-none">504: Gateway
           Timeout</a>
         <div id="gateway_timeout" class="collapse">
           <p>
@@ -1537,7 +1485,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#version_not_supported" class="link-dark text-decoration-none">505: HTTP
+        <a data-bs-toggle="collapse" href="#version_not_supported" class="text-body-emphasis text-decoration-none">505: HTTP
           Version Not Supported</a>
         <div id="version_not_supported" class="collapse">
           <p>Сервер не поддерживает или отказывается поддерживать версию протокола HTTP, которая использовалась в
@@ -1553,7 +1501,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#variant_also_negotiates" class="link-dark text-decoration-none">506: Variant
+        <a data-bs-toggle="collapse" href="#variant_also_negotiates" class="text-body-emphasis text-decoration-none">506: Variant
           Also Negotiates (Experimental)</a>
         <div id="variant_also_negotiates" class="collapse">
           <p>Код состояния 506 указывает на то, что сервер имеет внутреннюю ошибку конфигурации: выбранный вариант
@@ -1569,7 +1517,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#insufficient_storage" class="link-dark text-decoration-none">507:
+        <a data-bs-toggle="collapse" href="#insufficient_storage" class="text-body-emphasis text-decoration-none">507:
           Insufficient Storage (WebDAV)</a>
         <div id="insufficient_storage" class="collapse">
           <p>Код состояния 507 (Переполнение хранилища) означает, что метод не может быть выполнен для ресурса,
@@ -1582,7 +1530,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#loop_detected" class="link-dark text-decoration-none">508: Loop Detected
+        <a data-bs-toggle="collapse" href="#loop_detected" class="text-body-emphasis text-decoration-none">508: Loop Detected
           (WebDAV)</a>
         <div id="loop_detected" class="collapse">
           <p>Код состояния 508 (обнаружен цикл) указывает, что сервер завершил операцию, поскольку он обнаружил
@@ -1595,7 +1543,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#bandwidth_limit_exceeded" class="link-dark text-decoration-none">509:
+        <a data-bs-toggle="collapse" href="#bandwidth_limit_exceeded" class="text-body-emphasis text-decoration-none">509:
           Bandwidth Limit Exceeded (Apache)</a>
         <div id="bandwidth_limit_exceeded" class="collapse">
           <h3>Wikipedia</h3>
@@ -1608,7 +1556,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#not_extended" class="link-dark text-decoration-none">510: Not Extended</a>
+        <a data-bs-toggle="collapse" href="#not_extended" class="text-body-emphasis text-decoration-none">510: Not Extended</a>
         <div id="not_extended" class="collapse">
           <p>В запросе не соблюдена политика доступа к ресурсу. Сервер должен отправить обратно всю информацию,
             необходимую клиенту для отправки расширенного запроса. Указание того, как расширения информируют клиента,
@@ -1627,7 +1575,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#net_authn_required" class="link-dark text-decoration-none">511: Network
+        <a data-bs-toggle="collapse" href="#net_authn_required" class="text-body-emphasis text-decoration-none">511: Network
           Authentication Required</a>
         <div id="net_authn_required" class="collapse">
           <p>511 код ответа означает, что клиенту необходима авторизация для получения доступа к сети.</p>
@@ -1676,7 +1624,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <a data-bs-toggle="collapse" href="#network_read_timeout" class="link-dark text-decoration-none">598: Network
+        <a data-bs-toggle="collapse" href="#network_read_timeout" class="text-body-emphasis text-decoration-none">598: Network
           read timeout error</a>
         <div id="network_read_timeout" class="collapse">
           <h3>Wikipedia</h3>
@@ -1686,7 +1634,7 @@
         </div>
       </div>
       <div class="col">
-        <a data-bs-toggle="collapse" href="#network_connect_timeout" class="link-dark text-decoration-none">599: Network
+        <a data-bs-toggle="collapse" href="#network_connect_timeout" class="text-body-emphasis text-decoration-none">599: Network
           connect timeout error</a>
         <div id="network_connect_timeout" class="collapse">
           <h3>Wikipedia</h3>
@@ -1702,73 +1650,3 @@
       <strong>&quot;Top 10&quot;</strong> HTTP код ответа. Дополнительная информация о службе REST содержится в
       записи.
     </p>
-  </main> <!-- /container -->
-  <footer class="bg-dark text-light py-4 mt-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm">
-          <p> Данный сайт является переводом <a href="https://www.restapitutorial.com/">RestApiTutorial.com</a></p>
-        </div>
-        <div class="col-sm">
-          <p class="mb-1">©Андрей Куманяев, 2012-2014. Все права защищены.</p>
-          <p class="mb-1">©Kaize Team</p>
-          <p class="mb-1">©Hexlet 2021</p>
-          <p class="mb-1">©Pearson eCollege, 2012. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Le javascript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
-    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
-    crossorigin="anonymous"></script>
-  <a href="https://github.com/zzet/RestApiTutorial.ru"><img
-      style="position: absolute; top: 0; right: 0; border: 0; z-index: 1050;"
-      src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"
-      alt="Fork me on GitHub"></a>
-  <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-46669941-1', 'www.restapitutorial.ru');
-    ga('require', 'linkid', 'linkid.js');
-    ga('send', 'pageview');
-
-  </script>
-  <script>
-    function showCodeDescription() {
-     const link = window.location.href
-     const parts = link.split('#');
-     const length = parts.length;
-     const anchorName = parts[length - 1];
-     const anchorElem = document.getElementById(anchorName);
-     if (anchorElem) {
-       anchorElem.classList.add('show');
-       const text = document.querySelector(`[href="#${anchorName}"]`);
-       text.classList.add('bg-info', 'text-white');
-       anchorElem.scrollIntoView({
-         behavior: "smooth",
-         block: "center"
-       });
-     }
-   }
-   showCodeDescription();
-  </script>
-  <script src="https://cdn.jsdelivr.net/gh/hexlet/hexlet-correction@main/src/widget/index.js"></script>
-  <script>
-    handleTypoReporter({
-      authorizationToken: 'MTk3OjlhMGI5MzZlLWM5YjctNDVlMi1iMWViLThmOTdjODc0ODcxMw==',
-      workSpaceUrl: 'https://hexlet-correction.herokuapp.com',
-      workSpaceId: 197
-    })
-  </script>
-</body>
-
-</html>
