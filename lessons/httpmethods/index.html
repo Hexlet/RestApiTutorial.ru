@@ -1,0 +1,76 @@
+<!doctype html><html><head><meta charset=utf-8><title>REST API Tutorial — руководство по REST API</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="The REST API Tutorial. Learn REST API best practices."><meta name=author content="Andrey Kumanyaev, Kaize Team"><link rel=stylesheet href=../../css/styles.min.css media=screen><link rel='shortcut icon' type=image/x-icon href=../../../../rest-api-icon.svg></head><body class="d-flex flex-column min-vh-100"><nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"><div class="container justify-content-start"><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button>
+<a class="navbar-brand ms-2" href=../../>Руководство по REST API</a><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav me-auto mb-2 mb-lg-0"><li class=nav-item><a class=nav-link href=../../><span>Главная</span></a></li><li class="nav-item dropdown" id=api-school><a class="nav-link dropdown-toggle active" id=navbarDropdown role=button data-bs-toggle=dropdown aria-expanded=false href=#>Руководства<b class=caret></b></a><ul class=dropdown-menu aria-labelledby=navbarDropdown><li><a class=dropdown-item href=../../lessons/whatisrest/>Что такое REST?</a></li><li><a class=dropdown-item href=../../lessons/restquicktips/>Советы по REST API</a></li><li><a class=dropdown-item href=../../lessons/httpmethods/>HTTP методы</a></li><li><a class=dropdown-item href=../../lessons/restfulresourcenaming/>Именование ресурсов</a></li><li><a class=dropdown-item href=../../lessons/idempotency/>Идемпотентность</a></li></ul></li><li class=nav-item><a class=nav-link href=../../httpstatuscodes/><span>HTTP коды ответа</span></a></li><li class=nav-item><a class=nav-link href=../../resources/><span>Источники и ресурсы</span></a></li></ul></div></div></nav><div id=content><div class="container pt-3 pb-5"><h1 id=использование-http-методов-для-создания-restful-сервисов>Использование HTTP методов для создания RESTful сервисов</h1><p>HTTP глаголы составляют основную часть &ldquo;единого интерфейса&rdquo;, ограничивающего и предоставляющего возможность осуществлять действия над существительным-ресурсом.Основными или наиболее часто используемыми HTTP глаголами (или методами, как их иногда называют) являются POST, GET, PUT, и DELETE. Они соответствуют операциям создания чтения, обновления и удаления (или в совокупности - CRUD). Есть еще и другие глаголы они используются реже. Из реже используемых методов выделяются OPTIONS и HEAD</p><p>Ниже приведена сводная таблица рекомендаций по возвращению значений при использовании основных HTTP глаголов в сочетании с ресурсами URI:</p><table class="table table-striped table-bordered"><thead><tr><th>HTTP Глагол</th><th>Ресурс (например /customers)</th><th>Экземпляр (например /customers/{id})</th></tr></thead><tbody><tr><td>GET</td><td>200 (OK), перечень customers. Используется постраничная навигация, сортировка и фильтрация для больших
+списков.</td><td>200 (OK), конкретный customer.
+404 (Not Found), в случае отсутствия экземпляра с указанным ID или если он не корректен
+(а также, если клиенту непозволительно знать о наличии данного экземпляра).</td></tr><tr><td>PUT</td><td>404 (Not Found), если была попытка обновить/заменить экземпляр во всей коллекции.</td><td>200 (OK) или
+204 (No Content).
+404 (Not Found), в случае отсутствия экземпляра с указанным ID или если он не корректен
+(а также, если клиенту непозволительно знать о наличии данного экземпляра).</td></tr><tr><td>PATCH</td><td>405 (Method Not Allowed), если не попытка обновить/заменить всю коллекцию.</td><td>200 (OK) или
+204 (No Content).
+404 (Not Found), в случае отсутствия экземпляра с указанным ID или если он не корректен
+(а также, если клиенту непозволительно знать о наличии данного экземпляра).</td></tr><tr><td>POST</td><td>201 (Created), заголовок 'Location' ссылается на /customers/{id}, где ID - идентификатор нового
+экземпляра.</td><td>404 (Not Found).</td></tr><tr><td>DELETE</td><td>404 (Not Found), если вы хотите удалить всю коллекцию, что крайне не желательно.</td><td>200 (OK) или
+204 (No Content).
+404 (Not Found), в случае отсутствия экземпляра с указанным ID или если он не корректен
+(а также, если клиенту непозволительно знать о наличии данного экземпляра).</td></tr></tbody></table><p>Ниже приводится более подробное обсуждение основных методов HTTP.</p><ul class="nav nav-tabs"><li class=nav-item><button class="nav-link active" id=get-tab data-bs-toggle=tab data-bs-target=#get type=button role=tab aria-controls=get aria-selected=true>GET</button></li><li class=nav-item><button class=nav-link id=put-tab data-bs-toggle=tab data-bs-target=#put type=button role=tab aria-controls=put aria-selected=false>PUT</button></li><li class=nav-item><button class=nav-link id=patch-tab data-bs-toggle=tab data-bs-target=#patch type=button role=tab aria-controls=patch aria-selected=false>PATCH</button></li><li class=nav-item><button class=nav-link id=post-tab data-bs-toggle=tab data-bs-target=#post type=button role=tab aria-controls=post aria-selected=false>POST</button></li><li class=nav-item><button class=nav-link id=delete-tab data-bs-toggle=tab data-bs-target=#delete type=button role=tab aria-controls=delete aria-selected=false>DELETE</button></li></ul><div id=methodTabContent class=tab-content><div class="tab-pane fade show active" id=get role=tabpanel aria-labelledby=get-tab><p>HTTP метод GET используется для получения (или чтения) представления ресурса.
+В случае „удачного” (или не содержащего ошибок) адреса,
+GET возвращается представление ресурса в формате XML или JSON в сочетании с кодом состояния HTTP 200 (OK).
+В случае наличия ошибок обычно возвращается код 404 (NOT FOUND) или 400 (BAD REQUEST).</p><p>В соответствии спецификации HTTP, GET (так же как и HEAD) запросы используются только для чтения данных,
+не изменя их.
+Таким образом, при соблюдении данного соглашения, они считаются безопасными.
+То есть они могут использоваться без риска изменения данных, вне зависимости от того,
+один раз данные были получены, или же 10, или ни разу вовсе.
+GET (а также HEAD) запросы являются идемпотентными (тождественными), что подразумевает получение
+идентичных данных
+при использовании одних и тех же запросов (как при единичном обращении, так и при многократном).</p><p>Не стоит использовать GET для небезопасных операций над данными, при данном запросе они не должны быть
+модифицированы.</p><p><strong>Примеры:</strong></p><ul><li><em>GET http://www.example.com/customers/12345</em></li><li><em>GET http://www.example.com/customers/12345/orders</em></li><li><em>GET http://www.example.com/buckets/sample</em></li></ul></div><div class="tab-pane fade" id=put role=tabpanel aria-labelledby=put-tab><p>Метод PUT обычно используется для предоставления возможности обновления ресурса.
+Тело запроса при отправке PUT-запроса к существующему ресурсу URI должно содержать
+обновленные данные оригинального ресурса (полностью, или только обновляемую часть).</p><p>Кроме того, PUT может быть использован для создания ресурса,
+в случае, когда идентификатор ресурса выбирает клиент, а не сервер.
+Или, если перефразировать — при отправке PUT запроса по адресу, содержащему не существующий идентификатор
+ресурса.
+Опять же, стоит помнить, что тело запроса должно быть модификацией оригинального ресурса.
+Многие считают это запутанным и непонятным.
+Соответственно, данную возможность метода PUT стоит использовать с осторожностью.
+Да и при крайней необходимости.</p><p>Для создания новых экземпляров ресурса предпочтительнее использование POST запроса.
+В данном случае, при создании экземпляра будет предоставлен корректный идентификатор экземпляра ресурса
+в возвращённых данных об экземпляре.</p><p>При успешном обновлении посредством выполнения PUT запроса возвращается код 200
+(или 204 если не был передан какой-либо контент в теле ответа).
+Если PUT используется для создания экземпляра — обычно возвращают HTTP код 201 при успешном создании.
+Возвращать данные в ответ на запрос необязательно.
+Также не обязательно возвращать ссылку на экземпляр ресурса посредством заголовка `Location` по причине
+того,
+что клиент и так обладает идентификатором экземпляра ресурса.</p><p>PUT не безопасная операция, так как вследствие её выполнения происходит модификация
+(или создание) экземпляров ресурса на стороне сервера, но этот метод идемпотентен.
+Другими словами, создание или обновление ресурса посредством отправки PUT запроса — ресурс не исчезнет,
+будет располагаться там же, где и был при первом обращении, а также, многократное выполнение одного и
+того же PUT запроса не изменит общего состояния системы (за исключением первого раза, но это обычно
+опускают из
+рассмотрения)</p><p>Если PUT запрос используется для увеличения счётчика просмотра конкретного ресурса
+— данный запрос уже не считается идемпотентным.
+Иногда такое происходит и считается достаточным задокументировать тот факт, что вызов не идемпотентен.
+Однако строго рекомендуется выдерживать идемпотентность PUT запроса.</p><p><strong>Примеры:</strong></p><ul><li><em>PUT http://www.example.com/customers/12345</em></li><li><em>PUT http://www.example.com/customers/12345/orders/98765</em></li><li><em>PUT http://www.example.com/buckets/secret_stuff</em></li></ul></div><div class="tab-pane fade" id=patch role=tabpanel aria-labelledby=patch-tab><p>PATCH запрос используется для **модификации** ресурса. PATCH запрос должен содержать только изменяемые данные ресурса, а не все его данные.</p><p>Это напоминает работу PUT запроса, но в теле запроса содержится набор инструкций описывающих как должен быть изменён ресурс, расположенный на сервере, для формирования новой версии. Это означает, что тело PATCH запроса должно содержать не просто изменения ресурса, а представлять из себя описание на языке внесения изменений (patch language) таких как JSON Patch или XML Patch.</p><p>PATCH запрос ни является безопасным, ни идемпотентным. Однако PATСH запрос может быть сформирован таким образом чтобы быть идемпотентным, что в свою очередь помогает предотвратить негативные последствия от коллизий между двумя PATCH запросами к одному и тому же ресурсу в один и тот же промежуток времени. Коллизии нескольких PATCH запросов могут быть более опасными чем коллизии PUT запросов, потому что некоторым форматам изменеий необходимо выполняться от известной базовой-точки или ресурс будет поврежден. Клиенты, использующие такой тип внесения изменений, должны использовать условный запрос на проверку изменения ресурса с момента последнего доступа клиента к нему. Например клиент может использовать ETag в заголовке If-Match в самом PATСH запросе.</p><p><strong>Примеры:</strong></p><ul><li><em>PATCH http://www.example.com/customers/12345</em></li><li><em>PATCH http://www.example.com/customers/12345/orders/98765</em></li><li><em>PATCH http://www.example.com/buckets/secret_stuff</em></li></ul></div><div class="tab-pane fade" id=post role=tabpanel aria-labelledby=post-tab><p>POST запрос наиболее часто используется для создания новых ресурсов.
+На практике он используется для создания вложенных ресурсов.
+Другими словами, при создании нового ресурса, POST запрос отправляется к родительскому ресурсу и,
+таким образом, сервис берет на себя ответственность на установление связи создаваемого ресурса с
+родительским ресурсом,
+назначение новому ресурсу ID и т.п.</p><p>При успешном создании ресурса возвращается HTTP код 201,
+а также в заголовке `Location` передается адрес созданного ресурса.</p><p>POST не является безопасным или идемпотентным запросом.
+Потому рекомендуется его использование для не идемпотентных запросов.
+В результате выполнения идентичных POST запросов предоставляются сильно похожие, но не идентичные данные.</p><p><strong>Примеры:</strong></p><ul><li><em>POST http://www.example.com/customers</em></li><li><em>POST http://www.example.com/customers/12345/orders</em></li></ul></div><div class="tab-pane fade" id=delete role=tabpanel aria-labelledby=delete-tab><p>DELETE запрос крайне прост для понимания.
+Он используется для удаления ресурса, идентифицированного конкретным URI (ID).<p>При успешном удалении возвращается 200 (OK) код HTTP,
+совместно с телом ответа, содержащим данные удалённого ресурса
+(отрицательно сказывается на экономии трафика) или завернутые ответы (Смотрите "Возвращаемые данные").
+Также возможно использование HTTP кода 204 (NO CONTENT) без тела ответа.</p><p>Согласно спецификации HTTP, DELETE запрос идемпотентен.
+Если вы выполняете DELETE запрос к ресурсу, он удаляется.
+Повторный DELETE запрос к ресурсу закончится также: ресурс удалён.
+Если DELETE запрос используется для декремента счётчика, DELETE запрос не является идемпотентным.
+Используйте POST для неидемпотентных операций.</p><p>Тем не менее, существует предостережение об идемпотентности DELETE.
+Повторный DELETE запрос к ресурсу часто сопровождается 404 (NOT FOUND) кодом HTTP по причине того,
+что ресурс уже удалён (например из базы данных) и более не доступен.
+Это делает DELETE операцию не идемпотентной, но это общепринятый компромисс на тот случай,
+если ресурс был удалён из базы данных, а не помечен, как удалённый.</p><p><strong>Примеры:</strong></p><ul><li><em>DELETE http://www.example.com/customers/12345</em></li><li><em>DELETE http://www.example.com/customers/12345/orders</em></li><li><em>DELETE http://www.example.com/bucket/sample</em></li></ul></div></div><div class="d-flex justify-content-between mt-3"><a class="btn btn-outline-primary btn-large" href=../../lessons/idempotency/>Назад</a></div></div></div><footer class="bg-dark text-light py-4 mt-5 mt-auto"><div class="container text-secondary"><div class=row><div class=col-sm><p>Данный сайт является переводом <a class="link-secondary text-decoration-none" href=https://www.restapitutorial.com/ target=_blank>RestApiTutorial.com</a></p><p class=hover-light><a class="link-secondary text-decoration-none" href=https://github.com/Hexlet/RestApiTutorial.ru target=_blank>Исходный код</a></p></div><div class=col-sm><p class=mb-1>&copy;Андрей Куманяев, 2012-2014. Все права защищены.</p><p class=mb-1>&copy;Kaize Team</p><p class=mb-1>&copy;Hexlet 2023</p><p class=mb-1>&copy;Pearson eCollege, 2012. All rights reserved.</p></div></div></div></footer><script src=../../js/bundle.min.js defer></script>
+<script>(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-46669941-1","restapitutorial.ru"),ga("require","linkid","linkid.js"),ga("send","pageview")</script><script src=https://cdn.jsdelivr.net/gh/hexlet/hexlet-correction@main/src/widget/index.js></script>
+<script src=../../../js/color_mode_toggler.js></script>
+<script>handleTypoReporter({authorizationToken:"MTk3OjlhMGI5MzZlLWM5YjctNDVlMi1iMWViLThmOTdjODc0ODcxMw==",workSpaceUrl:"https://hexlet-correction.herokuapp.com",workSpaceId:197})</script></body></html>
