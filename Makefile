@@ -2,7 +2,7 @@ install:
 		npm ci
 
 start:
-		hugo server -D
+		bin/hugo/hugo server -D
 
 build:
-		hugo --minify
+		bin/hugo/hugo --minify

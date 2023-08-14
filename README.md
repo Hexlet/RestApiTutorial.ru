@@ -17,7 +17,6 @@
 ### Требования
 
 [npm](https://www.npmjs.com/)
-[Hugo](https://gohugo.io/installation/)
 
 ### Установка
 
