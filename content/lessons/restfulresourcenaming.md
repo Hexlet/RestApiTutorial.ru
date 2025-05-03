@@ -5,7 +5,7 @@ draft: false
 menu:
   main:
     parent: tutorials
-    weight: 40
+    weight: 30
 ---
 
 # Именование ресурсов

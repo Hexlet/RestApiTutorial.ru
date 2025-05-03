@@ -5,7 +5,7 @@ draft: false
 menu:
   main:
     parent: tutorials
-    weight: 30
+    weight: 50
 ---
 
 # Использование HTTP методов для создания RESTful сервисов
