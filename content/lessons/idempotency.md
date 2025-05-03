@@ -5,7 +5,7 @@ draft: false
 menu:
   main:
     parent: tutorials
-    weight: 50
+    weight: 40
 ---
 
 # Что такое Идемпотентность?
